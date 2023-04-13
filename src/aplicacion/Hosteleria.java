@@ -6,29 +6,29 @@ package aplicacion;
  * @author alumnogreibd
  */
 public class Hosteleria {
-    private String nombreEstablecimiento, ubicacion;
+    
+    private int codigoRegistro;
+    private String nombre;
+    private String ubicacion;
     private int aforo;
-    private String horaInicio, horaFin;
-    private float puntuacionMedia;
+    private String horaInicio;
+    private String horaFin;
 
-    public Hosteleria(String nombreEstablecimiento, String ubicacion, int aforo, String horaInicio, String horaFin) {
-        this.nombreEstablecimiento = nombreEstablecimiento;
+    public Hosteleria(int codigoRegistro, String nombre, String ubicacion, int aforo, String horaInicio, String horaFin) {
+        this.codigoRegistro = codigoRegistro;
+        this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.aforo = aforo;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
     }
-     public Hosteleria(String nombreEstablecimiento, String ubicacion,float puntuacionMedia) {
-        this.nombreEstablecimiento = nombreEstablecimiento;
-        this.ubicacion = ubicacion;
-        this.puntuacionMedia = puntuacionMedia;
-        this.aforo = 0;
-        this.horaInicio = "";
-        this.horaFin = "";
+
+    public int getCodigoRegistro() {
+        return codigoRegistro;
     }
 
-    public String getNombreEstablecimiento() {
-        return nombreEstablecimiento;
+    public String getNombre() {
+        return nombre;
     }
 
     public String getUbicacion() {
@@ -46,38 +46,6 @@ public class Hosteleria {
     public String getHoraFin() {
         return horaFin;
     }
-
-    public float getPuntuacionMedia() {
-        return puntuacionMedia;
-    }
-
-    public void setNombreEstablecimiento(String nombreEstablecimiento) {
-        this.nombreEstablecimiento = nombreEstablecimiento;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void setAforo(int aforo) {
-        this.aforo = aforo;
-    }
-
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
-    }
-
-    public void setPuntuacionMedia(float puntuacionMedia) {
-        this.puntuacionMedia = puntuacionMedia;
-    }
-
-
-    
-    
     
     
     

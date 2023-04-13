@@ -1,55 +1,32 @@
 
 package aplicacion;
 
-import java.sql.Date;
-
 /**
  *
  * @author alumnogreibd
  */
 public class Comer {
-    private Date fecha;
-    private String visitante;
-    private String establecimiento;
-    private Integer puntuacion;
+    
+    private String fecha;
+    private Visitante visitante;
+    private Hosteleria establecimiento;
 
-    public Comer(Date fecha, String visitante, String establecimiento, Integer puntuacion) {
+    public Comer(String fecha, Visitante visitante, Hosteleria establecimiento) {
         this.fecha = fecha;
         this.visitante = visitante;
         this.establecimiento = establecimiento;
-        this.puntuacion = puntuacion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public String getVisitante() {
+    public Visitante getVisitante() {
         return visitante;
     }
 
-    public String getEstablecimiento() {
+    public Hosteleria getEstablecimiento() {
         return establecimiento;
     }
-
-    public Integer getPuntuacion() {
-        return puntuacion;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setVisitante(String visitante) {
-        this.visitante = visitante;
-    }
-
-    public void setEstablecimiento(String establecimiento) {
-        this.establecimiento = establecimiento;
-    }
-
-    public void setPuntuacion(Integer puntuacion) {
-        this.puntuacion = puntuacion;
-    }
-
+       
 }

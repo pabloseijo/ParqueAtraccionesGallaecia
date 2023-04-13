@@ -1,97 +1,108 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package aplicacion;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 
 /**
  *
- * @author alumnogreibd
+ * @author basesdatos
  */
 public class Visitante {
-   
-    private String DNI, nombre, nacionalidad, correoElectronico, telefono, fechaNacimiento;
-    private int edad; 
-    private float dineroGastado;
 
-    public Visitante(String DNI, String nombre, String nacionalidad, String correoElectronico, String telefono, String fechaNacimiento, int edad, float dineroGastado) {
+    private String DNI;
+    private String nombre;
+    private String correoElectronico;
+    private String fechaNacimiento;
+    private float altura;
+    private int edad;
+    
+    /*private java.util.List<String> autores;
+    private java.util.List<Categoria> categorias;
+    private java.util.List<Ejemplar> ejemplares;*/
+
+    public Visitante (String DNI, String nombre, String correoElectronico, String fechaNacimiento, float altura, int edad){
         this.DNI = DNI;
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
         this.correoElectronico = correoElectronico;
-        this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
+        this.altura = altura;
         this.edad = edad;
-        this.dineroGastado = dineroGastado;
-    }
-
-    public String getDNI() {
-        return DNI;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public float getDineroGastado() {
-        return dineroGastado;
-    }
-
-    
-    
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public void setDineroGastado(float dineroGastado) {
-        this.dineroGastado = dineroGastado;
+        
+        /*autores = new java.util.ArrayList<String>();
+        categorias = new java.util.ArrayList<Categoria>();
+        ejemplares = new java.util.ArrayList<Ejemplar>();*/
     }
     
+    public String getDNI (){
+        return this.DNI;
+    }
+
+    public String getNombre (){
+        return this.nombre;
+    }
+
+    public String getCorreoElectronico (){
+        return this.correoElectronico;
+    }
+
+    public String getFechaNacimiento (){
+        return this.fechaNacimiento;
+    }
+
+    public float getAltura(){
+        return this.altura;
+    }
+
+    public int getEdad (){
+        return this.edad;
+    }
+
+    /*public java.util.List<String> getAutores (){
+        return this.autores;
+    }
+
+    public void setAutores(java.util.List<String> autores){
+        this.autores=autores;
+    }
+
+    public void addAutor (String autor){
+        this.autores.add(autor);
+    }
+
+    public java.util.List<Categoria> getCategorias (){
+        return this.categorias;
+    }
+
+    public void addCategoria (Categoria categoria){
+        this.categorias.add(categoria);
+    }
+
+    public java.util.List<Ejemplar> getEjemplares (){
+        return this.ejemplares;
+    }
     
+    public void addEjemplar (Ejemplar ejemplar){
+        this.ejemplares.add(ejemplar);
+    }
     
-    
+    public String getAutoresAsString(){
+        String resultado="";
+        Boolean inicial=true;
+
+        for (String a:this.autores){
+            if (inicial) {
+                resultado=a;
+                inicial=false;
+            }
+            else
+            resultado=resultado+", "+a;
+        }
+        return resultado;
+    }
+    */
+
 }
