@@ -13,7 +13,7 @@ package aplicacion;
 
 /**
  *
- * @author basesdatos
+ * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Atraccion {
 
