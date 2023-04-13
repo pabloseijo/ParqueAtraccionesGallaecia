@@ -26,7 +26,7 @@ public class Asistir {
         return fecha;
     }
 
-    public int getEspectaculo() {
+    public String getEspectaculo() {
         return espectaculo;
     }
 

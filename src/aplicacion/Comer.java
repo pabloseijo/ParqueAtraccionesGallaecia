@@ -3,7 +3,7 @@ package aplicacion;
 
 /**
  *
- * @author alumnogreibd
+@author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Comer {
     

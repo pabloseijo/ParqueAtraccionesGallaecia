@@ -13,7 +13,7 @@ public class TrabajadorAdministracion {
     private float salario;
     private String telefono, fechaInicio, fechaNacimiento, nombreEspectaculo, nombreAtraccion, formacion;
 
-    public Trabajador(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreEspectaculo, String nombreAtraccion, String formacion) {
+    public TrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreEspectaculo, String nombreAtraccion, String formacion) {
         this.dni = dni;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -23,7 +23,7 @@ public class TrabajadorAdministracion {
         this.fechaNacimiento = fechaNacimiento;
         this.nombreEspectaculo = nombreEspectaculo;
         this.nombreAtraccion = nombreAtraccion;
-        this.formacion = formacion
+        this.formacion = formacion;
     }
 
     public String getDni() {

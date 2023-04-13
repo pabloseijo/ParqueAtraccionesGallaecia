@@ -137,4 +137,3 @@ CREATE TABLE Hosteleros(
     tiempo_trabajado INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaContratacion)) VIRTUAL,
     FOREIGN KEY(Establecimiento) REFERENCES Hosteleria(codigoRegistro) ON DELETE SET NULL ON UPDATE CASCADE
 );
-

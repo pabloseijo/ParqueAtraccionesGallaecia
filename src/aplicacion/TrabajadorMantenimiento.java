@@ -8,12 +8,12 @@ package aplicacion;
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
-public class TrabajadorAdministracion {
+public class TrabajadorMantenimiento {
     private String dni, nombre, direccion;
     private float salario;
     private String telefono, fechaInicio, fechaNacimiento, nombreAtraccion, formacion;
 
-    public Trabajador(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreAtraccion, String formacion) {
+    public TrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreAtraccion, String formacion) {
         this.dni = dni;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -22,7 +22,7 @@ public class TrabajadorAdministracion {
         this.fechaInicio = fechaInicio;
         this.fechaNacimiento = fechaNacimiento;
         this.nombreAtraccion = nombreAtraccion;
-        this.formacion = formacion
+        this.formacion = formacion;
     }
 
     public String getDni() {
@@ -98,6 +98,6 @@ public class TrabajadorAdministracion {
     public void setFormacion(String formacion) {
         this.formacion = formacion;
     }
-    
 
+    
 }
