@@ -4,46 +4,62 @@
  */
 package aplicacion;
 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+
 /**
  *
- * @author alumnogreibd
+ * @author basesdatos
  */
 public class Atraccion {
-    private String nombre, ubicacion, descripcion;
-    private int aforo, alturaMin;   
-    private float costeMantenimiento;
-    private float beneficios;
-    private int visitantes;
 
-    public Atraccion(String nombre, String ubicacion, String descripcion, int aforo, int alturaMin, float costeMantenimiento) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.descripcion = descripcion;
-        this.aforo = aforo;
-        this.alturaMin = alturaMin;
-        this.costeMantenimiento = costeMantenimiento;
+    private Integer numeroRegistro;
+    private String nombre;
+    private Integer aforo;
+    private Integer alturaMin;
+    private Float costeMantenimiento;
+    private Boolean enReparacion;
+    private String ubicacion;
+    private String descripcion;
+
+    public Atraccion (Integer numeroRegistro, String nombre, Integer aforo, Integer alturaMin, Float costeMantenimiento, Boolean enReparacion, String ubicacion, String descripcion){
+        this.numeroRegistro=numeroRegistro;
+        this.nombre=nombre;
+        this.aforo=aforo;
+        this.alturaMin=alturaMin;
+        this.costeMantenimiento=costeMantenimiento;
+        this.enReparacion=enReparacion;
+        this.ubicacion=ubicacion;
+        this.descripcion=descripcion;
     }
-    //Constructor sin coste para consulta usuario 
-      public Atraccion(String nombre, int aforo, int alturaMin, String ubicacion, String descripcion) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.descripcion = descripcion;
-        this.aforo = aforo;
-        this.alturaMin = alturaMin;
-    }
-      
-    //Constructor con beneficios para la función de administrador1
-      
-      public Atraccion(String nombre,Float beneficios, int visitantes) {
-        this.nombre = nombre;
-        this.beneficios=beneficios;
-        this.visitantes=visitantes;
+
+    public Integer getNumeroRegistro() {
+        return numeroRegistro;
     }
 
     public String getNombre() {
         return nombre;
     }
-    
+
+    public Integer getAforo() {
+        return aforo;
+    }
+
+    public Integer getAlturaMin() {
+        return alturaMin;
+    }
+
+    public Float getCosteMantenimiento() {
+        return costeMantenimiento;
+    }
+
+    public Boolean getEnReparacion() {
+        return enReparacion;
+    }
 
     public String getUbicacion() {
         return ubicacion;
@@ -53,50 +69,5 @@ public class Atraccion {
         return descripcion;
     }
 
-    public int getAforo() {
-        return aforo;
-    }
-
-    public int getAlturaMin() {
-        return alturaMin;
-    }
-
-    public float getCosteMantenimiento() {
-        return costeMantenimiento;
-    }
-    
-    public float getBeneficios(){
-        return this.beneficios;
-    }
-    
-    public int getVisitantes(){
-        return this.visitantes;
-    }
-    
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setAforo(int aforo) {
-        this.aforo = aforo;
-    }
-
-    public void setAlturaMin(int alturaMin) {
-        this.alturaMin = alturaMin;
-    }
-
-    public void setCosteMantenimiento(float costeMantenimiento) {
-        this.costeMantenimiento = costeMantenimiento;
-    }
-    
-    
-    
 }
+
