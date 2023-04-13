@@ -3,54 +3,38 @@ package aplicacion;
 
 /**
  *
- * @author alumnogreibd
+ * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Ir {
-    private String fechaVisita, visitante, atraccion;
-    private Integer puntuacion;
-    
+    private String fechaVisita;
+    private String hora;
+    private Visitante visitante;
+    private Atraccion atraccion;
 
-    public Ir(String fechaVisita, String visitante, String atraccion, Integer puntuacion) {
+    public Ir(String fechaVisita, String hora, Visitante visitante, Atraccion atraccion) {
         this.fechaVisita = fechaVisita;
+        this.hora = hora;
         this.visitante = visitante;
         this.atraccion = atraccion;
-        this.puntuacion = puntuacion;
-        
     }
 
     public String getFechaVisita() {
         return fechaVisita;
     }
 
-    public String getVisitante() {
+    public String getHora() {
+        return hora;
+    }
+
+    public Visitante getVisitante() {
         return visitante;
     }
 
-    public String getAtraccion() {
+    public Atraccion getAtraccion() {
         return atraccion;
     }
-    
-    public Integer getPuntuacion(){
-        return puntuacion;
-    }
 
     
-    public void setFechaVisita(String fechaVisita) {
-        this.fechaVisita = fechaVisita;
-    }
 
-    public void setVisitante(String visitante) {
-        this.visitante = visitante;
-    }
-
-    public void setAtraccion(String atraccion) {
-        this.atraccion = atraccion;
-    }
-
-    public void setPuntuacion(Integer puntuacion) {
-        this.puntuacion = puntuacion;
-    }
-    
-    
-    
 }
+
