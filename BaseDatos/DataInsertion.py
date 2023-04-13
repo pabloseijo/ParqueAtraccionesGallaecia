@@ -172,7 +172,6 @@ asistir = [
 
 miCursor.executemany("INSERT INTO Asistir VALUES (?,?,?)", asistir)
 
-'''
 #TrabajadorAdministracion
 
 trabajadorAdministracion = [
@@ -211,7 +210,35 @@ trabajadoresMantenimiento = [
 ('90123456I', 'Miguel Torres Jiménez', 'Calle Real 10', 29002, 'Málaga', 1950.75, 644332211, '2012-05-01', '1982-11-18', 'Ingeniero Industrial', 6, 5),
 
 ]
-'''
+
+miCursor.executemany("INSERT INTO TrabajadoresMantenimiento VALUES (?,?,?,?,?,?,?,?,?,?,?)", trabajadorMantenimiento)
+
+trabajadorEspectaculo = [
+('12345678A', 'Ana García', 'Calle Mayor 23', 28001, 'Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 1),
+('34567890C', 'María López', 'Calle San Miguel 5', 41001, 'Sevilla', 1000.0, 955678901, '2018-03-30', '1995-07-20', 'Grado en Comunicación Audiovisual', 3),
+('45678901D', 'Javier Rodríguez', 'Calle Valencia 8', 46001, 'Valencia', 1300.0, 960123456, '2019-11-10', '1992-02-01', 'Grado en Bellas Artes', 4),
+('56789012E', 'Marta Sánchez', 'Calle del Prado 34', 28001, 'Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 5),
+('67890123F', 'Carlos Ruiz', 'Calle de la Feria 2', 41001, 'Sevilla', 1100.0, 955678901, '2020-03-01', '1996-11-03', 'Diplomatura en Arte Dramático', 6),
+('89012345H', 'Pedro Martínez', 'Calle de las Huertas 10', 28001, 'Madrid', 1700.0, 912345678, '2018-09-23', '1988-01-10', 'Grado en Bellas Artes', 8),
+('90123456I', 'Ana Belén García', 'Calle Sierpes 45', 41001, 'Sevilla', 1200.0, 955678901, '2021-02-10', '1994-06-02', 'Licenciatura en Bellas Artes', 9),
+('01234567J', 'Pablo Hernández', 'Calle del Arenal 8', 28001, 'Madrid', 1300.0, 912345678, '2020-05-01', '1985-11-20', 'Diplomatura en Arte Dramático', 10)
+]
+
+miCursor.executemany("INSERT INTO TrabajadoresEspectaculo VALUES (?,?,?,?,?,?,?,?,?,?,?)", trabajadorEspectaculo)
+
+hosteleros = [
+('12345678A', 'Juan Perez', 'Calle Mayor 5', 28001, 'Madrid', 1500.0, 912345678, '2020-01-01', '1990-05-10', 'Bachillerato', 1),
+('23456789B', 'Maria Garcia', 'Calle Ancha 10', 29002, 'Malaga', 1300.0, 623456789, '2019-05-12', '1992-03-22', 'FP Grado Medio', 2),
+('34567890C', 'Pedro Rodriguez', 'Calle Estrecha 2', 46001, 'Valencia', 1400.0, 634567890, '2018-11-15', '1995-09-05', 'FP Grado Superior', 3),
+('45678901D', 'Ana Martinez', 'Calle Larga 20', 41001, 'Sevilla', 1200.0, 745678901, '2017-09-22', '1993-12-31', 'Bachillerato', 1),
+('56789012E', 'Jose Lopez', 'Calle Redonda 15', 50001, 'Zaragoza', 1600.0, 856789012, '2016-07-07', '1989-07-18', 'Bachillerato', 4),
+('67890123F', 'Lucia Fernandez', 'Calle Corta 7', 15001, 'A Coruna', 1250.0, 967890123, '2015-06-04', '1991-10-15', 'FP Grado Medio', 2),
+('78901234G', 'Hector Gomez', 'Calle Alta 3', 48001, 'Bilbao', 1350.0, 178901234, '2014-04-03', '1988-02-27', 'FP Grado Superior', 5),
+('89012345H', 'Sara Sanchez', 'Calle Baja 8', 18001, 'Granada', 1100.0, 289012345, '2013-03-02', '1994-06-20', 'Bachillerato', 3)
+]
+
+miCursor.executemany("INSERT INTO Hosteleros VALUES (?,?,?,?,?,?,?,?,?,?,?)", hosteleros)
+
 miConexion.commit()
 
 miConexion.close()
