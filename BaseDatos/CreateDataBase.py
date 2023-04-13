@@ -149,7 +149,7 @@ miCursor.execute('''
 ''')
 
 miCursor.execute('''
-        CREATE TABLE Hostaleiros(
+        CREATE TABLE Hosteleros(
         DNI CHAR(9) PRIMARY KEY not null,
         Nombre VARCHAR (50),
         Calle VARCHAR(50),
