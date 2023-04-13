@@ -9,30 +9,37 @@ package aplicacion;
  * @author alumnogreibd
  */
 public class Espectaculo {
-    private String nombre, horaInicio, horaFin, tematica, descripcion, ubicacion, activo;
-    
 
-    public Espectaculo(String nombre, String horaInicio, String horaFin, String tematica, String descripcion, String ubicacion, String activo) {
+    private Integer id;
+    private String nombre;
+    private String sesion;
+    private String horaInicio;
+    private String horaFin;
+    private String tematica;
+    private String descripcion;
+    private String ubicacion;
+
+    public Espectaculo(Integer id, String nombre, String sesion, String horaInicio, String horaFin, String tematica, String descripcion, String ubicacion) {
+        this.id = id;
         this.nombre = nombre;
+        this.sesion = sesion;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.tematica = tematica;
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
-        this.activo = activo;
     }
-    
-    public Espectaculo(String nombre, String horaInicio, String horaFin, String tematica, String descripcion, String ubicacion) {
-        this.nombre = nombre;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
-        this.tematica = tematica;
-        this.descripcion = descripcion;
-        this.ubicacion = ubicacion;
+
+    public Integer getId() {
+        return id;
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getSesion() {
+        return sesion;
     }
 
     public String getHoraInicio() {
@@ -55,38 +62,7 @@ public class Espectaculo {
         return ubicacion;
     }
 
-    public String getActivo() {
-        return activo;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
-    }
-
-    public void setTematica(String tematica) {
-        this.tematica = tematica;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void setActivo(String activo) {
-        this.activo = activo;
-    }
-    
     
     
 }
+
