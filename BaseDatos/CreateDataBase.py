@@ -8,7 +8,7 @@
 import sqlite3
 
 
-# Nos conectamos a la base de datos del gimnasio de la USC
+# Nos conectamos a la base de datos del Parque de Atracciones
 miConexion = sqlite3.connect("ParqueAtraccionesGallaecia")
 
 # Con la conexión, crea un objeto cursor
