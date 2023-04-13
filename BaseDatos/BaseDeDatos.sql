@@ -80,9 +80,7 @@ CREATE TABLE Asistir (
 CREATE TABLE TrabajadoresEspectaculo(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
-    Calle VARCHAR(50),
-    CP INTEGER,
-    Localidad VARCHAR(50),
+    Direccion VARCHAR(50),
     Salario FLOAT,
     Telefono INTEGER,
     fechaContratacion DATE,
@@ -96,9 +94,7 @@ CREATE TABLE TrabajadoresEspectaculo(
 CREATE TABLE TrabajadoresAdministracion(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
-    Calle VARCHAR(50),
-    CP INTEGER,
-    Localidad VARCHAR(50),
+    Direccion VARCHAR(50),
     Salario FLOAT,
     Telefono INTEGER,
     fechaContratacion DATE,
@@ -115,9 +111,7 @@ CREATE TABLE TrabajadoresAdministracion(
 CREATE TABLE TrabajadoresMantenimiento(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
-    Calle VARCHAR(50),
-    CP INTEGER,
-    Localidad VARCHAR(50),
+    Direccion VARCHAR(50),
     Salario FLOAT,
     Telefono INTEGER,
     fechaContratacion DATE,
@@ -132,9 +126,7 @@ CREATE TABLE TrabajadoresMantenimiento(
 CREATE TABLE Hosteleros(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
-    Calle VARCHAR(50),
-    CP INTEGER,
-    Localidad VARCHAR(50),
+    Direccion VARCHAR(50),
     Salario FLOAT,
     Telefono INTEGER,
     fechaContratacion DATE,
