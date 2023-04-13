@@ -175,69 +175,69 @@ miCursor.executemany("INSERT INTO Asistir VALUES (?,?,?)", asistir)
 #TrabajadorAdministracion
 
 trabajadorAdministracion = [
-('123456789S', 'Juan Pérez', 'Calle Mayor 1', 28001, 'Madrid', 2500.0, 910000000, '2021-01-01', '1995-05-15', 'Ingeniero Informático', 1, 3),
-('234567890C', 'María Rodríguez', 'Calle Ancha 10', 28002, 'Madrid', 2200.0, 910000001, '2020-02-01', '1998-11-20', 'Licenciada en ADE', 2, 5),
-('345678901V', 'Pedro Gómez', 'Calle Estrecha 5', 28003, 'Madrid', 1800.0, 910000002, '2019-03-01', '1990-07-01', 'Diplomado en Empresariales', 3, 2),
-('456789012S', 'Lucía Fernández', 'Calle Pequeña 3', 28004, 'Madrid', 3000.0, 910000003, '2018-04-01', '1985-12-10', 'Licenciada en Derecho', 4, 8),
-('567890123H', 'Diego Sánchez', 'Calle Grande 20', 28005, 'Madrid', 2400.0, 910000004, '2017-05-01', '1992-03-25', 'Ingeniero Industrial', 5, 11),
-('678901234J', 'Ana Martínez', 'Calle Peatonal 7', 28006, 'Madrid', 2800.0, 910000005, '2016-06-01', '1996-09-05', 'Licenciada en Historia del Arte', 6, 10),
-('789012345R', 'Jorge Hernández', 'Calle Comercial 8', 28007, 'Madrid', 2000.0, 910000006, '2015-07-01', '1991-01-30', 'Diplomado en Turismo', 7, 9),
-('890123456Q', 'Sofía González', 'Calle Principal 15', 28008, 'Madrid', 2600.0, 910000007, '2014-08-01', '1988-05-12', 'Ingeniera de Caminos', 8, 14),
-('901234567A', 'Manuel García', 'Calle Larga 12', 28009, 'Madrid', 2300.0, 910000008, '2013-09-01', '1997-10-18', 'Licenciado en Derecho', 9, 17),
-('012345678E', 'Laura Pérez', 'Calle Corta 2', 28010, 'Madrid', 2800.0, 910000009, '2012-10-01', '1994-08-05', 'Ingeniera de Telecomunicaciones', 10, 6),
-('345678901P', 'Luisa Pérez', 'Calle Mayor 10', 28001, 'Madrid', 2500.50, 910123456, '2010-05-15', '1985-07-20', 'Licenciatura en Economía', 2, 4),
-('234567890P', 'Carlos López', 'Avenida de la Luz 15', 46005, 'Valencia', 2200.00, 960654321, '2008-11-01', '1982-01-10', 'Ingeniería Informática', 5, 8),
-('123456789O', 'María Sánchez', 'Plaza Mayor 3', 41001, 'Sevilla', 1800.75, 955987654, '2013-03-20', '1990-11-27', 'Grado en Derecho', 1, 3),
-('987654321U', 'Javier García', 'Calle Alcalá 20', 28009, 'Madrid', 2800.25, 912345678, '2006-06-10', '1980-04-05', 'Licenciatura en ADE', 1, 7),
-('876543210Y', 'Ana Martínez', 'Calle Mayor 5', 50001, 'Zaragoza', 2100.50, 976543210, '2015-09-01', '1995-08-17', 'Grado en Marketing', 2, 6),
-('765432109M', 'David Rodríguez', 'Calle de la Estrella 8', 28004, 'Madrid', 1900.00, 911234567, '2017-01-15', '1992-03-25', 'Ingeniería Industrial', 2, 9),
-('654321098N', 'Marta Jiménez', 'Calle de la Rosa 12', 29005, 'Málaga', 2300.75, 952345678, '2009-10-10', '1987-06-12', 'Grado en Psicología', 3, 2),
-('543210987T', 'Pedro Gómez', 'Calle de la Paloma 6', 41003, 'Sevilla', 1950.25, 955432109, '2014-07-01', '1991-12-08', 'Grado en Historia', 6, 5),
+('123456789S', 'Juan Pérez', 'Calle Mayor 1 28001 Madrid', 2500.0, 910000000, '2021-01-01', '1995-05-15', 'Ingeniero Informático', 1, 3),
+('234567890C', 'María Rodríguez', 'Calle Ancha 10 28002 Madrid', 2200.0, 910000001, '2020-02-01', '1998-11-20', 'Licenciada en ADE', 2, 5),
+('345678901V', 'Pedro Gómez', 'Calle Estrecha 5 28003 Madrid', 1800.0, 910000002, '2019-03-01', '1990-07-01', 'Diplomado en Empresariales', 3, 2),
+('456789012S', 'Lucía Fernández', 'Calle Pequeña 3 28004 Madrid', 3000.0, 910000003, '2018-04-01', '1985-12-10', 'Licenciada en Derecho', 4, 8),
+('567890123H', 'Diego Sánchez', 'Calle Grande 20 28005 Madrid', 2400.0, 910000004, '2017-05-01', '1992-03-25', 'Ingeniero Industrial', 5, 11),
+('678901234J', 'Ana Martínez', 'Calle Peatonal 7 28006 Madrid', 2800.0, 910000005, '2016-06-01', '1996-09-05', 'Licenciada en Historia del Arte', 6, 10),
+('789012345R', 'Jorge Hernández', 'Calle Comercial 8 28007 Madrid', 2000.0, 910000006, '2015-07-01', '1991-01-30', 'Diplomado en Turismo', 7, 9),
+('890123456Q', 'Sofía González', 'Calle Principal 15 28008 Madrid', 2600.0, 910000007, '2014-08-01', '1988-05-12', 'Ingeniera de Caminos', 8, 14),
+('901234567A', 'Manuel García', 'Calle Larga 12 28009 Madrid', 2300.0, 910000008, '2013-09-01', '1997-10-18', 'Licenciado en Derecho', 9, 17),
+('012345678E', 'Laura Pérez', 'Calle Corta 2 28010 Madrid', 2800.0, 910000009, '2012-10-01', '1994-08-05', 'Ingeniera de Telecomunicaciones', 10, 6),
+('345678901P', 'Luisa Pérez', 'Calle Mayor 10 28001 Madrid', 2500.50, 910123456, '2010-05-15', '1985-07-20', 'Licenciatura en Economía', 2, 4),
+('234567890P', 'Carlos López', 'Avenida de la Luz 15 46005 Valencia', 2200.00, 960654321, '2008-11-01', '1982-01-10', 'Ingeniería Informática', 5, 8),
+('123456789O', 'María Sánchez', 'Plaza Mayor 3 41001 Sevilla', 1800.75, 955987654, '2013-03-20', '1990-11-27', 'Grado en Derecho', 1, 3),
+('987654321U', 'Javier García', 'Calle Alcalá 20 28009 Madrid', 2800.25, 912345678, '2006-06-10', '1980-04-05', 'Licenciatura en ADE', 1, 7),
+('876543210Y', 'Ana Martínez', 'Calle Mayor 5 50001 Zaragoza', 2100.50, 976543210, '2015-09-01', '1995-08-17', 'Grado en Marketing', 2, 6),
+('765432109M', 'David Rodríguez', 'Calle de la Estrella 8 28004 Madrid', 1900.00, 911234567, '2017-01-15', '1992-03-25', 'Ingeniería Industrial', 2, 9),
+('654321098N', 'Marta Jiménez', 'Calle de la Rosa 12 29005 Málaga', 2300.75, 952345678, '2009-10-10', '1987-06-12', 'Grado en Psicología', 3, 2),
+('543210987T', 'Pedro Gómez', 'Calle de la Paloma 6 41003 Sevilla', 1950.25, 955432109, '2014-07-01', '1991-12-08', 'Grado en Historia', 6, 5),
 
 ]
 
-miCursor.executemany("INSERT INTO TrabajadoresAdministracion VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", trabajadorAdministracion)
+miCursor.executemany("INSERT INTO TrabajadoresAdministracion VALUES (?,?,?,?,?,?,?,?,?,?)", trabajadorAdministracion)
 
 trabajadoresMantenimiento = [
-('12345678A', 'Juan Pérez Gómez', 'Calle Mayor 1', 28001, 'Madrid', 2000.00, 912345678, '2018-01-01', '1990-02-03', 'Licenciado en Administración de Empresas', 1, 5),
-('23456789B', 'María Sánchez Martínez', 'Avenida de la Constitución 20', 41001, 'Sevilla', 1500.50, 677889900, '2019-02-01', '1995-11-10', 'Diplomado en Relaciones Laborales', 2, 6),
-('34567890C', 'Antonio García González', 'Calle Real 5', 29001, 'Málaga', 1800.25, 655443322, '2015-04-01', '1985-06-15', 'Graduado en Marketing', 3, 14),
-('45678901D', 'Ana Martínez Sánchez', 'Calle Mayor 10', 30001, 'Murcia', 1900.75, 644332211, '2016-06-01', '1988-09-20', 'Licenciada en Derecho', 5, 4),
-('56789012E', 'David González García', 'Calle de las Flores 2', 28002, 'Madrid', 2100.00, 911223344, '2020-03-01', '1993-08-05', 'Ingeniero en Informática', 4, 16),
-('67890123F', 'Marina López Hernández', 'Calle de la Libertad 15', 46001, 'Valencia', 1700.50, 677889900, '2017-08-01', '1991-12-25', 'Técnica Superior en Administración y Finanzas', 1, 2),
-('78901234G', 'Javier Sánchez Martínez', 'Calle Mayor 8', 28001, 'Madrid', 2200.00, 912345678, '2014-01-01', '1980-07-30', 'Doctor en Economía', 5, 1),
-('89012345H', 'Lucía Rodríguez Ruiz', 'Calle del Sol 4', 41002, 'Sevilla', 1600.25, 655443322, '2013-09-01', '1983-05-08', 'Técnica en Recursos Humanos', 7, 3),
-('90123456I', 'Miguel Torres Jiménez', 'Calle Real 10', 29002, 'Málaga', 1950.75, 644332211, '2012-05-01', '1982-11-18', 'Ingeniero Industrial', 6, 5),
+('12345678A', 'Juan Pérez Gómez', 'Calle Mayor 1 28001 Madrid', 2000.00, 912345678, '2018-01-01', '1990-02-03', 'Licenciado en Administración de Empresas', 1, 5),
+('23456789B', 'María Sánchez Martínez', 'Avenida de la Constitución 20 41001 Sevilla', 1500.50, 677889900, '2019-02-01', '1995-11-10', 'Diplomado en Relaciones Laborales', 2, 6),
+('34567890C', 'Antonio García González', 'Calle Real 5 29001 Málaga', 1800.25, 655443322, '2015-04-01', '1985-06-15', 'Graduado en Marketing', 3, 14),
+('45678901D', 'Ana Martínez Sánchez', 'Calle Mayor 10 30001 Murcia', 1900.75, 644332211, '2016-06-01', '1988-09-20', 'Licenciada en Derecho', 5, 4),
+('56789012E', 'David González García', 'Calle de las Flores 2 28002 Madrid', 2100.00, 911223344, '2020-03-01', '1993-08-05', 'Ingeniero en Informática', 4, 16),
+('67890123F', 'Marina López Hernández', 'Calle de la Libertad 15 46001 Valencia', 1700.50, 677889900, '2017-08-01', '1991-12-25', 'Técnica Superior en Administración y Finanzas', 1, 2),
+('78901234G', 'Javier Sánchez Martínez', 'Calle Mayor 8 28001 Madrid', 2200.00, 912345678, '2014-01-01', '1980-07-30', 'Doctor en Economía', 5, 1),
+('89012345H', 'Lucía Rodríguez Ruiz', 'Calle del Sol 4 41002 Sevilla', 1600.25, 655443322, '2013-09-01', '1983-05-08', 'Técnica en Recursos Humanos', 7, 3),
+('90123456I', 'Miguel Torres Jiménez', 'Calle Real 10 29002 Málaga', 1950.75, 644332211, '2012-05-01', '1982-11-18', 'Ingeniero Industrial', 6, 5),
 
 ]
 
-miCursor.executemany("INSERT INTO TrabajadoresMantenimiento VALUES (?,?,?,?,?,?,?,?,?,?,?)", trabajadorMantenimiento)
+miCursor.executemany("INSERT INTO TrabajadoresMantenimiento VALUES (?,?,?,?,?,?,?,?,?)", trabajadorMantenimiento)
 
 trabajadorEspectaculo = [
-('12345678A', 'Ana García', 'Calle Mayor 23', 28001, 'Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 1),
-('34567890C', 'María López', 'Calle San Miguel 5', 41001, 'Sevilla', 1000.0, 955678901, '2018-03-30', '1995-07-20', 'Grado en Comunicación Audiovisual', 3),
-('45678901D', 'Javier Rodríguez', 'Calle Valencia 8', 46001, 'Valencia', 1300.0, 960123456, '2019-11-10', '1992-02-01', 'Grado en Bellas Artes', 4),
-('56789012E', 'Marta Sánchez', 'Calle del Prado 34', 28001, 'Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 5),
-('67890123F', 'Carlos Ruiz', 'Calle de la Feria 2', 41001, 'Sevilla', 1100.0, 955678901, '2020-03-01', '1996-11-03', 'Diplomatura en Arte Dramático', 6),
-('89012345H', 'Pedro Martínez', 'Calle de las Huertas 10', 28001, 'Madrid', 1700.0, 912345678, '2018-09-23', '1988-01-10', 'Grado en Bellas Artes', 8),
-('90123456I', 'Ana Belén García', 'Calle Sierpes 45', 41001, 'Sevilla', 1200.0, 955678901, '2021-02-10', '1994-06-02', 'Licenciatura en Bellas Artes', 9),
-('01234567J', 'Pablo Hernández', 'Calle del Arenal 8', 28001, 'Madrid', 1300.0, 912345678, '2020-05-01', '1985-11-20', 'Diplomatura en Arte Dramático', 10)
+('12345678A', 'Ana García', 'Calle Mayor 23 28001 Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 1),
+('34567890C', 'María López', 'Calle San Miguel 5 41001 Sevilla', 1000.0, 955678901, '2018-03-30', '1995-07-20', 'Grado en Comunicación Audiovisual', 3),
+('45678901D', 'Javier Rodríguez', 'Calle Valencia 8 46001 Valencia', 1300.0, 960123456, '2019-11-10', '1992-02-01', 'Grado en Bellas Artes', 4),
+('56789012E', 'Marta Sánchez', 'Calle del Prado 34 28001 Madrid', 1500.0, 912345678, '2021-01-01', '1990-05-15', 'Licenciatura en Bellas Artes', 5),
+('67890123F', 'Carlos Ruiz', 'Calle de la Feria 2 41001 Sevilla', 1100.0, 955678901, '2020-03-01', '1996-11-03', 'Diplomatura en Arte Dramático', 6),
+('89012345H', 'Pedro Martínez', 'Calle de las Huertas 10 28001 Madrid', 1700.0, 912345678, '2018-09-23', '1988-01-10', 'Grado en Bellas Artes', 8),
+('90123456I', 'Ana Belén García', 'Calle Sierpes 45 41001 Sevilla', 1200.0, 955678901, '2021-02-10', '1994-06-02', 'Licenciatura en Bellas Artes', 9),
+('01234567J', 'Pablo Hernández', 'Calle del Arenal 8 28001 Madrid', 1300.0, 912345678, '2020-05-01', '1985-11-20', 'Diplomatura en Arte Dramático', 10)
 ]
 
 miCursor.executemany("INSERT INTO TrabajadoresEspectaculo VALUES (?,?,?,?,?,?,?,?,?,?,?)", trabajadorEspectaculo)
 
 hosteleros = [
-('12345678A', 'Juan Perez', 'Calle Mayor 5', 28001, 'Madrid', 1500.0, 912345678, '2020-01-01', '1990-05-10', 'Bachillerato', 1),
-('23456789B', 'Maria Garcia', 'Calle Ancha 10', 29002, 'Malaga', 1300.0, 623456789, '2019-05-12', '1992-03-22', 'FP Grado Medio', 2),
-('34567890C', 'Pedro Rodriguez', 'Calle Estrecha 2', 46001, 'Valencia', 1400.0, 634567890, '2018-11-15', '1995-09-05', 'FP Grado Superior', 3),
-('45678901D', 'Ana Martinez', 'Calle Larga 20', 41001, 'Sevilla', 1200.0, 745678901, '2017-09-22', '1993-12-31', 'Bachillerato', 1),
-('56789012E', 'Jose Lopez', 'Calle Redonda 15', 50001, 'Zaragoza', 1600.0, 856789012, '2016-07-07', '1989-07-18', 'Bachillerato', 4),
-('67890123F', 'Lucia Fernandez', 'Calle Corta 7', 15001, 'A Coruna', 1250.0, 967890123, '2015-06-04', '1991-10-15', 'FP Grado Medio', 2),
-('78901234G', 'Hector Gomez', 'Calle Alta 3', 48001, 'Bilbao', 1350.0, 178901234, '2014-04-03', '1988-02-27', 'FP Grado Superior', 5),
-('89012345H', 'Sara Sanchez', 'Calle Baja 8', 18001, 'Granada', 1100.0, 289012345, '2013-03-02', '1994-06-20', 'Bachillerato', 3)
+('12345678A', 'Juan Perez', 'Calle Mayor 5 28001 Madrid', 1500.0, 912345678, '2020-01-01', '1990-05-10', 'Bachillerato', 1),
+('23456789B', 'Maria Garcia', 'Calle Ancha 10 29002 Malaga', 1300.0, 623456789, '2019-05-12', '1992-03-22', 'FP Grado Medio', 2),
+('34567890C', 'Pedro Rodriguez', 'Calle Estrecha 2 46001 Valencia', 1400.0, 634567890, '2018-11-15', '1995-09-05', 'FP Grado Superior', 3),
+('45678901D', 'Ana Martinez', 'Calle Larga 20 41001 Sevilla', 1200.0, 745678901, '2017-09-22', '1993-12-31', 'Bachillerato', 1),
+('56789012E', 'Jose Lopez', 'Calle Redonda 15 50001 Zaragoza', 1600.0, 856789012, '2016-07-07', '1989-07-18', 'Bachillerato', 4),
+('67890123F', 'Lucia Fernandez', 'Calle Corta 7 15001 A Coruna', 1250.0, 967890123, '2015-06-04', '1991-10-15', 'FP Grado Medio', 2),
+('78901234G', 'Hector Gomez', 'Calle Alta 3 48001 Bilbao', 1350.0, 178901234, '2014-04-03', '1988-02-27', 'FP Grado Superior', 5),
+('89012345H', 'Sara Sanchez', 'Calle Baja 8 18001 Granada', 1100.0, 289012345, '2013-03-02', '1994-06-20', 'Bachillerato', 3)
 ]
 
-miCursor.executemany("INSERT INTO Hosteleros VALUES (?,?,?,?,?,?,?,?,?,?,?)", hosteleros)
+miCursor.executemany("INSERT INTO Hosteleros VALUES (?,?,?,?,?,?,?,?,?)", hosteleros)
 
 miConexion.commit()
 
