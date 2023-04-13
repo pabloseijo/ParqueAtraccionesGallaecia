@@ -129,7 +129,7 @@ CREATE TABLE TrabajadoresMantenimiento(
     FOREIGN KEY(Atraccion) REFERENCES Atracciones(NumeroRegistro) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
-CREATE TABLE Hostaleiros(
+CREATE TABLE Hosteleros(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
     Calle VARCHAR(50),
