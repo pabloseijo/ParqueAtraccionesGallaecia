@@ -87,7 +87,7 @@ INSERT INTO Ir (Fecha, Visitante, Atraccion) VALUES
 ('2023-04-08', '78902345L', 3);
 
 -- Insertamos dentro de la tabla Comer los valores de las visitas de los visitantes a los restaurantes
-INSERT INTO comer (FechaVisita, Visitante, Establecimiento)
+INSERT INTO Comer (FechaVisita, Visitante, Establecimiento)
 VALUES 
 ('1980-05-12', '34589123A', 1),
 ('1975-12-28', '26347819B', 2),
