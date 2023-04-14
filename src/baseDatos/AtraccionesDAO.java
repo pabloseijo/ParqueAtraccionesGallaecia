@@ -22,6 +22,37 @@ public class AtraccionesDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
+    public AtraccionesDao (Connection conexion, aplicacion.FachadaAplicacion fa){
+        super.setConexion(conexion);
+        super.setFachadaAplicacion(fa);
+    }
+
+    public java.util.List<Atraccion> consultarAtracciones(){
+        java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
+        Atraccion atraccionActual;
+        Connection con;
+        PreparedStatement stmAtracciones=null;
+        ResultSet rsAtracciones;
+
+        con=this.getConexion();
+
+        try  {
+        stmAtracciones=con.prepareStatement("select nombre, descripcion from categoria");
+        rsAtracciones=stmAtracciones.executeQuery();
+        while (rsAtracciones.next())
+        {
+            atraccionActual = new Atraccion(rsAtracciones.getInt("numero registro"), rsAtracciones.getString("nombre"), rsAtracciones.getInt("aforo"), rsAtracciones.getInt("altura min"), rsAtracciones.getFloat("coste mantenimiento"), rsAtracciones.getBoolean("en reparacion"), rsAtracciones.getString("ubicacion"), rsAtracciones.getString("descripcion"));
+            resultado.add(atraccionActual);
+        }
+
+        } catch (SQLException e){
+          System.out.println(e.getMessage());
+          this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+          try {stmAtracciones.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
     
     
 }
