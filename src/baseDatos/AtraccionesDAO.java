@@ -33,11 +33,11 @@ public class AtraccionesDAO extends AbstractDAO{
         con=this.getConexion();
 
         try  {
-        stmAtracciones=con.prepareStatement("select nombre, descripcion from categoria");
+        stmAtracciones=con.prepareStatement("select numeroRegistro, nombre, aforo, alturaMin, costeMantenimiento, enReparacion, ubicacion, descripcion from categoria");
         rsAtracciones=stmAtracciones.executeQuery();
         while (rsAtracciones.next())
         {
-            atraccionActual = new Atraccion(rsAtracciones.getInt("numero registro"), rsAtracciones.getString("nombre"), rsAtracciones.getInt("aforo"), rsAtracciones.getInt("altura min"), rsAtracciones.getFloat("coste mantenimiento"), rsAtracciones.getBoolean("en reparacion"), rsAtracciones.getString("ubicacion"), rsAtracciones.getString("descripcion"));
+            atraccionActual = new Atraccion(rsAtracciones.getInt("numeroRegistro"), rsAtracciones.getString("nombre"), rsAtracciones.getInt("aforo"), rsAtracciones.getInt("alturaMin"), rsAtracciones.getFloat("costeMantenimiento"), rsAtracciones.getBoolean("enReparacion"), rsAtracciones.getString("ubicacion"), rsAtracciones.getString("descripcion"));
             resultado.add(atraccionActual);
         }
 
