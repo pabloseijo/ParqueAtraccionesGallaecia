@@ -1,10 +1,15 @@
-package Login;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+
+/**
+ *
+ * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
+ */
 
 public class LoginGUI extends JDialog{
     private JTextField UserTextField;

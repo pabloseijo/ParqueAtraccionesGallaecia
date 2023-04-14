@@ -1,30 +1,21 @@
 package aplicacion;
 
-import baseDatos.AsistirDAO;
-import baseDatos.DAOUsuarios;
-import baseDatos.AtraccionesDAO;
-import baseDatos.ComerDAO;
-import baseDatos.EspectaculosDAO;
-import baseDatos.HosteleriaDAO;
-import baseDatos.HostelerosDAO;
-import baseDatos.IrDAO;
-import baseDatos.TrabajadorEspectaculoDAO;
-import baseDatos.VisitantesDAO;
 import java.sql.*;
 
 import javax.swing.AbstractAction;
 
 /**
  *
-@author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
+ * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class FachadaAplicacion {
 
-    gui.FachadaGui fgui;
+    GUI.FachadaGUI fgui;
     baseDatos.FachadaBaseDatos fbd;
+    GestionUsuarios gu;
 
     public FachadaAplicacion()  {
-        fgui=new gui.FachadaGui(this);
+        fgui=new GUI.FachadaGUI(this);
         fbd= new baseDatos.FachadaBaseDatos(this);
     }
     
@@ -40,6 +31,10 @@ public class FachadaAplicacion {
     public void iniciaInterfazUsuario(){
         fgui.iniciaVista();
     }
+
+    public Boolean comprobarAutentificacion(String idUsuario, String clave){
+        return gu.comprobarAutentificacion(idUsuario, clave);
+      }
 
     
 

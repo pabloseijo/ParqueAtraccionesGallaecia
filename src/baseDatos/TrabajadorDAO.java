@@ -28,7 +28,21 @@ public class TrabajadorDAO extends AbstractDAO{
         super.setFachadaAplicacion(fa);
     }
 
-        // Añadir trabajadore de administracion
+         /**
+         * Añade un nuevo trabajador de administracion
+         * 
+         * @param dni el dni del trabajador.
+         * @param nombre el nombre del trabajador.
+         * @param direccion la direccion del trabajador.
+         * @param salario el salario del trabajador.
+         * @param telefono el telefono del trabajador.
+         * @param fechaContratacion la fecha en la que el trabajador empezó a trabajar en el parque.
+         * @param fechaNacimiento la fecha en la que el trabajador nació.
+         * @param formacion descripcion de los estudios del trabajador.
+         * @param espectaculo el espectaculo que supervisa el trabajador.
+         * @param atraccion la atraccion que supervisa el trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
+         */
         public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String espectaculo, String atraccion) throws SQLException {
             Connection con;
     
@@ -50,7 +64,20 @@ public class TrabajadorDAO extends AbstractDAO{
             stmTrabajador.close();
         }
 
-    // Añadir trabajadore de mantenimiento
+        /**
+         * Añade un nuevo trabajador de mantenimiento
+         * 
+         * @param dni el dni del trabajador.
+         * @param nombre el nombre del trabajador.
+         * @param direccion la direccion del trabajador.
+         * @param salario el salario del trabajador.
+         * @param telefono el telefono del trabajador.
+         * @param fechaContratacion la fecha en la que el trabajador empezó a trabajar en el parque.
+         * @param fechaNacimiento la fecha en la que el trabajador nació.
+         * @param formacion descripcion de los estudios del trabajador.
+         * @param atraccion la atraccion que supervisa el trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
+         */
     public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String atraccion) throws SQLException {
         Connection con;
         con = super.getConexion();
@@ -70,7 +97,20 @@ public class TrabajadorDAO extends AbstractDAO{
         stmTrabajador.close();
     }
 
-    // Añadir trabajadores de espectaculos
+         /**
+         * Añade un nuevo trabajador de espectaculos
+         * 
+         * @param dni el dni del trabajador.
+         * @param nombre el nombre del trabajador.
+         * @param direccion la direccion del trabajador.
+         * @param salario el salario del trabajador.
+         * @param telefono el telefono del trabajador.
+         * @param fechaContratacion la fecha en la que el trabajador empezó a trabajar en el parque.
+         * @param fechaNacimiento la fecha en la que el trabajador nació.
+         * @param formacion descripcion de los estudios del trabajador.
+         * @param espectaculo el espectaculo que supervisa el trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
+         */
     public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String espectaculo) throws SQLException {
         Connection con;
 
@@ -91,7 +131,11 @@ public class TrabajadorDAO extends AbstractDAO{
         stmTrabajador.close();
     }
 
-    // Despedir administarcion
+         /**
+         * Despide a un trabajador de administracion
+         * 
+         * @param dni el dni del trabajador.
+         */
     public void despedirTrabajadorAdministracion(String dni) {
 
         PreparedStatement stmTrabajadores = null;
@@ -105,8 +149,11 @@ public class TrabajadorDAO extends AbstractDAO{
             Logger.getLogger(HostelerosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    // Despedir mantenimiento
+         /**
+         * Despide a un trabajador de mantenimiento
+         * 
+         * @param dni el dni del trabajador.
+         */
     public void despedirTrabajadorMantenimiento(String dni) {
 
         PreparedStatement stmTrabajadores = null;
@@ -120,8 +167,11 @@ public class TrabajadorDAO extends AbstractDAO{
             Logger.getLogger(HostelerosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    // Despedir espectaculo
+         /**
+         * Despide a un trabajador de espectaculos
+         * 
+         * @param dni el dni del trabajador.
+         */
     public void despedirTrabajadorEspectaculo(String dni) {
 
         PreparedStatement stmTrabajadores = null;
@@ -136,7 +186,11 @@ public class TrabajadorDAO extends AbstractDAO{
         }
     }
 
-    // Obtener una lista de todos los trabajadores
+         /**
+         * Obtiene una lista de todos los trabajadores
+         * 
+         * @return un ArrayList<Trabajador> con todos los trabajadores.
+         */
     public ArrayList<Trabajador> getTrabajadores() {
         ArrayList<Trabajador> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
@@ -190,7 +244,11 @@ public class TrabajadorDAO extends AbstractDAO{
         return resultado;
     }
 
-    // Obtener una lista de los trabajadores de Administracion
+         /**
+         * Obtiene una lista de todos los trabajadores de administracion.
+         * 
+         * @return un ArrayList<TrabajadorAdministracion> con todos los trabajadores de administracion.
+         */
     public ArrayList<TrabajadorAdministracion> getTrabajadoresAdministracion() {
         ArrayList<TrabajadorAdministracion> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
@@ -214,7 +272,11 @@ public class TrabajadorDAO extends AbstractDAO{
         return resultado;
     }
 
-    // Obtener una lista de los trabajadores de Mantenimiento
+         /**
+         * Obtiene una lista de todos los trabajadores de mantenimiento.
+         * 
+         * @return un ArrayList<TrabajadorMantenimiento> con todos los trabajadores de mantenimiento.
+         */
     public ArrayList<TrabajadorMantenimiento> getTrabajadoresMantenimiento() {
         ArrayList<TrabajadorMantenimiento> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
@@ -237,8 +299,11 @@ public class TrabajadorDAO extends AbstractDAO{
 
         return resultado;
     }
-
-    // Obtener una lista de los trabajadores de Espectaculos
+         /**
+         * Obtiene una lista de todos los trabajadores de espectaculos.
+         * 
+         * @return un ArrayList<TrabajadorEspectaculo> con todos los trabajadores de espectaculos.
+         */
     public ArrayList<TrabajadorEspectaculo> getTrabajadoresEspectaculos() {
         ArrayList<TrabajadorEspectaculo> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;

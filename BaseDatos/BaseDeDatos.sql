@@ -7,6 +7,15 @@ CREATE DATABASE ParqueAtraccionesGallaecia;
 
 --Conexión a la base de datos
 
+
+--Creación de la tabla Usuarios
+CREATE TABLE Usuarios (
+    ID SERIAL PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Clave VARCHAR(50),
+    TipoUsuario VARCHAR(50),
+);
+
 --Creación de la tabla Espectaculos
 CREATE TABLE Espectaculos (
     ID SERIAL PRIMARY KEY,

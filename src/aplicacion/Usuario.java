@@ -12,19 +12,19 @@ package aplicacion;
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Usuario {
-    private String idUsuario; //será el DNI
+    private String nombreUsuario; 
     private String clave;
     private TipoUsuario tipo;
 
-   public Usuario (String idUsuario, String clave, TipoUsuario tipo){
-    this.idUsuario=idUsuario;
+   public Usuario (String nombreUsuario, String clave, TipoUsuario tipo){
+    this.nombreUsuario = nombreUsuario;
     this.clave=clave;
     this.tipo=tipo;
    }
 
    public String getIdUsuario(){
 
-       return this.idUsuario;
+       return this.nombreUsuario;
    }
 
    public String getClave(){

@@ -22,14 +22,12 @@
      private java.sql.Connection conexion;
      private AtraccionesDAO atraccionesDAO;
      private EspectaculosDAO espectaculosDAO;
-     private DAOUsuarios daoUsuarios;
+     private UsuariosDAO usuariosDAO;
+     private TrabajadorDAO trabajadoresDAO;
      private HosteleriaDAO hosteleriaDAO;
      private IrDAO irDAO;
      private AsistirDAO asistirDAO;
      private ComerDAO comerDAO;
-     private TrabajadorEspectaculoDAO trabajadoresEspectaculoDAO;
-     private TrabajadorAdministracionDAO trabajadoresAdministracionDAO;
-     private TrabajadorMantenimientoDAO trabajadoresMantenimientoDAO;
      private HostelerosDAO hostelerosDAO;
      private VisitantesDAO visitantesDAO;
 
@@ -58,15 +56,13 @@
                       usuario);
  
             atraccionesDAO = new AtraccionesDAO(conexion, fa);
-            daoUsuarios = new DAOUsuarios(conexion, fa);
+            usuariosDAO = new UsuariosDAO(conexion, fa);
             espectaculosDAO = new EspectaculosDAO(conexion, fa);
             hosteleriaDAO = new HosteleriaDAO(conexion, fa);
             irDAO = new IrDAO(conexion, fa);
             asistirDAO = new AsistirDAO(conexion, fa);
             comerDAO = new ComerDAO(conexion, fa);
-            trabajadoresEspectaculoDAO = new TrabajadorEspectaculoDAO(conexion, fa);
-            trabajadoresMantenimientoDAO = new TrabajadorMantenimientoDAO(conexion, fa);
-            trabajadoresAdministracionDAO = new TrabajadorAdministracionDAO(conexion, fa);
+            trabajadoresDAO = new TrabajadorDAO(conexion, fa);
             hostelerosDAO = new HostelerosDAO(conexion, fa);
             visitantesDAO = new VisitantesDAO(conexion, fa);    
         
@@ -80,5 +76,16 @@
           
       
     }
+
+        /**
+     * Comprueba si un usuario está en la base de datos
+     * 
+     * @param nombreUsuario el nombre del usuario.
+     * @param clave la contraseña del usuario.
+     * @return el usuario si existe.
+     */
+    public Usuario validarUsuario(String nombreUsuario, String clave){
+      return usuariosDAO.validarUsuario(nombreUsuario, clave);
+  }
 
 }

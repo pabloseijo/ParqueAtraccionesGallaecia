@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.ResultSet;
 import aplicacion.Comer;
+import aplicacion.Visitante;
+import aplicacion.Hosteleria;
 
 /**
  *
@@ -32,13 +34,12 @@ public class ComerDAO extends AbstractDAO{
         rsComer=stmComer.executeQuery();
         while (rsComer.next())
         {
-            comerActual = new Comer(rsComer.getString("FechaVisita"), rsComer.getString("Visitante"), rsComer.getString("Establecimiento"));
+            comerActual = new Comer(rsComer.getString("FechaVisita"), (Visitante) rsComer.getObject("Visitante"), (Hosteleria) rsComer.getObject("Establecimiento"));
             resultado.add(comerActual);
         }
 
         } catch (SQLException e){
           System.out.println(e.getMessage());
-          this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
           try {stmComer.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
