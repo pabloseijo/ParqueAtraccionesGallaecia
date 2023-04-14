@@ -16,6 +16,12 @@ public class LoginGUI extends JFrame{
         setSize(450,300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        entrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Meter la comprobacion de las credenciales
+            }
+        });
     }
 
     public static void main(String[] args){
