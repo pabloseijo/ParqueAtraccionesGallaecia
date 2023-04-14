@@ -1,4 +1,4 @@
-package Login;
+package gui;
 
 import javax.swing.*;
 
