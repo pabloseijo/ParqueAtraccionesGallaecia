@@ -28,11 +28,11 @@ public class ComerDAO extends AbstractDAO{
         con=this.getConexion();
 
         try  {
-        stmComer=con.prepareStatement("select FechaVisita, Visitante, Establecimiento from comer");
+        stmComer=con.prepareStatement("select FechaVisita, Visitante, Establecimiento from Comer");
         rsComer=stmComer.executeQuery();
         while (rsComer.next())
         {
-            comerActual = new Comer(rsComer.getString("fechaVisita"), rsComer.getString("visitante"), rsComer.getString("establecimiento"));
+            comerActual = new Comer(rsComer.getString("FechaVisita"), rsComer.getString("Visitante"), rsComer.getString("Establecimiento"));
             resultado.add(comerActual);
         }
 
