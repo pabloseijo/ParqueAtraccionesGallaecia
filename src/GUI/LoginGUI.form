@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Login.LoginGUI">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="15"/>
+    <constraints>
+      <xy x="20" y="20" width="717" height="407"/>
+    </constraints>
+    <properties>
+      <background color="-1541"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="511" class="javax.swing.JLabel" binding="Password">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono ExtraBold" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="Contraseña"/>
+        </properties>
+      </component>
+      <component id="63cbd" class="javax.swing.JLabel" binding="Usuario">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <font name="JetBrains Mono ExtraBold" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="Nombre de Usuario"/>
+        </properties>
+      </component>
+      <grid id="65cf7" binding="Panel2" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="0" column="0" row-span="6" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16252591"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="4867e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-526593"/>
+              <font name="Roboto Mono Medium for Powerline" size="16" style="1"/>
+              <foreground color="-1541"/>
+              <text value="BIENVENIDO"/>
+            </properties>
+          </component>
+          <vspacer id="4f01f">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="e5c25" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-526593"/>
+              <font name="JetBrains Mono ExtraBold"/>
+              <foreground color="-1541"/>
+              <text value="Introduzca"/>
+            </properties>
+          </component>
+          <component id="b91c9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-526593"/>
+              <font name="JetBrains Mono ExtraBold"/>
+              <foreground color="-1541"/>
+              <text value="las credenciales"/>
+            </properties>
+          </component>
+          <component id="c1c2d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="key(1).png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <vspacer id="f2fe6">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+      <component id="630e8" class="javax.swing.JButton" binding="entrarButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Entrar"/>
+        </properties>
+      </component>
+      <component id="7ae1e" class="javax.swing.JButton" binding="CancelarButton">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Cancelar"/>
+        </properties>
+      </component>
+      <component id="aad13" class="javax.swing.JTextField" binding="UserTextField">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="888a6" class="javax.swing.JPasswordField" binding="PasswordTextField">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
