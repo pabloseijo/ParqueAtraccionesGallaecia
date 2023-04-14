@@ -77,6 +77,18 @@ CREATE TABLE Asistir (
     FOREIGN KEY (Espectaculo) REFERENCES Espectaculos (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+--Creación de una función que devuelve los años transcurridos desde una fecha, para poder hacer los atributos calculados de edad y tiempoTrabajando de los empleados
+CREATE OR REPLACE FUNCTION get_time( inicio DATE )
+RETURNS INTEGER
+AS $CODE$
+BEGIN
+    RETURN EXTRACT(year from AGE(inicio));
+END
+$CODE$
+LANGUAGE plpgsql IMMUTABLE;
+
+
+--Creación de la tabla TrabajadoresEspectaculo
 CREATE TABLE TrabajadoresEspectaculo(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
@@ -87,10 +99,12 @@ CREATE TABLE TrabajadoresEspectaculo(
     fechaNacimiento DATE,
     Formacion VARCHAR (50), 
     Espectaculo INTEGER,
-    Edad INTEGER GENERATED ALWAYS AS (CAST (strftime('%Y', 'now') - strftime('%Y', FechaNacimiento ) - (strftime('%m-%d', 'now') < strftime('%m-%d', FechaNacimiento ))) AS INTEGER),
-    tiempo_trabajado INTEGER GENERATED ALWAYS AS (CAST (strftime('%Y', 'now') - strftime('%Y', fechaContratacion ) - (strftime('%m-%d', 'now') < strftime('%m-%d', fechaContratacion ))) AS INTEGER),
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
+    tiempoTrabajando INTEGER GENERATED ALWAYS AS (get_time(fechaContratacion)) STORED,
     FOREIGN KEY(Espectaculo) REFERENCES Espectaculos(ID) ON DELETE SET NULL ON UPDATE CASCADE
+);
 
+--Creación de la tabla TrabajadoresAdministracion
 CREATE TABLE TrabajadoresAdministracion(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
@@ -102,12 +116,13 @@ CREATE TABLE TrabajadoresAdministracion(
     Formacion VARCHAR (50), 
     Espectaculo INTEGER,
     Atraccion INTEGER,
-    Edad INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaNacimiento)) VIRTUAL,
-    tiempo_trabajado INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaContratacion)) VIRTUAL,
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
+    tiempoTrabajando INTEGER GENERATED ALWAYS AS (get_time(fechaContratacion)) STORED,
     FOREIGN KEY(Espectaculo) REFERENCES Espectaculos(ID) ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY(Atraccion) REFERENCES Atracciones(NumeroRegistro) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+--Creación de la tabla TrabajadoresMantenimiento
 CREATE TABLE TrabajadoresMantenimiento(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
@@ -118,11 +133,12 @@ CREATE TABLE TrabajadoresMantenimiento(
     fechaNacimiento DATE,
     Formacion VARCHAR (50), 
     Atraccion INTEGER,
-    Edad INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaNacimiento)) VIRTUAL,
-    tiempo_trabajado INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaContratacion)) VIRTUAL,
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
+    tiempoTrabajando INTEGER GENERATED ALWAYS AS (get_time(fechaContratacion)) STORED,
     FOREIGN KEY(Atraccion) REFERENCES Atracciones(NumeroRegistro) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+--Creación de la tabla Hosteleros
 CREATE TABLE Hosteleros(
     DNI CHAR(9) PRIMARY KEY not null,
     Nombre VARCHAR (50),
@@ -133,7 +149,7 @@ CREATE TABLE Hosteleros(
     fechaNacimiento DATE,
     Formacion VARCHAR (50), 
     Establecimiento INTEGER,
-    Edad INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaNacimiento)) VIRTUAL,
-    tiempo_trabajado INTEGER GENERATED ALWAYS AS (DATEDIFF('now', fechaContratacion)) VIRTUAL,
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
+    tiempoTrabajando INTEGER GENERATED ALWAYS AS (get_time(fechaContratacion)) STORED,
     FOREIGN KEY(Establecimiento) REFERENCES Hosteleria(codigoRegistro) ON DELETE SET NULL ON UPDATE CASCADE
 );
