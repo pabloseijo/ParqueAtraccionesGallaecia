@@ -39,9 +39,10 @@
          this.fa=fa;
          FileInputStream arqConfiguracion;
  
-            //  arqConfiguracion = new FileInputStream("baseDatos.properties");
-            //  configuracion.load(arqConfiguracion);
-            //  arqConfiguracion.close();
+         try {
+            arqConfiguracion = new FileInputStream("baseDatos.properties");
+            configuracion.load(arqConfiguracion);
+            arqConfiguracion.close();
  
              Properties usuario = new Properties();
       
@@ -50,11 +51,11 @@
  
              usuario.setProperty("user", configuracion.getProperty("usuario"));
              usuario.setProperty("password", configuracion.getProperty("clave"));
-            //  this.conexion=java.sql.DriverManager.getConnection("jdbc:"+gestor+"://"+
-            //          configuracion.getProperty("servidor")+":"+
-            //          configuracion.getProperty("puerto")+"/"+
-            //          configuracion.getProperty("baseDatos"),
-            //          usuario);
+             this.conexion=java.sql.DriverManager.getConnection("jdbc:"+gestor+"://"+
+                      configuracion.getProperty("servidor")+":"+
+                      configuracion.getProperty("puerto")+"/"+
+                      configuracion.getProperty("baseDatos"),
+                      usuario);
  
             atraccionesDAO = new AtraccionesDAO(conexion, fa);
             daoUsuarios = new DAOUsuarios(conexion, fa);
@@ -68,6 +69,16 @@
             trabajadoresAdministracionDAO = new TrabajadorAdministracionDAO(conexion, fa);
             hostelerosDAO = new HostelerosDAO(conexion, fa);
             visitantesDAO = new VisitantesDAO(conexion, fa);    
-     }
+        
+        } catch (FileNotFoundException f){
+            System.out.println(f.getMessage());
+        } catch (IOException i){
+          System.out.println(i.getMessage());
+        } catch (java.sql.SQLException e){
+          System.out.println(e.getMessage());
+        }
+          
+      
+    }
 
 }
