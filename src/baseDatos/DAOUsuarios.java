@@ -12,9 +12,9 @@ import java.sql.*;
  *
   * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
-public class DAOUsuarios extends AbstractDAO{
+public class UsuariosDAO extends AbstractDAO{
 
-    public DAOUsuarios (Connection conexion, aplicacion.FachadaAplicacion fa) {
+    public UsuariosDAO (Connection conexion, aplicacion.FachadaAplicacion fa) {
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
