@@ -20,5 +20,30 @@ public class EspectaculosDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
-    
+    public java.util.List<Espectaculo> consultarEspectaculos(){
+        java.util.List<Espectaculo> resultado = new java.util.ArrayList<Espectaculo>();
+        Espectaculo espectaculoActual;
+        Connection con;
+        PreparedStatement stmEspectaculos=null;
+        ResultSet rsEspectaculos;
+
+        con=this.getConexion();
+
+        try  {
+        stmEspectaculos=con.prepareStatement("select nombre, descripcion from categoria");
+        rsEspectaculos=stmEspectaculos.executeQuery();
+        while (rsEspectaculos.next())
+        {
+            espectaculoActual = new Espectaculo(rsEspectaculos.getInt("id"), rsEspectaculos.getString("nombre"), rsEspectaculos.getString("sesion"), rsEspectaculos.getString("horaInicio"), rsEspectaculos.getString("horaFin"), rsEspectaculos.getString("tematica"), rsEspectaculos.getString("descripcion"), rsEspectaculos.getString("ubicacion"));
+            resultado.add(espectaculoActual);
+        }
+
+        } catch (SQLException e){
+          System.out.println(e.getMessage());
+          this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+          try {stmEspectaculos.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }
