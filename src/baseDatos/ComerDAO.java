@@ -18,4 +18,30 @@ public class ComerDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
+    public java.util.List<Comer> consultarComer(){
+        java.util.List<Comer> resultado = new java.util.ArrayList<Comer>();
+        Comer comerActual;
+        Connection con;
+        PreparedStatement stmComer=null;
+        ResultSet rsComer;
+
+        con=this.getConexion();
+
+        try  {
+        stmComer=con.prepareStatement("select FechaVisita, Visitante, Establecimiento from comer");
+        rsComer=stmComer.executeQuery();
+        while (rsComer.next())
+        {
+            comerActual = new Comer(rsComer.getString("fechaVisita"), rsComer.getString("visitante"), rsComer.getString("establecimiento"));
+            resultado.add(comerActual);
+        }
+
+        } catch (SQLException e){
+          System.out.println(e.getMessage());
+          this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+          try {stmComer.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }
