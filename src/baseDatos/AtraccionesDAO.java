@@ -22,10 +22,6 @@ public class AtraccionesDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
-    public AtraccionesDao (Connection conexion, aplicacion.FachadaAplicacion fa){
-        super.setConexion(conexion);
-        super.setFachadaAplicacion(fa);
-    }
 
     public java.util.List<Atraccion> consultarAtracciones(){
         java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
