@@ -11,6 +11,7 @@
  import java.io.IOException;
  import java.sql.PreparedStatement;
  import java.sql.SQLException;
+ import java.sql.DriverManager;
  import java.util.Properties;
  
  /**
@@ -18,7 +19,7 @@
 @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
   */
  public class FachadaBaseDatos {
-     private aplicacion.FachadaAplicacion fa;
+     private aplicacion.FachadaAplicacion fachadaAplicacion;
      private java.sql.Connection conexion;
      private AtraccionesDAO atraccionesDAO;
      private EspectaculosDAO espectaculosDAO;
@@ -31,45 +32,36 @@
      private HostelerosDAO hostelerosDAO;
      private VisitantesDAO visitantesDAO;
 
-     public FachadaBaseDatos (aplicacion.FachadaAplicacion fa){
+     public FachadaBaseDatos (aplicacion.FachadaAplicacion fachadaAplicacion){
          
-         Properties configuracion = new Properties();
-         this.fa=fa;
-         FileInputStream arqConfiguracion;
+         this.fachadaAplicacion = fachadaAplicacion;
  
          try {
-            arqConfiguracion = new FileInputStream("baseDatos.properties");
-            configuracion.load(arqConfiguracion);
-            arqConfiguracion.close();
+            // Propiedades de la base de datos
+            String gestor = "postgresql";
+            String servidor = "localhost";
+            String puerto = "5432";
+            String baseDatos = "ParqueAtraccionesGallaecia";
+
+            String usuario = "alumnogreibd";
+            String clave = "greibd2021";
  
-             Properties usuario = new Properties();
-      
+            this.conexion = DriverManager.getConnection("jdbc:"+gestor+"://"+
+                      servidor + ":" + puerto + "/" + baseDatos,
+                      usuario, clave);
  
-             String gestor = configuracion.getProperty("gestor");
- 
-             usuario.setProperty("user", configuracion.getProperty("usuario"));
-             usuario.setProperty("password", configuracion.getProperty("clave"));
-             this.conexion=java.sql.DriverManager.getConnection("jdbc:"+gestor+"://"+
-                      configuracion.getProperty("servidor")+":"+
-                      configuracion.getProperty("puerto")+"/"+
-                      configuracion.getProperty("baseDatos"),
-                      usuario);
- 
-            atraccionesDAO = new AtraccionesDAO(conexion, fa);
-            usuariosDAO = new UsuariosDAO(conexion, fa);
-            espectaculosDAO = new EspectaculosDAO(conexion, fa);
-            hosteleriaDAO = new HosteleriaDAO(conexion, fa);
-            irDAO = new IrDAO(conexion, fa);
-            asistirDAO = new AsistirDAO(conexion, fa);
-            comerDAO = new ComerDAO(conexion, fa);
-            trabajadoresDAO = new TrabajadorDAO(conexion, fa);
-            hostelerosDAO = new HostelerosDAO(conexion, fa);
-            visitantesDAO = new VisitantesDAO(conexion, fa);    
+            // Inicializamos los DAOs
+            atraccionesDAO = new AtraccionesDAO(conexion, fachadaAplicacion);
+            usuariosDAO = new UsuariosDAO(conexion, fachadaAplicacion);
+            espectaculosDAO = new EspectaculosDAO(conexion, fachadaAplicacion);
+            hosteleriaDAO = new HosteleriaDAO(conexion, fachadaAplicacion);
+            irDAO = new IrDAO(conexion, fachadaAplicacion);
+            asistirDAO = new AsistirDAO(conexion, fachadaAplicacion);
+            comerDAO = new ComerDAO(conexion, fachadaAplicacion);
+            trabajadoresDAO = new TrabajadorDAO(conexion, fachadaAplicacion);
+            hostelerosDAO = new HostelerosDAO(conexion, fachadaAplicacion);
+            visitantesDAO = new VisitantesDAO(conexion, fachadaAplicacion);    
         
-        } catch (FileNotFoundException f){
-            System.out.println(f.getMessage());
-        } catch (IOException i){
-          System.out.println(i.getMessage());
         } catch (java.sql.SQLException e){
           System.out.println(e.getMessage());
         }

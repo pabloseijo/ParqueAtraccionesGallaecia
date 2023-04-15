@@ -272,11 +272,11 @@ public class TrabajadorDAO extends AbstractDAO{
         return resultado;
     }
 
-         /**
-         * Obtiene una lista de todos los trabajadores de mantenimiento.
-         * 
-         * @return un ArrayList<TrabajadorMantenimiento> con todos los trabajadores de mantenimiento.
-         */
+    /**
+    * Obtiene una lista de todos los trabajadores de mantenimiento.
+    * 
+    * @return un ArrayList<TrabajadorMantenimiento> con todos los trabajadores de mantenimiento.
+    */
     public ArrayList<TrabajadorMantenimiento> getTrabajadoresMantenimiento() {
         ArrayList<TrabajadorMantenimiento> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
@@ -299,11 +299,11 @@ public class TrabajadorDAO extends AbstractDAO{
 
         return resultado;
     }
-         /**
-         * Obtiene una lista de todos los trabajadores de espectaculos.
-         * 
-         * @return un ArrayList<TrabajadorEspectaculo> con todos los trabajadores de espectaculos.
-         */
+    /**
+    * Obtiene una lista de todos los trabajadores de espectaculos.
+    * 
+    * @return un ArrayList<TrabajadorEspectaculo> con todos los trabajadores de espectaculos.
+    */
     public ArrayList<TrabajadorEspectaculo> getTrabajadoresEspectaculos() {
         ArrayList<TrabajadorEspectaculo> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;

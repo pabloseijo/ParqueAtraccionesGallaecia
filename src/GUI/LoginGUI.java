@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import baseDatos.*;
+import aplicacion.*;
 
 /**
  *
@@ -12,6 +14,7 @@ import java.sql.*;
  */
 
 public class LoginGUI extends JDialog{
+    private baseDatos.FachadaBaseDatos fachadaBaseDatos;
     private JTextField UserTextField;
     private JButton entrarButton;
     private JLabel Usuario;
@@ -21,7 +24,8 @@ public class LoginGUI extends JDialog{
     private JPanel Panel2;
     private JPasswordField PasswordTextField;
 
-    public LoginGUI (JFrame parent){
+    // Importante fachada para validar usuario
+    public LoginGUI (JFrame parent, baseDatos.FachadaBaseDatos fachadaBaseDatos){
       super(parent);
       //ponemos el titulo de la pestaña
       setTitle("Login");
@@ -34,17 +38,20 @@ public class LoginGUI extends JDialog{
       setLocationRelativeTo(parent);
       //Esto hace que se cierre al darle a la X
       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-      /*
+
+      this.fachadaBaseDatos = fachadaBaseDatos;
+      
       //Añado un actionlistener al boton de entrar para que pueda relaizar la accion de comprobacion de las credenciales
       entrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String Usuario = UserTextField.getText();
-                String Contraseña = PasswordTextField.getText();
-
-                Usuario = getAuthenticatedUser(Usuario, Contraseña);
-
-                if(user != null){
+                String usuario = UserTextField.getText();
+                String contraseña = PasswordTextField.getText();
+                Usuario usuarioComprobacion = fachadaBaseDatos.validarUsuario(usuario, contraseña);
+                
+                // Si encuentra un usuario válido
+                if( (usuarioComprobacion.getTipoUsuario().equals("Administrador")) ){
+                    // lanzamos menuAdministrador
                     dispose();
                 }
                 else{
@@ -56,7 +63,7 @@ public class LoginGUI extends JDialog{
             }
 
         });
-      */
+      
       //añadimos el listener del boton de cancelar para cancelar la accion
       CancelarButton.addActionListener(new ActionListener() {
             @Override
@@ -67,9 +74,12 @@ public class LoginGUI extends JDialog{
 
         setVisible(true);
     }
-/*
-    public Usuario usuario;
-    private Usuario getAuthenticatedUser(String NombreUsuario, String Constrasenha){
+
+ 
+    private void getAuthenticatedUser(String NombreUsuario, String Constrasenha){
+        /*
+        // ESTO NON FARIA FALTA HAI FUNCION!
+
         Usuario user = null;
 
         //conectar a la base de datos
@@ -103,21 +113,9 @@ public class LoginGUI extends JDialog{
         }
 
         return user:
+        */
     }
-*/
-    public static void main(String[] args){
-        //Creamos la instancia
-        LoginGUI myLogin = new LoginGUI(null);
-        /*
-        Usuario user = LoginGUI.user
-        if(user != null){
-            System.out.println("Bienvenido a Gallaecia: " + user.Nombre);
-            //ponemos lo siguiente de pasar a la siguiente pestaña
-        }
-        else{
-            System.out.println("Autentificacion cancelada");
-        }*/
-    }
+
 
 
 
