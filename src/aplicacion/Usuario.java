@@ -1,31 +1,31 @@
 package aplicacion;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Usuario {
     private String nombreUsuario; 
+    private String email;
     private String clave;
     private TipoUsuario tipo;
 
-   public Usuario (String nombreUsuario, String clave, TipoUsuario tipo){
+   public Usuario (String nombreUsuario, String email, String clave, TipoUsuario tipo){
     this.nombreUsuario = nombreUsuario;
-    this.clave=clave;
-    this.tipo=tipo;
+    this.email = email;
+    this.clave = clave;
+    this.tipo = tipo;
    }
 
    public String getIdUsuario(){
 
        return this.nombreUsuario;
    }
+
+   public String getEmail(){
+
+    return this.email;
+}
 
    public String getClave(){
 

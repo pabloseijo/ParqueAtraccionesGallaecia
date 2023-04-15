@@ -146,7 +146,7 @@ public class TrabajadorDAO extends AbstractDAO{
             stmTrabajadores.setString(1, dni);
             stmTrabajadores.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(HostelerosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
          /**
@@ -164,7 +164,7 @@ public class TrabajadorDAO extends AbstractDAO{
             stmTrabajadores.setString(1, dni);
             stmTrabajadores.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(HostelerosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
          /**
@@ -182,67 +182,11 @@ public class TrabajadorDAO extends AbstractDAO{
             stmTrabajadores.setString(1, dni);
             stmTrabajadores.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(HostelerosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-         /**
-         * Obtiene una lista de todos los trabajadores
-         * 
-         * @return un ArrayList<Trabajador> con todos los trabajadores.
-         */
-    public ArrayList<Trabajador> getTrabajadores() {
-        ArrayList<Trabajador> resultado = new ArrayList<>();
-        ResultSet rsTrabajadores;
-        PreparedStatement stmTrabajadores = null;
-        Connection con;
-        con = super.getConexion();
-
-
-        // Trabajadores Administracion
-        try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresAdministracion order by fechaContratacion");
-            rsTrabajadores = stmTrabajadores.executeQuery();
-            TrabajadorAdministracion trabajador;
-            while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorAdministracion(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Espectaculo"), rsTrabajadores.getString("Atraccion"));
-                resultado.add(trabajador);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        // Trabajadores mantenimiento
-        try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresMantenimiento order by fechaContratacion");
-            rsTrabajadores = stmTrabajadores.executeQuery();
-            TrabajadorMantenimiento trabajador;
-            while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorMantenimiento(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Atraccion"));
-                resultado.add(trabajador);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        // Trabajadores Espectaculo
-        try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresEspectaculo order by fechaContratacion");
-            rsTrabajadores = stmTrabajadores.executeQuery();
-            TrabajadorEspectaculo trabajador;
-            while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorEspectaculo(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Espectaculo"));
-                resultado.add(trabajador);
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return resultado;
-    }
+    
 
          /**
          * Obtiene una lista de todos los trabajadores de administracion.
@@ -257,7 +201,7 @@ public class TrabajadorDAO extends AbstractDAO{
         con = super.getConexion();
 
         try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresAdministracion order by fechaContratacion");
+            stmTrabajadores = con.prepareStatement("SELECT * FROM TrabajadoresAdministracion ORDER BY fechaContratacion");
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorAdministracion trabajador;
             while (rsTrabajadores.next()) {
@@ -285,7 +229,7 @@ public class TrabajadorDAO extends AbstractDAO{
         con = super.getConexion();
 
         try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresMantenimiento order by fechaContratacion");
+            stmTrabajadores = con.prepareStatement("SELECT * FROM TrabajadoresMantenimiento ORDER BY fechaContratacion");
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorMantenimiento trabajador;
             while (rsTrabajadores.next()) {
@@ -312,7 +256,7 @@ public class TrabajadorDAO extends AbstractDAO{
         con = super.getConexion();
 
         try {
-            stmTrabajadores = con.prepareStatement("select * from TrabajadoresEspectaculo order by fechaContratacion");
+            stmTrabajadores = con.prepareStatement("SELECT * FROM TrabajadoresEspectaculo ORDER BY fechaContratacion");
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorEspectaculo trabajador;
             while (rsTrabajadores.next()) {
@@ -326,4 +270,24 @@ public class TrabajadorDAO extends AbstractDAO{
 
         return resultado;
     }
+
+         /**
+         * Obtiene una lista de todos los trabajadores
+         * 
+         * @return un ArrayList<Trabajador> con todos los trabajadores.
+         */
+        public ArrayList<Trabajador> getTrabajadores() {
+            ArrayList<Trabajador> resultado = new ArrayList<>();
+
+            // Trabajadores Administracion
+            resultado.addAll(this.getTrabajadoresAdministracion());
+    
+            // Trabajadores mantenimiento
+            resultado.addAll(this.getTrabajadoresMantenimiento());
+    
+            // Trabajadores Espectaculo
+            resultado.addAll(this.getTrabajadoresEspectaculos());
+    
+            return resultado;
+        }
 }

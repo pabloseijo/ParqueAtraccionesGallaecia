@@ -12,6 +12,7 @@ CREATE DATABASE ParqueAtraccionesGallaecia;
 CREATE TABLE Usuarios (
     ID SERIAL PRIMARY KEY,
     Nombre VARCHAR(50),
+    Email VARCHAR(50),
     Clave VARCHAR(50),
     TipoUsuario VARCHAR(50),
 );

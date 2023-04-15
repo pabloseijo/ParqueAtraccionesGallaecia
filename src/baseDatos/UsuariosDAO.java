@@ -2,6 +2,8 @@ package baseDatos;
 import aplicacion.Usuario;
 import aplicacion.TipoUsuario;
 import java.sql.*;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 
 /**
@@ -35,7 +37,7 @@ public class UsuariosDAO extends AbstractDAO{
 
         try {
           // hacemos la consulta
-        stmUsuario = con.prepareStatement("SELECT Nombre, Clave, TipoUsuario "+
+        stmUsuario = con.prepareStatement("SELECT Nombre, Email, Clave, TipoUsuario "+
                                         "FROM Usuarios "+
                                         "WHERE Nombre = ? and Clave = ?");
         stmUsuario.setString(1, nombreUsuario);
@@ -46,7 +48,7 @@ public class UsuariosDAO extends AbstractDAO{
         // si hay alguno lo almacenamos y los delvemos
         if (rsUsuario.next())
         {
-            resultado = new Usuario(rsUsuario.getString("Nombre"), rsUsuario.getString("Clave"), TipoUsuario.valueOf(rsUsuario.getString("TipoUsuario")));
+            resultado = new Usuario(rsUsuario.getString("Nombre"), rsUsuario.getString("Email"), rsUsuario.getString("Clave"), TipoUsuario.valueOf(rsUsuario.getString("TipoUsuario")));
 
         }
         } catch (SQLException e) {
@@ -64,9 +66,8 @@ public class UsuariosDAO extends AbstractDAO{
      * @param nombreUsuario el nombre del usuario.
      * @param clave la contraseña del usuario.
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return el usuario si existe.
      */
-    public void registrarUsuario(String nombreUsuario, String clave) throws SQLException {
+    public void registrarUsuario(String nombreUsuario, String email, String clave) throws SQLException {
 
       Connection con;
       PreparedStatement stmUsuario = null;
@@ -76,15 +77,75 @@ public class UsuariosDAO extends AbstractDAO{
       // OPCION: añadir a visitantes
 
       // hacemos la transaccion con los datos introducidos
-      stmUsuario = con.prepareStatement("INSERT INTO Usuarios(NombreUsuario, Clave, TipoUsuario)"
-              + "VALUES (?, ?, ?)");
+      stmUsuario = con.prepareStatement("INSERT INTO Usuarios(NombreUsuario, Email, Clave, TipoUsuario)"
+              + "VALUES (?, ?, ?, ?)");
 
       stmUsuario.setString(1, nombreUsuario);
-      stmUsuario.setString(2, clave);
-      stmUsuario.setString(3, "Normal");
+      stmUsuario.setString(2, email);
+      stmUsuario.setString(3, clave);
+      stmUsuario.setString(4, "Normal");
       stmUsuario.executeUpdate();
 
   }
 
+    /**
+     * Cambia la contraseña del usuario
+     * 
+     * @param nombreUsuario el nombre del usuario.
+     * @param claveActual la contraseña actual del usuario.
+     * @param nuevaClave la contraseña futura del usuario.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void cambiarContraseña(String nombreUsuario, String claveActual, String nuevaClave) throws SQLException {
+
+      Connection con;
+      PreparedStatement stmUsuario = null;
+      // establecemos la conexion
+      con = this.getConexion();
+
+      try {
+      // hacemos la transaccion con los datos introducidos
+      stmUsuario = con.prepareStatement("UPDATE Usuarios SET Clave = ? WHERE Nombre = ? and Clave = ?");
+      stmUsuario.setString(1, nuevaClave);
+      stmUsuario.setString(2, nombreUsuario);
+      stmUsuario.setString(3, claveActual);
+      stmUsuario.executeUpdate();
+    } catch (SQLException ex) {
+        Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+  }
    
+
+
+    /**
+     * Cambia el nombre del usuario
+     * 
+     * @param nombreUsuarioActual el nombre actual del usuario.
+     * @param nombreUsuarioFuturo el nombre futuro del usuario.
+     * @param clave la contraseña del usuario.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void cambiarNombre(String nombreUsuarioActual, String nombreUsuarioFuturo, String clave) throws SQLException {
+
+      Connection con;
+      PreparedStatement stmUsuario = null;
+      // establecemos la conexion
+      con = this.getConexion();
+
+      try {
+      // hacemos la transaccion con los datos introducidos
+      stmUsuario = con.prepareStatement("UPDATE Usuarios SET Nombre = ? WHERE Nombre = ? and Clave = ?");
+      stmUsuario.setString(1, nombreUsuarioFuturo);
+      stmUsuario.setString(2, nombreUsuarioActual);
+      stmUsuario.setString(3, clave);
+      stmUsuario.executeUpdate();
+    } catch (SQLException ex) {
+        Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+  }
 }
+
+   
+

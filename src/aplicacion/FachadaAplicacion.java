@@ -9,15 +9,12 @@ public class FachadaAplicacion {
 
     GUI.FachadaGUI fachadaGui;
     baseDatos.FachadaBaseDatos fachadaBd;
-    GestionUsuarios gestionUsuarios;
+
 
     public FachadaAplicacion()  {
         // Inicializamos las fachadas de la bd y gui
         fachadaGui = new GUI.FachadaGUI(this);
         fachadaBd = new baseDatos.FachadaBaseDatos(this);
-
-        // Inicializamos la gestion de usuarios para la autentificacion
-        gestionUsuarios = new GestionUsuarios(fachadaGui, fachadaBd);
     }
     
 
@@ -35,8 +32,8 @@ public class FachadaAplicacion {
         fachadaGui.iniciaVista();
     }
 
-    public Boolean comprobarAutentificacion(String idUsuario, String clave) {
-        return gestionUsuarios.comprobarAutentificacion(idUsuario, clave);
+    public Usuario comprobarAutentificacion(String nombreUsuario, String clave) {
+        return fachadaBd.validarUsuario(nombreUsuario, clave);
       }
 
     
