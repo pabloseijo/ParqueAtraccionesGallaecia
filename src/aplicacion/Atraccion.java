@@ -17,16 +17,16 @@ package aplicacion;
  */
 public class Atraccion {
 
-    private Integer numeroRegistro;
+    private int numeroRegistro;
     private String nombre;
-    private Integer aforo;
-    private Integer alturaMin;
-    private Float costeMantenimiento;
-    private Boolean enReparacion;
+    private int aforo;
+    private int alturaMin;
+    private float costeMantenimiento;
+    private boolean enReparacion;
     private String ubicacion;
     private String descripcion;
 
-    public Atraccion (Integer numeroRegistro, String nombre, Integer aforo, Integer alturaMin, Float costeMantenimiento, Boolean enReparacion, String ubicacion, String descripcion){
+    public Atraccion (int numeroRegistro, String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String ubicacion, String descripcion){
         this.numeroRegistro=numeroRegistro;
         this.nombre=nombre;
         this.aforo=aforo;
@@ -37,7 +37,7 @@ public class Atraccion {
         this.descripcion=descripcion;
     }
 
-    public Integer getNumeroRegistro() {
+    public int getNumeroRegistro() {
         return numeroRegistro;
     }
 
@@ -45,19 +45,19 @@ public class Atraccion {
         return nombre;
     }
 
-    public Integer getAforo() {
+    public int getAforo() {
         return aforo;
     }
 
-    public Integer getAlturaMin() {
+    public int getAlturaMin() {
         return alturaMin;
     }
 
-    public Float getCosteMantenimiento() {
+    public float getCosteMantenimiento() {
         return costeMantenimiento;
     }
 
-    public Boolean getEnReparacion() {
+    public boolean getEnReparacion() {
         return enReparacion;
     }
 

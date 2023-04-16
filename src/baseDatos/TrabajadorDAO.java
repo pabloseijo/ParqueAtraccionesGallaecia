@@ -43,13 +43,13 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param atraccion la atraccion que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-        public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String espectaculo, String atraccion) throws SQLException {
+        public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
             Connection con;
     
             con = super.getConexion();
             
             PreparedStatement stmTrabajador = null;
-            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (dni,nombre,direccion,telefono,fechainicio,fechanacimiento,nombreatraccion,salario) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
             stmTrabajador.setString(1, dni);
             stmTrabajador.setString(2, nombre);
             stmTrabajador.setString(3, direccion);
@@ -58,8 +58,8 @@ public class TrabajadorDAO extends AbstractDAO{
             stmTrabajador.setDate(6, fechaContratacion);
             stmTrabajador.setDate(7, fechaNacimiento);
             stmTrabajador.setString(8, formacion);
-            stmTrabajador.setString(9, espectaculo);
-            stmTrabajador.setString(10, atraccion);
+            stmTrabajador.setInt(9, espectaculo);
+            stmTrabajador.setInt(10, atraccion);
             stmTrabajador.executeUpdate();
             stmTrabajador.close();
         }
@@ -78,23 +78,33 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param atraccion la atraccion que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String atraccion) throws SQLException {
+    public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
         Connection con;
         con = super.getConexion();
         
         PreparedStatement stmTrabajador = null;
-        stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresMantenimiento (dni,nombre,direccion,telefono,fechainicio,fechanacimiento,nombreatraccion,salario) values(?,?,?,?,now(),?,?,?)");
-        stmTrabajador.setString(1, dni);
-        stmTrabajador.setString(2, nombre);
-        stmTrabajador.setString(3, direccion);
-        stmTrabajador.setFloat(4, salario);
-        stmTrabajador.setString(5, telefono);
-        stmTrabajador.setDate(6, fechaContratacion);
-        stmTrabajador.setDate(7, fechaNacimiento);
-        stmTrabajador.setString(8, formacion);
-        stmTrabajador.setString(9, atraccion);
-        stmTrabajador.executeUpdate();
-        stmTrabajador.close();
+        try {
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresMantenimiento (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador.setString(1, dni);
+            stmTrabajador.setString(2, nombre);
+            stmTrabajador.setString(3, direccion);
+            stmTrabajador.setFloat(4, salario);
+            stmTrabajador.setString(5, telefono);
+            stmTrabajador.setDate(6, fechaContratacion);
+            stmTrabajador.setDate(7, fechaNacimiento);
+            stmTrabajador.setString(8, formacion);
+            stmTrabajador.setInt(10, atraccion);
+            stmTrabajador.executeUpdate();
+            stmTrabajador.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajador.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
     }
 
          /**
@@ -111,78 +121,113 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param espectaculo el espectaculo que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, String espectaculo) throws SQLException {
+    public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
         Connection con;
 
         con = super.getConexion();
         
         PreparedStatement stmTrabajador = null;
-        stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresEspectaculo (dni,nombre,direccion,telefono,fechainicio,fechanacimiento,nombreatraccion,salario) values(?,?,?,?,now(),?,?,?)");
-        stmTrabajador.setString(1, dni);
-        stmTrabajador.setString(2, nombre);
-        stmTrabajador.setString(3, direccion);
-        stmTrabajador.setFloat(4, salario);
-        stmTrabajador.setString(5, telefono);
-        stmTrabajador.setDate(6, fechaContratacion);
-        stmTrabajador.setDate(7, fechaNacimiento);
-        stmTrabajador.setString(8, formacion);
-        stmTrabajador.setString(9, espectaculo);
-        stmTrabajador.executeUpdate();
-        stmTrabajador.close();
+        try {
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador.setString(1, dni);
+            stmTrabajador.setString(2, nombre);
+            stmTrabajador.setString(3, direccion);
+            stmTrabajador.setFloat(4, salario);
+            stmTrabajador.setString(5, telefono);
+            stmTrabajador.setDate(6, fechaContratacion);
+            stmTrabajador.setDate(7, fechaNacimiento);
+            stmTrabajador.setString(8, formacion);
+            stmTrabajador.setInt(9, espectaculo);
+            stmTrabajador.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+                try {
+                stmTrabajador.close();
+                } catch (SQLException e) {
+                    System.out.println("Imposible cerrar cursores");
+                }
+            }
+ 
     }
 
          /**
          * Despide a un trabajador de administracion
          * 
          * @param dni el dni del trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void despedirTrabajadorAdministracion(String dni) {
+    public void despedirTrabajadorAdministracion(String dni) throws SQLException {
 
-        PreparedStatement stmTrabajadores = null;
+        PreparedStatement stmTrabajador = null;
         Connection con;
         con = super.getConexion();
         try {
-            stmTrabajadores = con.prepareStatement("DELETE from TrabajadoresAdministracion where DNI = ?");
-            stmTrabajadores.setString(1, dni);
-            stmTrabajadores.executeUpdate();
+            stmTrabajador = con.prepareStatement("DELETE from TrabajadoresAdministracion where DNI = ?");
+            stmTrabajador.setString(1, dni);
+            stmTrabajador.executeUpdate();
+            stmTrabajador.close();
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajador.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
+
+  
     }
          /**
          * Despide a un trabajador de mantenimiento
          * 
          * @param dni el dni del trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void despedirTrabajadorMantenimiento(String dni) {
+    public void despedirTrabajadorMantenimiento(String dni) throws SQLException {
 
-        PreparedStatement stmTrabajadores = null;
+        PreparedStatement stmTrabajador = null;
         Connection con;
         con = super.getConexion();
         try {
-            stmTrabajadores = con.prepareStatement("DELETE from TrabajadoresMantenimiento where DNI = ?");
-            stmTrabajadores.setString(1, dni);
-            stmTrabajadores.executeUpdate();
+            stmTrabajador = con.prepareStatement("DELETE from TrabajadoresMantenimiento where DNI = ?");
+            stmTrabajador.setString(1, dni);
+            stmTrabajador.executeUpdate();
+            stmTrabajador.close();
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajador.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
     }
          /**
          * Despide a un trabajador de espectaculos
          * 
          * @param dni el dni del trabajador.
+         * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void despedirTrabajadorEspectaculo(String dni) {
+    public void despedirTrabajadorEspectaculo(String dni) throws SQLException {
 
-        PreparedStatement stmTrabajadores = null;
+        PreparedStatement stmTrabajador = null;
         Connection con;
         con = super.getConexion();
         try {
-            stmTrabajadores = con.prepareStatement("DELETE from TrabajadoresEspectaculo where DNI = ?");
-            stmTrabajadores.setString(1, dni);
-            stmTrabajadores.executeUpdate();
+            stmTrabajador = con.prepareStatement("DELETE from TrabajadoresEspectaculo where DNI = ?");
+            stmTrabajador.setString(1, dni);
+            stmTrabajador.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajador.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
     }
 
@@ -191,9 +236,10 @@ public class TrabajadorDAO extends AbstractDAO{
          /**
          * Obtiene una lista de todos los trabajadores de administracion.
          * 
+         * @throws SQLException si hay un error al acceder a la base de datos
          * @return un ArrayList<TrabajadorAdministracion> con todos los trabajadores de administracion.
          */
-    public ArrayList<TrabajadorAdministracion> getTrabajadoresAdministracion() {
+    public ArrayList<TrabajadorAdministracion> getTrabajadoresAdministracion() throws SQLException {
         ArrayList<TrabajadorAdministracion> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
         PreparedStatement stmTrabajadores = null;
@@ -205,12 +251,17 @@ public class TrabajadorDAO extends AbstractDAO{
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorAdministracion trabajador;
             while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorAdministracion(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Espectaculo"), rsTrabajadores.getString("Atraccion"));
+                trabajador = new TrabajadorAdministracion(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getDate("fechaContratacion"), rsTrabajadores.getDate("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getInt("Espectaculo"), rsTrabajadores.getInt("Atraccion"));
                 resultado.add(trabajador);
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajadores.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
 
         return resultado;
@@ -219,9 +270,10 @@ public class TrabajadorDAO extends AbstractDAO{
     /**
     * Obtiene una lista de todos los trabajadores de mantenimiento.
     * 
+    * @throws SQLException si hay un error al acceder a la base de datos
     * @return un ArrayList<TrabajadorMantenimiento> con todos los trabajadores de mantenimiento.
     */
-    public ArrayList<TrabajadorMantenimiento> getTrabajadoresMantenimiento() {
+    public ArrayList<TrabajadorMantenimiento> getTrabajadoresMantenimiento() throws SQLException {
         ArrayList<TrabajadorMantenimiento> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
         PreparedStatement stmTrabajadores = null;
@@ -233,12 +285,18 @@ public class TrabajadorDAO extends AbstractDAO{
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorMantenimiento trabajador;
             while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorMantenimiento(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Atraccion"));
+                trabajador = new TrabajadorMantenimiento(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getDate("fechaContratacion"), rsTrabajadores.getDate("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getInt("Atraccion"));
                 resultado.add(trabajador);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajadores.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
 
         return resultado;
@@ -246,9 +304,10 @@ public class TrabajadorDAO extends AbstractDAO{
     /**
     * Obtiene una lista de todos los trabajadores de espectaculos.
     * 
+    * @throws SQLException si hay un error al acceder a la base de datos
     * @return un ArrayList<TrabajadorEspectaculo> con todos los trabajadores de espectaculos.
     */
-    public ArrayList<TrabajadorEspectaculo> getTrabajadoresEspectaculos() {
+    public ArrayList<TrabajadorEspectaculo> getTrabajadoresEspectaculos() throws SQLException {
         ArrayList<TrabajadorEspectaculo> resultado = new ArrayList<>();
         ResultSet rsTrabajadores;
         PreparedStatement stmTrabajadores = null;
@@ -260,12 +319,18 @@ public class TrabajadorDAO extends AbstractDAO{
             rsTrabajadores = stmTrabajadores.executeQuery();
             TrabajadorEspectaculo trabajador;
             while (rsTrabajadores.next()) {
-                trabajador = new TrabajadorEspectaculo(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getString("fechaContratacion"), rsTrabajadores.getString("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getString("Espectaculo"));
+                trabajador = new TrabajadorEspectaculo(rsTrabajadores.getString("DNI"), rsTrabajadores.getString("Nombre"), rsTrabajadores.getString("Direccion"), rsTrabajadores.getFloat("Salario"), rsTrabajadores.getString("Telefono"), rsTrabajadores.getDate("fechaContratacion"), rsTrabajadores.getDate("fechaNacimiento"), rsTrabajadores.getString("Formacion"), rsTrabajadores.getInt("Espectaculo"));
                 resultado.add(trabajador);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+            stmTrabajadores.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
         }
 
         return resultado;
@@ -274,9 +339,10 @@ public class TrabajadorDAO extends AbstractDAO{
          /**
          * Obtiene una lista de todos los trabajadores
          * 
+         * @throws SQLException si hay un error al acceder a la base de datos
          * @return un ArrayList<Trabajador> con todos los trabajadores.
          */
-        public ArrayList<Trabajador> getTrabajadores() {
+        public ArrayList<Trabajador> getTrabajadores() throws SQLException {
             ArrayList<Trabajador> resultado = new ArrayList<>();
 
             // Trabajadores Administracion

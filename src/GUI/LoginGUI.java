@@ -25,6 +25,8 @@ public class LoginGUI extends JDialog{
     private JPasswordField PasswordTextField;
 
     // Importante fachada para validar usuario
+    // QUITAR PADRE, ESTA ES LA PRIMERA VENTANA
+    // ******************************
     public LoginGUI (JFrame parent, aplicacion.FachadaAplicacion fachadaAplicacion) {
       super(parent);
       //ponemos el titulo de la pestaña

@@ -4,14 +4,16 @@
  */
 package aplicacion;
 
+import java.sql.Date;
+
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class TrabajadorEspectaculo extends Trabajador {
-    private String nombreEspectaculo;
+    private int espectaculo;
 
-    public TrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreEspectaculo, String formacion) {
+    public TrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaInicio, Date fechaNacimiento, String formacion, int espectaculo) {
         super.setDni(dni);
         super.setNombre(nombre);
         super.setDireccion(direccion);
@@ -19,20 +21,20 @@ public class TrabajadorEspectaculo extends Trabajador {
         super.setTelefono(telefono);
         super.setFechaInicio(fechaInicio);
         super.setFechaNacimiento(fechaNacimiento);
-        this.nombreEspectaculo = nombreEspectaculo;
         super.setFormacion(formacion);
+        this.espectaculo = espectaculo;
     }
 
     //Getters
 
-    public String getNombreEspectaculo() {
-        return nombreEspectaculo;
+    public int getEspectaculo() {
+        return espectaculo;
     }
 
 
     // Setters
-    public void setNombreEspectaculo(String nombreEspectaculo) {
-        this.nombreEspectaculo = nombreEspectaculo;
+    public void setEspectaculo(int espectaculo) {
+        this.espectaculo = espectaculo;
     }
     
 }

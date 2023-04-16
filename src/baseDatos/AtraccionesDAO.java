@@ -16,6 +16,7 @@ import aplicacion.TrabajadorMantenimiento;
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
+
 public class AtraccionesDAO extends AbstractDAO{
 
     public AtraccionesDAO (Connection conexion, aplicacion.FachadaAplicacion fa){
@@ -23,7 +24,13 @@ public class AtraccionesDAO extends AbstractDAO{
         super.setFachadaAplicacion(fa);
     }
 
-    public java.util.List<Atraccion> consultarAtracciones(){
+    /**
+    * Obtiene una lista de todos las atracciones.
+    * 
+    * @throws SQLException si hay un error al acceder a la base de datos
+    * @return un ArrayList<Atraccion> con todas las atracciones.
+    */
+    public java.util.List<Atraccion> consultarAtracciones() throws SQLException{
         java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
         Atraccion atraccionActual;
         Connection con;

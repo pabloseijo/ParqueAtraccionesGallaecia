@@ -20,14 +20,21 @@ public class EspectaculosDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
-    public java.util.List<Espectaculo> consultarEspectaculos(){
+
+    /**
+    * Obtiene una lista de todos los espectaculos.
+    * 
+    * @throws SQLException si hay un error al acceder a la base de datos
+    * @return un ArrayList<Espectaculo> con todos los espectaculos.
+    */
+    public java.util.List<Espectaculo> consultarEspectaculos() throws SQLException {
         java.util.List<Espectaculo> resultado = new java.util.ArrayList<Espectaculo>();
         Espectaculo espectaculoActual;
         Connection con;
-        PreparedStatement stmEspectaculos=null;
+        PreparedStatement stmEspectaculos = null;
         ResultSet rsEspectaculos;
 
-        con=this.getConexion();
+        con = this.getConexion();
 
         try  {
         stmEspectaculos=con.prepareStatement("select ID, Nombre, Sesion, HorarioInicio, HorarioFin, Tematica, Descripcion, Ubicacion from Espectaculos");

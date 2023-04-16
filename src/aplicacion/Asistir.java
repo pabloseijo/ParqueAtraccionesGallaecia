@@ -10,12 +10,14 @@ package aplicacion;
  * 
  */
 public class Asistir {
-    private String visitante, fecha, espectaculo;
+    private String visitante;
+    private String fecha;
+    private int espectaculo;
  
-    public Asistir(String dni, String fecha, String nombreEspectaculo) {
+    public Asistir(String dni, String fecha, int espectaculo) {
         this.visitante = dni;
         this.fecha = fecha;
-        this.espectaculo = nombreEspectaculo;
+        this.espectaculo = espectaculo;
     }
 
     public String getVisitante() {
@@ -26,7 +28,7 @@ public class Asistir {
         return fecha;
     }
 
-    public String getEspectaculo() {
+    public int getEspectaculo() {
         return espectaculo;
     }
 
@@ -38,8 +40,8 @@ public class Asistir {
         this.fecha = fecha;
     }
 
-    public void setEspectaculo(String nombreEspectaculo) {
-        this.espectaculo = nombreEspectaculo;
+    public void setEspectaculo(int espectaculo) {
+        this.espectaculo = espectaculo;
     }
 
    

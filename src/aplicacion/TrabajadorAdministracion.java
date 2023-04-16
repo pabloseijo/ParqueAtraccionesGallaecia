@@ -4,14 +4,17 @@
  */
 package aplicacion;
 
+import java.sql.Date;
+
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class TrabajadorAdministracion extends Trabajador {
-    private String nombreEspectaculo, nombreAtraccion;
+    private int espectaculo;
+    private int atraccion;
 
-    public TrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, String fechaInicio, String fechaNacimiento, String nombreEspectaculo, String nombreAtraccion, String formacion) {
+    public TrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaInicio, Date fechaNacimiento, String formacion, int espectaculo, int atraccion) {
         super.setDni(dni);
         super.setNombre(nombre);
         super.setDireccion(direccion);
@@ -19,28 +22,28 @@ public class TrabajadorAdministracion extends Trabajador {
         super.setTelefono(telefono);
         super.setFechaInicio(fechaInicio);
         super.setFechaNacimiento(fechaNacimiento);
-        this.nombreAtraccion = nombreAtraccion;
-        this.nombreEspectaculo = nombreEspectaculo;
         super.setFormacion(formacion);
+        this.atraccion = atraccion;
+        this.espectaculo = espectaculo;
     }
 
     // Getters 
-    public String getNombreEspectaculo() {
-        return nombreEspectaculo;
+    public int getEspectaculo() {
+        return espectaculo;
     }
 
-    public String getNombreAtraccion() {
-        return nombreAtraccion;
+    public int getAtraccion() {
+        return atraccion;
     }
 
     // Setters 
 
-    public void setNombreEspectaculo(String nombreEspectaculo) {
-        this.nombreEspectaculo = nombreEspectaculo;
+    public void setEspectaculo(int espectaculo) {
+        this.espectaculo = espectaculo;
     }
 
-    public void setNombreAtraccion(String nombreAtraccion) {
-        this.nombreAtraccion = nombreAtraccion;
+    public void setAtraccion(int atraccion) {
+        this.atraccion = atraccion;
     }
     
 }

@@ -1,0 +1,2 @@
+# Parque de Atracciones Gallaecia
+El objetivo de este proyecto es la realización de una aplicación para un parque de atracciones llamado Gallaecia, en la cúal incluiremos una base de datos que registrará diversos elementos y una interfaz de usuario con la que se podrá acceder y modificar estos valores. Este proyecto se realizará en Java empleando JDBC para la conexión con la base de datos y Swing para la realización de la interfaz gráfica.

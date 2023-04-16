@@ -34,7 +34,10 @@ CREATE TABLE Visitantes (
     DNI CHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     correoElectronico VARCHAR(50),
-    fechaNacimiento DATE
+    fechaNacimiento DATE,
+    Altura INTEGER,
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
+
 );
 
 --Creación de la tabla Hosteleria

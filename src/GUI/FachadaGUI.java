@@ -17,11 +17,11 @@ public class FachadaGUI {
     
     // Esto hace que se inicie la ventana de autentifcacion 
     public void iniciaVista(){
-      LoginGUI va;
+      LoginGUI vAutentificacion;
     
       // Iniciar login y ventana inicial
 
-    //   va = new LoginGUI(vp, true, fa);
+    // vAutentificacion = new LoginGUI(vp, fachadaAplicacion);
     //   vp.setVisible(true);
     //   va.setVisible(true);
     } 

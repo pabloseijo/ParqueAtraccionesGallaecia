@@ -10,7 +10,7 @@ package aplicacion;
  */
 public class Espectaculo {
 
-    private Integer id;
+    private int id;
     private String nombre;
     private String sesion;
     private String horaInicio;
@@ -19,7 +19,7 @@ public class Espectaculo {
     private String descripcion;
     private String ubicacion;
 
-    public Espectaculo(Integer id, String nombre, String sesion, String horaInicio, String horaFin, String tematica, String descripcion, String ubicacion) {
+    public Espectaculo(int id, String nombre, String sesion, String horaInicio, String horaFin, String tematica, String descripcion, String ubicacion) {
         this.id = id;
         this.nombre = nombre;
         this.sesion = sesion;
@@ -30,7 +30,7 @@ public class Espectaculo {
         this.ubicacion = ubicacion;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

@@ -1,9 +1,21 @@
 package aplicacion;
 
+import java.sql.Date;
+
+/**
+ *
+ * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
+ */
+
 public abstract class Trabajador {
-    private String dni, nombre, direccion;
+    private String dni; 
+    private String nombre;
+    private String direccion;
     private float salario;
-    private String telefono, fechaInicio, fechaNacimiento, formacion;
+    private String telefono;
+    private String formacion;
+    private Date fechaInicio;
+    private Date fechaNacimiento;
 
     public String getDni() {
         return dni;
@@ -25,11 +37,11 @@ public abstract class Trabajador {
         return telefono;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -59,11 +71,11 @@ public abstract class Trabajador {
         this.telefono = telefono;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     

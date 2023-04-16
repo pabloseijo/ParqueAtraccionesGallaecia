@@ -27,30 +27,30 @@ public class UsuariosDAO extends AbstractDAO{
      * @return el usuario si existe.
      */
     public Usuario validarUsuario(String nombreUsuario, String clave){
-        Usuario resultado=null;
+        Usuario resultado = null;
         Connection con;
-        PreparedStatement stmUsuario=null;
+        PreparedStatement stmUsuario = null;
         ResultSet rsUsuario;
 
          // establecemos la conexion
         con = this.getConexion();
 
         try {
-          // hacemos la consulta
-        stmUsuario = con.prepareStatement("SELECT Nombre, Email, Clave, TipoUsuario "+
-                                        "FROM Usuarios "+
-                                        "WHERE Nombre = ? and Clave = ?");
-        stmUsuario.setString(1, nombreUsuario);
-        stmUsuario.setString(2, clave);
+            // hacemos la consulta
+          stmUsuario = con.prepareStatement("SELECT Nombre, Email, Clave, TipoUsuario "+
+                                          "FROM Usuarios "+
+                                          "WHERE Nombre = ? and Clave = ?");
+          stmUsuario.setString(1, nombreUsuario);
+          stmUsuario.setString(2, clave);
 
-        rsUsuario = stmUsuario.executeQuery();
+          rsUsuario = stmUsuario.executeQuery();
 
-        // si hay alguno lo almacenamos y los delvemos
-        if (rsUsuario.next())
-        {
-            resultado = new Usuario(rsUsuario.getString("Nombre"), rsUsuario.getString("Email"), rsUsuario.getString("Clave"), TipoUsuario.valueOf(rsUsuario.getString("TipoUsuario")));
+          // si hay alguno lo almacenamos y los delvemos
+          if (rsUsuario.next())
+          {
+              resultado = new Usuario(rsUsuario.getString("Nombre"), rsUsuario.getString("Email"), rsUsuario.getString("Clave"), TipoUsuario.valueOf(rsUsuario.getString("TipoUsuario")));
 
-        }
+          }
         } catch (SQLException e) {
           System.out.println(e.getMessage());
         } finally {
@@ -77,14 +77,24 @@ public class UsuariosDAO extends AbstractDAO{
       // OPCION: añadir a visitantes
 
       // hacemos la transaccion con los datos introducidos
-      stmUsuario = con.prepareStatement("INSERT INTO Usuarios(NombreUsuario, Email, Clave, TipoUsuario)"
-              + "VALUES (?, ?, ?, ?)");
+      try {
+        stmUsuario = con.prepareStatement("INSERT INTO Usuarios(NombreUsuario, Email, Clave, TipoUsuario)"
+                + "VALUES (?, ?, ?, ?)");
 
-      stmUsuario.setString(1, nombreUsuario);
-      stmUsuario.setString(2, email);
-      stmUsuario.setString(3, clave);
-      stmUsuario.setString(4, "Normal");
-      stmUsuario.executeUpdate();
+        stmUsuario.setString(1, nombreUsuario);
+        stmUsuario.setString(2, email);
+        stmUsuario.setString(3, clave);
+        stmUsuario.setString(4, "Normal");
+        stmUsuario.executeUpdate();
+      } catch (SQLException ex) {
+        Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+      try {
+      stmUsuario.close();
+      } catch (SQLException e) {
+          System.out.println("Imposible cerrar cursores");
+      }
+    }
 
   }
 
@@ -112,6 +122,12 @@ public class UsuariosDAO extends AbstractDAO{
       stmUsuario.executeUpdate();
     } catch (SQLException ex) {
         Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+      try {
+      stmUsuario.close();
+      } catch (SQLException e) {
+          System.out.println("Imposible cerrar cursores");
+      }
     }
 
   }
@@ -142,7 +158,13 @@ public class UsuariosDAO extends AbstractDAO{
       stmUsuario.executeUpdate();
     } catch (SQLException ex) {
         Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    } finally {
+      try {
+      stmUsuario.close();
+      } catch (SQLException e) {
+          System.out.println("Imposible cerrar cursores");
+      }
+  }
 
   }
 }
