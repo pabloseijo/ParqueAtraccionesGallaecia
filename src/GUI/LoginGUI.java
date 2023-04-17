@@ -52,15 +52,15 @@ public class LoginGUI extends JDialog{
                 Usuario usuarioComprobacion = fachadaAplicacion.comprobarAutentificacion(usuario, contraseña);
                 
                 // Si encuentra un usuario válido
-                if( (usuarioComprobacion.getTipoUsuario().equals("Administrador")) ){
+                if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
                     // lanzamos menuAdministrador
                     // dispose();
                 }
-                else if( (usuarioComprobacion.getTipoUsuario().equals("Normal")) ){
+                else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
                     // lanzamos menuUsuario
    
                 }
-                else{
+                else {
                     //Si el usuario es null se muestra un mensaje de error
                     JOptionPane.showMessageDialog(LoginGUI.this,
                             "Usuario o Contraseña Incorrectos","Intentelo de Nuevo",
