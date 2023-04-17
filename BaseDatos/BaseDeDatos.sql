@@ -7,14 +7,13 @@ CREATE DATABASE ParqueAtraccionesGallaecia;
 
 --Conexión a la base de datos
 
-
 --Creación de la tabla Usuarios
 CREATE TABLE Usuarios (
     ID SERIAL PRIMARY KEY,
     Nombre VARCHAR(50),
     Email VARCHAR(50),
     Clave VARCHAR(50),
-    TipoUsuario VARCHAR(50),
+    TipoUsuario VARCHAR(50)
 );
 
 --Creación de la tabla Espectaculos
@@ -22,8 +21,8 @@ CREATE TABLE Espectaculos (
     ID SERIAL PRIMARY KEY,
     Nombre VARCHAR(50),
     Sesion VARCHAR(50),
-    HorarioInicio TIME,
-    HorarioFin TIME,
+    HoraInicio TIME,
+    HoraFin TIME,
     Tematica VARCHAR(50),
     Descripcion VARCHAR(100),
     Ubicacion VARCHAR(50)
@@ -34,10 +33,7 @@ CREATE TABLE Visitantes (
     DNI CHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
     correoElectronico VARCHAR(50),
-    fechaNacimiento DATE,
-    Altura INTEGER,
-    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
-
+    fechaNacimiento DATE
 );
 
 --Creación de la tabla Hosteleria
@@ -57,7 +53,7 @@ CREATE TABLE Atracciones (
     Nombre VARCHAR(50),
     Aforo INTEGER,
     AlturaMin INTEGER,
-    CosteMantenimiento INTEGER,
+    CosteMantenimiento FLOAT,
     EnReparacion BOOLEAN,
     Ubicaciones VARCHAR(50),
     Descripcion VARCHAR(200)
@@ -89,7 +85,6 @@ CREATE TABLE Asistir (
     FOREIGN KEY (Visitante) REFERENCES Visitantes (DNI) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Espectaculo) REFERENCES Espectaculos (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 --Creación de una función que devuelve los años transcurridos desde una fecha, para poder hacer los atributos calculados de edad y tiempoTrabajando de los empleados
 CREATE OR REPLACE FUNCTION get_time( inicio DATE )
 RETURNS INTEGER
