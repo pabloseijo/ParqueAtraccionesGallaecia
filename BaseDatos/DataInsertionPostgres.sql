@@ -2,8 +2,6 @@
 --Autores: Miguel Leal, Pablo Lobato, Manuel Estévez, Pablo Seijo
 --Fecha: 12/abr/2023
 
-
-
 -- Insertamos dentro de la tabla de espectaculos los valores de los espectaculos
 INSERT INTO Espectaculos (Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion) 
 VALUES 
@@ -56,23 +54,23 @@ VALUES
 
 -- Insertamos dentro de la tabla de Atracciones los valores de las atracciones
 INSERT INTO Atracciones (Nombre, Aforo, AlturaMin, CosteMantenimiento, EnReparacion, Ubicaciones, Descripcion) VALUES 
-  ("Montaña rusa del dragón", 30, 120, 10000, 0, "norte", "Una emocionante montaña rusa con giros y caídas vertiginosas"),
-  ("La torre del terror", 20, 140, 8000, 0, "sur", "Una atracción que simula una caída libre desde una gran altura"),
-  ("La noria gigante", 40, 80, 5000, 0, "este", "Una noria con vistas panorámicas de todo el parque"),
-  ("La casa embrujada", 15, 110, 12000, 0, "oeste", "Un oscuro y espeluznante recorrido por una casa encantada"),
-  ("La rueda de la fortuna", 35, 70, 7000, 0, "norte", "Una gran rueda con vistas al parque y sus alrededores"),
-  ("La montaña rusa de la serpiente", 25, 130, 9000, 0, "sur", "Una montaña rusa con loops y giros intensos"),
-  ("El carrusel de los caballos", 30, 90, 4000, 0, "este", "Un clásico carrusel con caballos decorativos"),
-  ("El tiovivo de las mariposas", 20, 100, 4500, 0, "oeste", "Un tiovivo con asientos con forma de mariposas"),
-  ("El laberinto del minotauro", 10, 150, 15000, 0, "norte", "Un laberinto lleno de sorpresas y peligros"),
-  ("La atracción acuática del pulpo", 30, 110, 10000, 0, "sur", "Una atracción que simula un paseo en bote por aguas turbulentas"),
-  ("La torre de la emoción", 15, 160, 12000, 0, "este", "Una torre que sube y baja a gran velocidad"),
-  ("El castillo encantado", 20, 120, 8000, 0, "oeste", "Un castillo lleno de trampas y sorpresas"),
-  ("El tren fantasma", 25, 100, 7000, 0, "norte", "Un recorrido en un tren a través de un túnel de terror"),
-  ("La montaña rusa de la cobra", 30, 135, 9000, 0, "sur", "Una montaña rusa con caídas y curvas vertiginosas");
+  ('Montaña rusa del dragón', 30, 120, 10000, false, 'norte', 'Una emocionante montaña rusa con giros y caídas vertiginosas'),
+  ('La torre del terror', 20, 140, 8000, false, 'sur', 'Una atracción que simula una caída libre desde una gran altura'),
+  ('La noria gigante', 40, 80, 5000, false, 'este', 'Una noria con vistas panorámicas de todo el parque'),
+  ('La casa embrujada', 15, 110, 12000, false, 'oeste', 'Un oscuro y espeluznante recorrido por una casa encantada'),
+  ('La rueda de la fortuna', 35, 70, 7000, false, 'norte', 'Una gran rueda con vistas al parque y sus alrededores'),
+  ('La montaña rusa de la serpiente', 25, 130, 9000, false, 'sur', 'Una montaña rusa con loops y giros intensos'),
+  ('El carrusel de los caballos', 30, 90, 4000, false, 'este', 'Un clásico carrusel con caballos decorativos'),
+  ('El tiovivo de las mariposas', 20, 100, 4500, false, 'oeste', 'Un tiovivo con asientos con forma de mariposas'),
+  ('El laberinto del minotauro', 10, 150, 15000, false, 'norte', 'Un laberinto lleno de sorpresas y peligros'),
+  ('La atracción acuática del pulpo', 30, 110, 10000, false, 'sur', 'Una atracción que simula un paseo en bote por aguas turbulentas'),
+  ('La torre de la emoción', 15, 160, 12000, false, 'este', 'Una torre que sube y baja a gran velocidad'),
+  ('El castillo encantado', 20, 120, 8000, false, 'oeste', 'Un castillo lleno de trampas y sorpresas'),
+  ('El tren fantasma', 25, 100, 7000, false, 'norte', 'Un recorrido en un tren a través de un túnel de terror'),
+  ('La montaña rusa de la cobra', 30, 135, 9000, false, 'sur', 'Una montaña rusa con caídas y curvas vertiginosas');
  
 -- Insertamos dentro de la tabla Ir los valores de las visitas de los visitantes a las atracciones
-INSERT INTO Ir (Fecha, Visitante, Atraccion) VALUES 
+INSERT INTO Ir (FechaVisita, Visitante, Atraccion) VALUES 
 ('2023-04-01', '34589123A', 4),
 ('2023-04-02', '26347819B', 12),
 ('2023-04-02', '16749235C', 9),
@@ -80,10 +78,10 @@ INSERT INTO Ir (Fecha, Visitante, Atraccion) VALUES
 ('2023-04-04', '18563247E', 14),
 ('2023-04-04', '24789153F', 7),
 ('2023-04-05', '43890261G', 1),
-('2023-04-06', '31875492H', 16),
+('2023-04-06', '31875492H', 11),
 ('2023-04-06', '50263489I', 5),
 ('2023-04-07', '12345678J', 8),
-('2023-04-08', '54673821K', 15),
+('2023-04-08', '54673821K', 10),
 ('2023-04-08', '78902345L', 3);
 
 -- Insertamos dentro de la tabla Comer los valores de las visitas de los visitantes a los restaurantes
@@ -113,7 +111,7 @@ VALUES
 
 
 -- Insertamos dentro de la tabla Asistir los valores de las visitas de los visitantes a los espectaculos
-INSERT INTO Asistir (FechaVisita, Visitante, Espectaculos) VALUES
+INSERT INTO Asistir (FechaVisita, Visitante, Espectaculo) VALUES
 ('2022-05-01', '34589123A', 5),
 ('2022-05-01', '26347819B', 8),
 ('2022-05-02', '16749235C', 2),
@@ -134,27 +132,27 @@ INSERT INTO Asistir (FechaVisita, Visitante, Espectaculos) VALUES
 -- Insertamos dentro de la tabla TrabajadoresAdministracion los valores de los trabajdores 
 INSERT INTO TrabajadoresAdministracion (DNI, Nombre, Direccion, Salario, Telefono, fechaContratacion, fechaNacimiento, Formacion, Espectaculo, Atraccion) 
 VALUES 
-('123456789S', 'Juan Pérez', 'Calle Mayor 1 28001 Madrid', 2500.0, 910000000, '2021-01-01', '1995-05-15', 'Ingeniero Informático', 1, 3),
-('234567890C', 'María Rodríguez', 'Calle Ancha 10 28002 Madrid', 2200.0, 910000001, '2020-02-01', '1998-11-20', 'Licenciada en ADE', 2, 5),
-('345678901V', 'Pedro Gómez', 'Calle Estrecha 5 28003 Madrid', 1800.0, 910000002, '2019-03-01', '1990-07-01', 'Diplomado en Empresariales', 3, 2),
-('456789012S', 'Lucía Fernández', 'Calle Pequeña 3 28004 Madrid', 3000.0, 910000003, '2018-04-01', '1985-12-10', 'Licenciada en Derecho', 4, 8),
-('567890123H', 'Diego Sánchez', 'Calle Grande 20 28005 Madrid', 2400.0, 910000004, '2017-05-01', '1992-03-25', 'Ingeniero Industrial', 5, 11),
-('678901234J', 'Ana Martínez', 'Calle Peatonal 7 28006 Madrid', 2800.0, 910000005, '2016-06-01', '1996-09-05', 'Licenciada en Historia del Arte', 6, 10),
-('789012345R', 'Jorge Hernández', 'Calle Comercial 8 28007 Madrid', 2000.0, 910000006, '2015-07-01', '1991-01-30', 'Diplomado en Turismo', 7, 9),
-('890123456Q', 'Sofía González', 'Calle Principal 15 28008 Madrid', 2600.0, 910000007, '2014-08-01', '1988-05-12', 'Ingeniera de Caminos', 8, 14),
-('901234567A', 'Manuel García', 'Calle Larga 12 28009 Madrid', 2300.0, 910000008, '2013-09-01', '1997-10-18', 'Licenciado en Derecho', 9, 17);
+('12345678S', 'Juan Pérez', 'Calle Mayor 1 28001 Madrid', 2500.0, 910000000, '2021-01-01', '1995-05-15', 'Ingeniero Informático', 1, 3),
+('23456789C', 'María Rodríguez', 'Calle Ancha 10 28002 Madrid', 2200.0, 910000001, '2020-02-01', '1998-11-20', 'Licenciada en ADE', 2, 5),
+('34567890V', 'Pedro Gómez', 'Calle Estrecha 5 28003 Madrid', 1800.0, 910000002, '2019-03-01', '1990-07-01', 'Diplomado en Empresariales', 3, 2),
+('45678901S', 'Lucía Fernández', 'Calle Pequeña 3 28004 Madrid', 3000.0, 910000003, '2018-04-01', '1985-12-10', 'Licenciada en Derecho', 4, 8),
+('56789012H', 'Diego Sánchez', 'Calle Grande 20 28005 Madrid', 2400.0, 910000004, '2017-05-01', '1992-03-25', 'Ingeniero Industrial', 5, 11),
+('67890123J', 'Ana Martínez', 'Calle Peatonal 7 28006 Madrid', 2800.0, 910000005, '2016-06-01', '1996-09-05', 'Licenciada en Historia del Arte', 6, 10),
+('78901234R', 'Jorge Hernández', 'Calle Comercial 8 28007 Madrid', 2000.0, 910000006, '2015-07-01', '1991-01-30', 'Diplomado en Turismo', 7, 9),
+('89012345Q', 'Sofía González', 'Calle Principal 15 28008 Madrid', 2600.0, 910000007, '2014-08-01', '1988-05-12', 'Ingeniera de Caminos', 8, 14),
+('90123456A', 'Manuel García', 'Calle Larga 12 28009 Madrid', 2300.0, 910000008, '2013-09-01', '1997-10-18', 'Licenciado en Derecho', 9, 7);
 
 -- Insertamos dentro de la tabla TrabajadoresMantenimiento los valores de los trabajadores 
 INSERT INTO TrabajadoresMantenimiento (DNI, Nombre, Direccion, Salario, Telefono, fechaContratacion, fechaNacimiento, Formacion, Atraccion) 
 VALUES 
-('12345678A', 'Juan Pérez Gómez', 'Calle Mayor 1 28001 Madrid', 2000.00, 912345678, '2018-01-01', '1990-02-03', 'Licenciado en Administración de Empresas', 1, 5),
-('23456789B', 'María Sánchez Martínez', 'Avenida de la Constitución 20 41001 Sevilla', 1500.50, 677889900, '2019-02-01', '1995-11-10', 'Diplomado en Relaciones Laborales', 2, 6),
-('34567890C', 'Antonio García González', 'Calle Real 5 29001 Málaga', 1800.25, 655443322, '2015-04-01', '1985-06-15', 'Graduado en Marketing', 3, 14),
-('45678901D', 'Ana Martínez Sánchez', 'Calle Mayor 10 30001 Murcia', 1900.75, 644332211, '2016-06-01', '1988-09-20', 'Licenciada en Derecho', 5, 4),
-('56789012E', 'David González García', 'Calle de las Flores 2 28002 Madrid', 2100.00, 911223344, '2020-03-01', '1993-08-05', 'Ingeniero en Informática', 4, 16),
-('67890123F', 'Marina López Hernández', 'Calle de la Libertad 15 46001 Valencia', 1700.50, 677889900, '2017-08-01', '1991-12-25', 'Técnica Superior en Administración y Finanzas', 1, 2),
-('78901234G', 'Javier Sánchez Martínez', 'Calle Mayor 8 28001 Madrid', 2200.00, 912345678, '2014-01-01', '1980-07-30', 'Doctor en Economía', 5, 1),
-('89012345H', 'Lucía Rodríguez Ruiz', 'Calle del Sol 4 41002 Sevilla', 1600.25, 655443322, '2013-09-01', '1983-05-08', 'Técnica en Recursos Humanos', 7, 3);
+('12345678A', 'Juan Pérez Gómez', 'Calle Mayor 1 28001 Madrid', 2000.00, 912345678, '2018-01-01', '1990-02-03', 'Licenciado en Administración de Empresas', 5),
+('23456789B', 'María Sánchez Martínez', 'Avenida de la Constitución 20 41001 Sevilla', 1500.50, 677889900, '2019-02-01', '1995-11-10', 'Diplomado en Relaciones Laborales', 6),
+('34567890C', 'Antonio García González', 'Calle Real 5 29001 Málaga', 1800.25, 655443322, '2015-04-01', '1985-06-15', 'Graduado en Marketing', 14),
+('45678901D', 'Ana Martínez Sánchez', 'Calle Mayor 10 30001 Murcia', 1900.75, 644332211, '2016-06-01', '1988-09-20', 'Licenciada en Derecho', 4),
+('56789012E', 'David González García', 'Calle de las Flores 2 28002 Madrid', 2100.00, 911223344, '2020-03-01', '1993-08-05', 'Ingeniero en Informática', 6),
+('67890123F', 'Marina López Hernández', 'Calle de la Libertad 15 46001 Valencia', 1700.50, 677889900, '2017-08-01', '1991-12-25', 'Técnica Superior en Administración y Finanzas', 2),
+('78901234G', 'Javier Sánchez Martínez', 'Calle Mayor 8 28001 Madrid', 2200.00, 912345678, '2014-01-01', '1980-07-30', 'Doctor en Economía', 1),
+('89012345H', 'Lucía Rodríguez Ruiz', 'Calle del Sol 4 41002 Sevilla', 1600.25, 655443322, '2013-09-01', '1983-05-08', 'Técnica en Recursos Humanos', 3);
 
 -- Insertamos dentro de la tabla TrabajadoresEspectaculo los valores de los trabajadores 
 INSERT INTO TrabajadoresEspectaculo (DNI, Nombre, Direccion, Salario, Telefono, fechaContratacion, fechaNacimiento, Formacion, Espectaculo) 
@@ -179,3 +177,4 @@ INSERT INTO Hosteleros (DNI, Nombre, Direccion, Salario, Telefono, fechaContrata
 ('67890123F', 'Lucia Fernandez', 'Calle Corta 7 15001 A Coruna', 1250.0, 967890123, '2015-06-04', '1991-10-15', 'FP Grado Medio', 2),
 ('78901234G', 'Hector Gomez', 'Calle Alta 3 48001 Bilbao', 1350.0, 178901234, '2014-04-03', '1988-02-27', 'FP Grado Superior', 5),
 ('89012345H', 'Sara Sanchez', 'Calle Baja 8 18001 Granada', 1100.0, 289012345, '2013-03-02', '1994-06-20', 'Bachillerato', 3);
+
