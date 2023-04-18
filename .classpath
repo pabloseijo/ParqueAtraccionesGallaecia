@@ -1,0 +1,4 @@
+<classpath>
+    <classpathentry kind="lib" path="lib/postgresql-42.6.0.jar"/>
+    <!-- Add other classpath entries for your project's dependencies, if necessary -->
+</classpath>

@@ -1,4 +1,4 @@
-package Login;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -78,12 +78,6 @@ public class EmployeePage extends JDialog{
 
         //Ponemos que se visualice la ventana
         setVisible(true);
-    }
-
-    public static void main(String[] args){
-        //Creamos la instancia
-        EmployeePage myEmployeePage = new EmployeePage(null);
-
     }
 
 }

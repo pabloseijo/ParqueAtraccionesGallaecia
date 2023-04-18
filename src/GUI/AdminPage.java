@@ -1,4 +1,4 @@
-package Login;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,14 +52,4 @@ public class AdminPage  extends JFrame {
             }
         });
     }
-
-    public static void main(String[] args){
-        //Creamos la instancia
-        AdminPage myAdminPage = new AdminPage();
-
-    }
-
-
-
 }
-

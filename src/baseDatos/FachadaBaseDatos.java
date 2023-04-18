@@ -37,17 +37,22 @@
          this.fachadaAplicacion = fachadaAplicacion;
  
          try {
+            try {
+                Class.forName("org.postgresql.Driver");
+            } catch (ClassNotFoundException ex) {
+                System.out.println("Error");
+            }
             // Propiedades de la base de datos
             String gestor = "postgresql";
             String servidor = "localhost";
             String puerto = "5432";
             String baseDatos = "ParqueAtraccionesGallaecia";
+            String url = "jdbc:postgresql://localhost:5432/parqueatraccionesgallaecia";
 
             String usuario = "alumnogreibd";
             String clave = "greibd2021";
  
-            this.conexion = DriverManager.getConnection("jdbc:"+gestor+"://"+
-                      servidor + ":" + puerto + "/" + baseDatos,
+            this.conexion = DriverManager.getConnection(url,
                       usuario, clave);
  
             // Inicializamos los DAOs

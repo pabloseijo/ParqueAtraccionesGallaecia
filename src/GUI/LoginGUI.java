@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import baseDatos.*;
 import aplicacion.*;
+import GUI.EmployeePage;
+import GUI.AdminPage;
 
 /**
  *
@@ -53,12 +55,10 @@ public class LoginGUI extends JDialog{
                 
                 // Si encuentra un usuario válido
                 if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
-                    // lanzamos menuAdministrador
-                    // dispose();
+                    AdminPage menuAdmin = new AdminPage();
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
-                    // lanzamos menuUsuario
-   
+                    EmployeePage menuUsuario = new EmployeePage(null);
                 }
                 else {
                     //Si el usuario es null se muestra un mensaje de error
