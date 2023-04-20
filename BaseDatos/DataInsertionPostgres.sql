@@ -178,3 +178,4 @@ INSERT INTO Hosteleros (DNI, Nombre, Direccion, Salario, Telefono, fechaContrata
 ('78901234G', 'Hector Gomez', 'Calle Alta 3 48001 Bilbao', 1350.0, 178901234, '2014-04-03', '1988-02-27', 'FP Grado Superior', 5),
 ('89012345H', 'Sara Sanchez', 'Calle Baja 8 18001 Granada', 1100.0, 289012345, '2013-03-02', '1994-06-20', 'Bachillerato', 3);
 
+commit;
