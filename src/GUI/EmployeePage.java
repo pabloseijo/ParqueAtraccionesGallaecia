@@ -13,6 +13,7 @@ public class EmployeePage extends JDialog{
     private JButton SALIRButton;
     private JButton despedirEmpleadosButton;
     private JButton VOLVERButton;
+    private JLabel pulpoMiguel;
 
     public EmployeePage(JFrame parent) {
         super(parent);

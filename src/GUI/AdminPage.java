@@ -13,6 +13,7 @@ public class AdminPage  extends JFrame {
     private JButton ATRACCIONESButton;
     private JButton ESPECTACULOSButton;
     private JButton SALIRButton;
+    private JLabel PulpoMiguel;
 
     public AdminPage(){
         //ponemos el titulo de la pestaña
