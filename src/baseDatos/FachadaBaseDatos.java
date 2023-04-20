@@ -9,6 +9,7 @@
  import java.io.FileInputStream;
  import java.io.FileNotFoundException;
  import java.io.IOException;
+ import java.sql.Date;
  import java.sql.PreparedStatement;
  import java.sql.SQLException;
  import java.sql.DriverManager;
@@ -85,4 +86,15 @@
       return usuariosDAO.validarUsuario(nombreUsuario, clave);
   }
 
+     public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
+        trabajadoresDAO.anhadirTrabajadorAdministracion(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo, atraccion);
+     }
+
+     public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
+         trabajadoresDAO.anhadirTrabajadorMantenimiento(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, atraccion);
+     }
+
+     public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
+         trabajadoresDAO.anhadirTrabajadorEspectaculo(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo);
+     }
 }

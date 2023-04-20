@@ -1,5 +1,7 @@
 package GUI;
 
+import baseDatos.FachadaBaseDatos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,7 @@ public class AdminPage  extends JFrame {
     private JButton SALIRButton;
     private JLabel PulpoMiguel;
 
-    public AdminPage(){
+    public AdminPage(FachadaBaseDatos fachadaBaseDatos){
         //ponemos el titulo de la pestaña
         setTitle("Administrador");
         //Mostramos el panel del .form
@@ -28,7 +30,8 @@ public class AdminPage  extends JFrame {
         EMPLEADOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
+                dispose();
             }
         });
         ATRACCIONESButton.addActionListener(new ActionListener() {

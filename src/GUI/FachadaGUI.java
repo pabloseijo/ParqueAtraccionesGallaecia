@@ -7,9 +7,11 @@ package GUI;
 
 public class FachadaGUI {
     aplicacion.FachadaAplicacion fachadaAplicacion;
+    baseDatos.FachadaBaseDatos fachadaBaseDatos;
     
-   public FachadaGUI(aplicacion.FachadaAplicacion fachadaAplicacion){
+   public FachadaGUI(aplicacion.FachadaAplicacion fachadaAplicacion, baseDatos.FachadaBaseDatos fachadaBaseDatos){
      this.fachadaAplicacion = fachadaAplicacion;
+     this.fachadaBaseDatos = fachadaBaseDatos;
    } 
     
     
@@ -19,7 +21,7 @@ public class FachadaGUI {
     
       // Iniciar login y ventana inicial
 
-      vAutentificacion = new LoginGUI(null, fachadaAplicacion);
+      vAutentificacion = new LoginGUI(null, fachadaAplicacion, fachadaBaseDatos);
     } 
    
 }

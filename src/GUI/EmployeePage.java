@@ -1,11 +1,15 @@
 package GUI;
 
+import baseDatos.FachadaBaseDatos;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import GUI.*;
 
 public class EmployeePage extends JDialog{
+    private FachadaBaseDatos fachadaBaseDatos;
     private JPanel MainPanel;
     private JButton añadirEmpleadoButton;
     private JButton actualizarEmpleadoButton;
@@ -15,8 +19,9 @@ public class EmployeePage extends JDialog{
     private JButton VOLVERButton;
     private JLabel pulpoMiguel;
 
-    public EmployeePage(JFrame parent) {
+    public EmployeePage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         super(parent);
+        this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
         setTitle("Empleados");
         //Mostramos el panel del .form
@@ -42,6 +47,8 @@ public class EmployeePage extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //meter aqui el lazamiento de la pagina siguiente
+                HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                dispose();
             }
         });
 
@@ -73,7 +80,8 @@ public class EmployeePage extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //meter aqui el lazamiento de la pagina anterior
+                AdminPage menuAdmin = new AdminPage(fachadaBaseDatos);
+                dispose();
             }
         });
 

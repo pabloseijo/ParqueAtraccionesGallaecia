@@ -2,6 +2,12 @@
 --Autores: Miguel Leal, Pablo Lobato, Manuel Estévez, Pablo Seijo
 --Fecha: 12/abr/2023
 
+-- Insertamos dentro de la tabla de usuarios
+INSERT INTO Usuarios (Nombre, Email, Clave, TipoUsuario) 
+VALUES
+    ('admin', 'admin@gmail.com', 'admin', 'Administrador'),
+    ('user', 'user@gmail.com', 'user', 'Normal');
+
 -- Insertamos dentro de la tabla de espectaculos los valores de los espectaculos
 INSERT INTO Espectaculos (Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion) 
 VALUES 

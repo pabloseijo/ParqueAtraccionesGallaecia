@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import baseDatos.*;
 
 public class HireEmployee extends JDialog{
+    private FachadaBaseDatos fachadaBaseDatos;
     private JLabel IconoAdmin;
     private JPanel MainPanel;
     private JButton BUSCARButton, VOLVERButton, SALIRButton;
@@ -14,7 +16,7 @@ public class HireEmployee extends JDialog{
     private JTextField HomeDirectionTextField, SalaryTextField, TlfTextField, HireDateTextField, BirthdayTextField, EducationTextField;
     private JLabel pulpoMiguel;
 
-    public HireEmployee(JFrame parent){
+    public HireEmployee(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
         super(parent);
         //ponemos el titulo de la pestaña
         setTitle("HireEmployee");
@@ -39,7 +41,8 @@ public class HireEmployee extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //meter aqui el lanzamiento de la pestaña anterior
+                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
+                dispose();
             }
         });
 
@@ -48,37 +51,32 @@ public class HireEmployee extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Lanza una pestaña que con el nombre y el dni hace una consulta en sql y añade un empleado a la base
-                String DNI = DNITextField.getText();
-                String Name = NameTextField.getText();
-                String Direction = HomeDirectionTextField.getText();
-                String Salary = SalaryTextField.getText(); //todo: castear el salario a float
-                String TelefoneNumber = TlfTextField.getText(); //todo: castear a integer
-                String HireDate = HireDateTextField.getText(); //todo: castear a DATE
-                String BirthDate = BirthdayTextField.getText(); //todo: castear a DATE
-                String Education = EducationTextField.getText();
-
+                String dni = DNITextField.getText();
+                String name = NameTextField.getText();
+                String direction = HomeDirectionTextField.getText();
+                String salary = SalaryTextField.getText(); //todo: castear el salario a float
+                String telefoneNumber = TlfTextField.getText(); //todo: castear a integer
+                String hireDate = HireDateTextField.getText(); //todo: castear a DATE
+                String birthDate = BirthdayTextField.getText(); //todo: castear a DATE
+                String education = EducationTextField.getText();
+                //ANHADIR ATRACCION Y ESPECTACULO
                 //El tipo de empleado (matenimiento...)
                 String Job = JobTextField.getText();
 
                 //Para a asginar a un trabajador un espectaculo o una atraccion podemos hacerlo en update
+                if (Job.equals("Administracion")) {
+                    // fachadaBaseDatos.anhadirTrabajadorAdministracion(dni, name, direction, salary, telefoneNumber, hireDate, birthDate, education);
+                }
+                else if (Job.equals("Mantenimiento")) {
+
+                }
+                else if (Job.equals("Espectaculos")) {
+
+                }
             }
         });
 
         //Ponemos que se visualice la ventana
         setVisible(true);
-    }
-
-    public static void main(String[] args){
-        //Creamos la instancia
-        HireEmployee myLogin = new HireEmployee(null);
-        /*
-        Usuario user = LoginGUI.user
-        if(user != null){
-            System.out.println("Bienvenido a Gallaecia: " + user.Nombre);
-            //ponemos lo siguiente de pasar a la siguiente pestaña
-        }
-        else{
-            System.out.println("Autentificacion cancelada");
-        }*/
     }
 }

@@ -1,6 +1,8 @@
 package aplicacion;
 
 
+import baseDatos.FachadaBaseDatos;
+
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
@@ -13,8 +15,8 @@ public class FachadaAplicacion {
 
     public FachadaAplicacion()  {
         // Inicializamos las fachadas de la bd y gui
-        fachadaGui = new GUI.FachadaGUI(this);
         fachadaBd = new baseDatos.FachadaBaseDatos(this);
+        fachadaGui = new GUI.FachadaGUI(this, this.fachadaBd);
     }
     
 
@@ -26,6 +28,10 @@ public class FachadaAplicacion {
         fachadaAplicacion = new FachadaAplicacion();
         // Lanzamos la primera ventana
         fachadaAplicacion.iniciaInterfazUsuario();
+    }
+
+    public FachadaBaseDatos getFachadaBD() {
+        return this.fachadaBd;
     }
 
     public void iniciaInterfazUsuario() {

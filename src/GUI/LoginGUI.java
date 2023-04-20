@@ -16,7 +16,6 @@ import GUI.AdminPage;
  */
 
 public class LoginGUI extends JDialog{
-    private aplicacion.FachadaAplicacion fachadaAplicacion;
     private JTextField UserTextField;
     private JButton entrarButton;
     private JLabel Usuario;
@@ -29,7 +28,7 @@ public class LoginGUI extends JDialog{
     // Importante fachada para validar usuario
     // QUITAR PADRE, ESTA ES LA PRIMERA VENTANA
     // ******************************
-    public LoginGUI (JFrame parent, aplicacion.FachadaAplicacion fachadaAplicacion) {
+    public LoginGUI (JFrame parent, aplicacion.FachadaAplicacion fachadaAplicacion, FachadaBaseDatos fachadaBaseDatos) {
       super(parent);
       //ponemos el titulo de la pestaña
       setTitle("Login");
@@ -42,8 +41,6 @@ public class LoginGUI extends JDialog{
       setLocationRelativeTo(parent);
       //Esto hace que se cierre al darle a la X
       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-      this.fachadaAplicacion = fachadaAplicacion;
       
       //Añado un actionlistener al boton de entrar para que pueda relaizar la accion de comprobacion de las credenciales
       entrarButton.addActionListener(new ActionListener() {
@@ -55,10 +52,11 @@ public class LoginGUI extends JDialog{
                 
                 // Si encuentra un usuario válido
                 if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
-                    AdminPage menuAdmin = new AdminPage();
+                    AdminPage menuAdmin = new AdminPage(fachadaBaseDatos);
+                    dispose();
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
-                    EmployeePage menuUsuario = new EmployeePage(null);
+
                 }
                 else {
                     //Si el usuario es null se muestra un mensaje de error
