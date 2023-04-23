@@ -47,8 +47,8 @@ public class EmployeePage extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //meter aqui el lazamiento de la pagina siguiente
-                HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
                 dispose();
+                HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
             }
         });
 
@@ -57,6 +57,8 @@ public class EmployeePage extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //meter aqui el lazamiento de la pagina siguiente
+                dispose();
+                FireEmployee ByeByeEmployeeMenu = new FireEmployee(null,fachadaBaseDatos);
             }
         });
 

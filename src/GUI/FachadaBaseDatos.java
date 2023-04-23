@@ -98,4 +98,16 @@
      public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
          trabajadoresDAO.anhadirTrabajadorEspectaculo(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo);
      }
+
+    public void despedirTrabajadorMantenimiento(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorMantenimiento(dni);
+    }
+
+    public void despedirTrabajadorAdministracion(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorAdministracion(dni);
+    }
+
+    public void despedirTrabajadorEspectaculo(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorEspectaculo(dni);
+    }
 }
