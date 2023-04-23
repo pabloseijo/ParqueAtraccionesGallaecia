@@ -17,13 +17,15 @@ public class AdminPage  extends JFrame {
     private JButton SALIRButton;
     private JLabel PulpoMiguel;
 
-    public AdminPage(FachadaBaseDatos fachadaBaseDatos){
+    public AdminPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
         //ponemos el titulo de la pestaña
         setTitle("Administrador");
         //Mostramos el panel del .form
         setContentPane(Panel1);
         //Ponemos el tamaño de la ventana
         setMinimumSize(new Dimension(700,500));
+        //Centramos la pestaña
+        setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 

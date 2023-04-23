@@ -38,8 +38,8 @@ public class EmployeePage extends JDialog{
         SALIRButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            dispose();
-        }
+                dispose();
+            }
         });
 
         //Boton que nos lleva a la pagina de añadir empleado
@@ -80,7 +80,7 @@ public class EmployeePage extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AdminPage menuAdmin = new AdminPage(fachadaBaseDatos);
+                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
                 dispose();
             }
         });
