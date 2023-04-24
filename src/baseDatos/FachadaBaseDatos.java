@@ -6,16 +6,13 @@
  package baseDatos;
 
  import aplicacion.*;
- import java.io.FileInputStream;
- import java.io.FileNotFoundException;
- import java.io.IOException;
+
  import java.sql.Date;
- import java.sql.PreparedStatement;
  import java.sql.SQLException;
  import java.sql.DriverManager;
- import java.util.Properties;
- 
- /**
+ import java.util.ArrayList;
+
+/**
   *
 @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
   */
@@ -25,7 +22,7 @@
      private AtraccionesDAO atraccionesDAO;
      private EspectaculosDAO espectaculosDAO;
      private UsuariosDAO usuariosDAO;
-     private TrabajadorDAO trabajadoresDAO;
+     private static TrabajadorDAO trabajadoresDAO;
      private HosteleriaDAO hosteleriaDAO;
      private IrDAO irDAO;
      private AsistirDAO asistirDAO;
@@ -84,17 +81,45 @@
      */
     public Usuario validarUsuario(String nombreUsuario, String clave){
       return usuariosDAO.validarUsuario(nombreUsuario, clave);
-  }
+    }
 
-     public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
-        trabajadoresDAO.anhadirTrabajadorAdministracion(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo, atraccion);
+
+    /** TRABAJADORES **/
+     public static ArrayList<Trabajador> getTrabajadores() throws SQLException {
+         return trabajadoresDAO.getTrabajadores();
      }
 
-     public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
+     public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
+         trabajadoresDAO.anhadirTrabajadorAdministracion(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo, atraccion);
+     }
+
+     public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
          trabajadoresDAO.anhadirTrabajadorMantenimiento(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, atraccion);
      }
 
-     public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
+     public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
          trabajadoresDAO.anhadirTrabajadorEspectaculo(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, espectaculo);
      }
+
+    public void despedirTrabajadorMantenimiento(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorMantenimiento(dni);
+    }
+
+    public void despedirTrabajadorAdministracion(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorAdministracion(dni);
+    }
+
+    public void despedirTrabajadorEspectaculo(String dni) throws SQLException{
+        trabajadoresDAO.despedirTrabajadorEspectaculo(dni);
+    }
+
+
+    /** ATRACCIONES **/
+    public void eliminarAtraccion(int ID) throws SQLException{
+        atraccionesDAO.eliminarAtraccion(ID);
+    }
+
+    public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String Ubicaciones, String Descripcion) throws SQLException{
+        atraccionesDAO.anhadirAtraccion(nombre, aforo, alturaMin, costeMantenimiento, enReparacion, Ubicaciones, Descripcion);
+    }
 }
