@@ -29,6 +29,7 @@ public class AdminPage  extends JFrame {
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+        //Lanzamos la ventana de empleados
         EMPLEADOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,12 +37,17 @@ public class AdminPage  extends JFrame {
                 dispose();
             }
         });
+
+        //Lanzamos la ventana de atracciones
         ATRACCIONESButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                AttractionPage menuAtracciones = new AttractionPage(null, fachadaBaseDatos);
+                dispose();
             }
         });
+
+        //Lanzamos la ventana de espectaculos
         ESPECTACULOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
