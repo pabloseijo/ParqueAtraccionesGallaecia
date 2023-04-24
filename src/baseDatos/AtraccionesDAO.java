@@ -55,8 +55,78 @@ public class AtraccionesDAO extends AbstractDAO{
         }
         return resultado;
     }
-    
-    
+
+    /**
+     * Obtiene una lista de todos las atracciones.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return elimina la atraccion seleccionada de la base de datos
+     */
+    public void eliminarAtraccion(int ID) throws SQLException{
+
+        //Preparo la variable donde va a estar el statement
+        PreparedStatement stmAtraccion = null;
+
+        //concecto con la base
+        Connection con;
+        con = super.getConexion();
+
+        //intento la consulta y si se cumple la base de datos se actualiza
+        try {
+            stmAtraccion = con.prepareStatement("DELETE from Atracciones where NumeroRegistro = ?");
+            stmAtraccion.setInt(1, ID);
+            stmAtraccion.executeUpdate();
+            stmAtraccion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AtraccionesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmAtraccion.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param nombre el nombre del trabajador.
+     * @param aforo la direccion del trabajador.
+     * @param alturaMin el salario del trabajador.
+     * @param costeMantenimiento el telefono del trabajador.
+     * @param enReparacion la fecha en la que el trabajador empezó a trabajar en el parque.
+     * @param Ubicaciones la fecha en la que el trabajador nació.
+     * @param Descripcion descripcion de los estudios del trabajador.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return añade la atraccion a la base de datos
+     */
+    public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String Ubicaciones, String Descripcion) throws SQLException{
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmAtraccion = null;
+        try {
+            stmAtraccion = con.prepareStatement("INSERT INTO Atracciones (Nombre, Aforo, AlturaMin, CosteMantenimiento, EnReparacion, Ubicaciones, Descripcion) values(?,?,?,?,?,?,?)");
+            stmAtraccion.setString(1, nombre);
+            stmAtraccion.setInt(2, aforo);
+            stmAtraccion.setInt(3, alturaMin);
+            stmAtraccion.setFloat(4, costeMantenimiento);
+            stmAtraccion.setBoolean(5, enReparacion);
+            stmAtraccion.setString(6, Ubicaciones);
+            stmAtraccion.setString(7, Descripcion);
+            stmAtraccion.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AtraccionesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmAtraccion.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
 }
 
    
