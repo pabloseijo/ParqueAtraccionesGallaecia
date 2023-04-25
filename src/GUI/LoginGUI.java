@@ -52,7 +52,7 @@ public class LoginGUI extends JDialog{
                 
                 // Si encuentra un usuario válido
                 if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
-                    AdminPage menuAdmin = new AdminPage(fachadaBaseDatos);
+                    AdminPage menuAdmin = new AdminPage(null, fachadaBaseDatos);
                     dispose();
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
