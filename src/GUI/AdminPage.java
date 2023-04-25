@@ -16,6 +16,7 @@ public class AdminPage  extends JFrame {
     private JButton ESPECTACULOSButton;
     private JButton SALIRButton;
     private JLabel PulpoMiguel;
+    private JButton HOSTELERIAButton;
 
     public AdminPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
         //ponemos el titulo de la pestaña
@@ -51,7 +52,8 @@ public class AdminPage  extends JFrame {
         ESPECTACULOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ShowsPage menuEspectaculos = new ShowsPage(null, fachadaBaseDatos);
+                dispose();
             }
         });
 

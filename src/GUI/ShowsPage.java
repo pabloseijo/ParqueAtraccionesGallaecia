@@ -7,31 +7,31 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AttractionPage extends JDialog {
-
+public class ShowsPage extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
-    private JButton añadirAtraccionButton;
-    private JButton eliminarAtraccionButton;
+    private JPanel MainPanel;
+    private JButton añadirEspectaculoButton;
+    private JButton eliminarEspectaculoButton;
     private JButton SALIRButton;
     private JButton VOLVERButton;
-    private JPanel MainPanel;
 
-    public AttractionPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
+
+    public ShowsPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         super(parent);
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
-        setTitle("Atracciones");
+        setTitle("Espectaculos");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
-        setMinimumSize(new Dimension(700, 500));
+        setMinimumSize(new Dimension(700,500));
         //Centramos la pestaña
         //IMPORTANTE!! La instancia parent se la paso para centrar la pestaña em el centro del ordenador, pero se le pasa null
         setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        //Cierra la plataforma
+        //Boton de salir
         SALIRButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,32 +39,35 @@ public class AttractionPage extends JDialog {
             }
         });
 
-        //Vuelve a la ventana anterior
+        //Boton que nos lleva a la pagina principal de admin
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
+                dispose();
             }
         });
 
-        //Lanza la pestaña de eliminar atraccion
-        eliminarAtraccionButton.addActionListener(new ActionListener() {
+        //Lanzar la ventana de eliminar atraccion
+        eliminarEspectaculoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                DeleteAttraction DeleteAttraction = new DeleteAttraction(null,fachadaBaseDatos);
+                DeleteShow ByeByeShow = new DeleteShow(null,fachadaBaseDatos);
+            }
+        });
+
+        //Lanzar la ventana de añadir atraccion
+        añadirEspectaculoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                AddShow addShow = new AddShow(null,fachadaBaseDatos);
             }
         });
 
         //Ponemos que se visualice la ventana
         setVisible(true);
-        añadirAtraccionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                AddAttraction AddAttraction = new AddAttraction(null,fachadaBaseDatos);
-            }
-        });
+
     }
 }
