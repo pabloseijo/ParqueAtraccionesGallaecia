@@ -57,6 +57,14 @@ public class AdminPage  extends JFrame {
             }
         });
 
+        HOSTELERIAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RestaurantsPage menuHosteleria = new RestaurantsPage(null, fachadaBaseDatos);
+                dispose();
+            }
+        });
+
         //Boton de Cancelar
         setVisible(true);
         SALIRButton.addActionListener(new ActionListener() {
@@ -65,5 +73,6 @@ public class AdminPage  extends JFrame {
                 dispose();
             }
         });
+
     }
 }
