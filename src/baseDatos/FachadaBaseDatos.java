@@ -132,4 +132,14 @@
     public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica, String Descripcion, String Ubicaciones) throws SQLException{
         espectaculosDAO.anhadirEspectaculo(nombre, sesion, horaInicio, horaFin, tematica, Descripcion, Ubicaciones);
     }
+
+
+    /** RESTAURANTES **/
+    public void eliminarRestaurante(int ID) throws SQLException{
+        hosteleriaDAO.eliminarRestaurante(ID);
+    }
+
+    public void anhadirRestaurante(String nombre, int aforo, String Ubicaciones, Time horaApertura, Time horaCierre, float recaudacion) throws SQLException{
+        hosteleriaDAO.anhadirRestaurante(nombre, aforo, Ubicaciones, horaApertura, horaCierre, recaudacion);
+    }
 }
