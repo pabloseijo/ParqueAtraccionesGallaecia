@@ -43,18 +43,18 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param atraccion la atraccion que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-        public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
+        public void anhadirTrabajadorAdministracion(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo, int atraccion) throws SQLException {
             Connection con;
     
             con = super.getConexion();
             
             PreparedStatement stmTrabajador = null;
-            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,?,?,?,?,?,?)");
             stmTrabajador.setString(1, dni);
             stmTrabajador.setString(2, nombre);
             stmTrabajador.setString(3, direccion);
             stmTrabajador.setFloat(4, salario);
-            stmTrabajador.setString(5, telefono);
+            stmTrabajador.setInt(5, telefono);
             stmTrabajador.setDate(6, fechaContratacion);
             stmTrabajador.setDate(7, fechaNacimiento);
             stmTrabajador.setString(8, formacion);
@@ -78,22 +78,22 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param atraccion la atraccion que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
+    public void anhadirTrabajadorMantenimiento(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int atraccion) throws SQLException {
         Connection con;
         con = super.getConexion();
         
         PreparedStatement stmTrabajador = null;
         try {
-            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresMantenimiento (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresMantenimiento (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion, Atraccion) values(?,?,?,?,?,?,?,?,?)");
             stmTrabajador.setString(1, dni);
             stmTrabajador.setString(2, nombre);
             stmTrabajador.setString(3, direccion);
             stmTrabajador.setFloat(4, salario);
-            stmTrabajador.setString(5, telefono);
+            stmTrabajador.setInt(5, telefono);
             stmTrabajador.setDate(6, fechaContratacion);
             stmTrabajador.setDate(7, fechaNacimiento);
             stmTrabajador.setString(8, formacion);
-            stmTrabajador.setInt(10, atraccion);
+            stmTrabajador.setInt(9, atraccion);
             stmTrabajador.executeUpdate();
             stmTrabajador.close();
         } catch (SQLException ex) {
@@ -121,19 +121,19 @@ public class TrabajadorDAO extends AbstractDAO{
          * @param espectaculo el espectaculo que supervisa el trabajador.
          * @throws SQLException si hay un error al acceder a la base de datos
          */
-    public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, String telefono, Date fechaContratacion,  Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
+    public void anhadirTrabajadorEspectaculo(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int espectaculo) throws SQLException {
         Connection con;
 
         con = super.getConexion();
         
         PreparedStatement stmTrabajador = null;
         try {
-            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresAdministracion (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo, Atraccion) values(?,?,?,?,now(),?,?,?)");
+            stmTrabajador = con.prepareStatement("INSERT INTO TrabajadoresEspectaculo (DNI,Nombre,Direccion,Salario,Telefono,fechaContratacion,fechaNacimiento,Formacion,Espectaculo) values(?,?,?,?,?,?,?,?,?)");
             stmTrabajador.setString(1, dni);
             stmTrabajador.setString(2, nombre);
             stmTrabajador.setString(3, direccion);
             stmTrabajador.setFloat(4, salario);
-            stmTrabajador.setString(5, telefono);
+            stmTrabajador.setInt(5, telefono);
             stmTrabajador.setDate(6, fechaContratacion);
             stmTrabajador.setDate(7, fechaNacimiento);
             stmTrabajador.setString(8, formacion);
@@ -179,6 +179,7 @@ public class TrabajadorDAO extends AbstractDAO{
 
   
     }
+
          /**
          * Despide a un trabajador de mantenimiento
          * 
@@ -205,6 +206,7 @@ public class TrabajadorDAO extends AbstractDAO{
             }
         }
     }
+
          /**
          * Despide a un trabajador de espectaculos
          * 
@@ -342,18 +344,20 @@ public class TrabajadorDAO extends AbstractDAO{
          * @throws SQLException si hay un error al acceder a la base de datos
          * @return un ArrayList<Trabajador> con todos los trabajadores.
          */
-        public ArrayList<Trabajador> getTrabajadores() throws SQLException {
-            ArrayList<Trabajador> resultado = new ArrayList<>();
+    public ArrayList<Trabajador> getTrabajadores() throws SQLException {
+        ArrayList<Trabajador> resultado = new ArrayList<>();
 
-            // Trabajadores Administracion
-            resultado.addAll(this.getTrabajadoresAdministracion());
+        // Trabajadores Administracion
+        resultado.addAll(this.getTrabajadoresAdministracion());
+
+        // Trabajadores mantenimiento
+        resultado.addAll(this.getTrabajadoresMantenimiento());
+
+        // Trabajadores Espectaculo
+        resultado.addAll(this.getTrabajadoresEspectaculos());
     
-            // Trabajadores mantenimiento
-            resultado.addAll(this.getTrabajadoresMantenimiento());
-    
-            // Trabajadores Espectaculo
-            resultado.addAll(this.getTrabajadoresEspectaculos());
-    
-            return resultado;
-        }
+        return resultado;
+    }
+
+
 }
