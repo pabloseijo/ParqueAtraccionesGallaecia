@@ -10,6 +10,7 @@
  import java.sql.Date;
  import java.sql.SQLException;
  import java.sql.DriverManager;
+ import java.sql.Time;
  import java.util.ArrayList;
 
 /**
@@ -121,5 +122,14 @@
 
     public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String Ubicaciones, String Descripcion) throws SQLException{
         atraccionesDAO.anhadirAtraccion(nombre, aforo, alturaMin, costeMantenimiento, enReparacion, Ubicaciones, Descripcion);
+    }
+
+    /** ESPECTACULOS **/
+    public void eliminarEspectaculo(int ID) throws SQLException{
+        espectaculosDAO.eliminarEspectaculo(ID);
+    }
+
+    public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica, String Descripcion, String Ubicaciones) throws SQLException{
+        espectaculosDAO.anhadirEspectaculo(nombre, sesion, horaInicio, horaFin, tematica, Descripcion, Ubicaciones);
     }
 }

@@ -1,11 +1,11 @@
 
 package baseDatos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import aplicacion.Espectaculo;
 import aplicacion.Asistir;
 import aplicacion.TrabajadorEspectaculo;
@@ -52,4 +52,78 @@ public class EspectaculosDAO extends AbstractDAO{
         }
         return resultado;
     }
+
+    /**
+     * Obtiene una lista de todos las atracciones.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return elimina el espectaculo seleccionada de la base de datos
+     */
+    public void eliminarEspectaculo(int ID) throws SQLException{
+
+        //Preparo la variable donde va a estar el statement
+        PreparedStatement stmEspectaculo = null;
+
+        //concecto con la base
+        Connection con;
+        con = super.getConexion();
+
+        //intento la consulta y si se cumple la base de datos se actualiza
+        try {
+            stmEspectaculo = con.prepareStatement("DELETE from Espectaculos where ID = ?");
+            stmEspectaculo.setInt(1, ID);
+            stmEspectaculo.executeUpdate();
+            stmEspectaculo.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EspectaculosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmEspectaculo.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
+
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param nombre el nombre del trabajador.
+     * @param sesion mañana,tarde o noche.
+     * @param horaInicio hora de inicio del espectaculo.
+     * @param horaFin hora de fin del espectaculo.
+     * @param tematica la tematica del espectaculo.
+     * @param Descripcion descripcion del espectaculos.
+     * @param Ubicaciones ubicacion del espectaculos.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return añade la atraccion a la base de datos
+     */
+    public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica,String Descripcion, String Ubicaciones) throws SQLException{
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmEspectaculo = null;
+        try {
+            stmEspectaculo = con.prepareStatement("INSERT INTO Espectaculos (Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion) values(?,?,?,?,?,?,?)");
+            stmEspectaculo.setString(1, nombre);
+            stmEspectaculo.setString(2, sesion);
+            stmEspectaculo.setTime(3, horaInicio);
+            stmEspectaculo.setTime(4, horaFin);
+            stmEspectaculo.setString(5, tematica);
+            stmEspectaculo.setString(6, Ubicaciones);
+            stmEspectaculo.setString(7, Descripcion);
+            stmEspectaculo.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(EspectaculosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmEspectaculo.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
+
 }
