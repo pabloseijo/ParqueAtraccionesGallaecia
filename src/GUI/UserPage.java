@@ -1,9 +1,6 @@
 package GUI;
 
-import baseDatos.FachadaBaseDatos;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,26 +11,14 @@ public class UserPage extends JFrame{
     private JLabel Pulpo;
     private JLabel NombreUsuario;
     private JButton ATRACCIONESButton;
-    private JLabel IconoEntradas;
-    private JButton ESPECTÁCULOSButton;
-    private JButton HOSTELERÍAButton;
+    private JButton ESPECTACULOSButton;
+    private JButton HOSTELERIAButton;
     private JButton ENTRADASButton;
-    private JPanel Jpanel1;
+    private JButton COMPRARENTRADASButton;
+    private JButton VOLVERButton;
+    private JPanel MainPanel;
 
-    public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
-        ////////////////////////////////////////////////
-        // ARREGLAR NON FUNCIONA
-        ////////////////////////////////////////////
-        //ponemos el titulo de la pestaña
-        setTitle("Usuario");
-        //Mostramos el panel del .form
-        setContentPane(Jpanel1);
-        //Ponemos el tamaño de la ventana
-        setMinimumSize(new Dimension(700,500));
-        //Centramos la pestaña
-        setLocationRelativeTo(parent);
-        //Esto hace que se cierre al darle a la X
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    public UserPage() {
 
         ATRACCIONESButton.addActionListener(new ActionListener() {
             @Override
@@ -41,13 +26,13 @@ public class UserPage extends JFrame{
 
             }
         });
-        ESPECTÁCULOSButton.addActionListener(new ActionListener() {
+        ESPECTACULOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
-        HOSTELERÍAButton.addActionListener(new ActionListener() {
+        HOSTELERIAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -59,11 +44,16 @@ public class UserPage extends JFrame{
 
             }
         });
-        setVisible(true);
         SALIRButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+        COMPRARENTRADASButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
