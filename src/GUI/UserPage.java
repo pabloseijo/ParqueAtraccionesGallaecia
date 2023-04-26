@@ -1,5 +1,7 @@
 package GUI;
 
+import baseDatos.FachadaBaseDatos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +20,7 @@ public class UserPage extends JFrame{
     private JButton VOLVERButton;
     private JPanel MainPanel;
 
-    public UserPage() {
+    public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
 
         ATRACCIONESButton.addActionListener(new ActionListener() {
             @Override
