@@ -155,7 +155,4 @@ public class HireEmployee extends JDialog{
         setVisible(true);
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }

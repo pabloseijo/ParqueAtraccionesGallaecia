@@ -273,4 +273,22 @@
     public void eliminarHostelero(String dni) throws SQLException{
         hostelerosDAO.eliminarHostelero(dni);
     }
+
+    /**
+     * Añade un nuevo trabajador de mantenimiento
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param direccion la direccion del trabajador.
+     * @param salario el salario del trabajador.
+     * @param telefono el telefono del trabajador.
+     * @param fechaContratacion la fecha en la que el trabajador empezó a trabajar en el parque.
+     * @param fechaNacimiento la fecha en la que el trabajador nació.
+     * @param formacion descripcion de los estudios del trabajador.
+     * @param establecimiento la atraccion que supervisa el trabajador.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void anhadirHostelero(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int establecimiento) throws SQLException{
+        hostelerosDAO.anhadirHostelero(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, establecimiento);
+    }
 }

@@ -38,7 +38,7 @@ public class UserPage extends JFrame{
         setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
         ATRACCIONESButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
