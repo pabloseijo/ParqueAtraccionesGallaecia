@@ -6,32 +6,32 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
-public class ShowsPage extends JDialog{
+public class DeleteWaiter extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
-    private JPanel MainPanel;
-    private JButton añadirEspectaculoButton;
-    private JButton eliminarEspectaculoButton;
-    private JButton SALIRButton;
+    private JTextField IDTextField;
+    private JButton BORRARButton;
     private JButton VOLVERButton;
+    private JButton SALIRButton;
+    private JPanel MainPanel;
 
 
-    public ShowsPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
+    public DeleteWaiter(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         super(parent);
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
-        setTitle("Espectaculos");
+        setTitle("Borrar Hostelero");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
-        setMinimumSize(new Dimension(700,500));
+        setMinimumSize(new Dimension(500, 300));
         //Centramos la pestaña
         //IMPORTANTE!! La instancia parent se la paso para centrar la pestaña em el centro del ordenador, pero se le pasa null
         setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        //Boton de salir
         SALIRButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,35 +39,34 @@ public class ShowsPage extends JDialog{
             }
         });
 
-        //Boton que nos lleva a la pagina principal de admin
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
-            }
-        });
-
-        //Lanzar la ventana de eliminar atraccion
-        eliminarEspectaculoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                DeleteShow ByeByeShow = new DeleteShow(null,fachadaBaseDatos);
-            }
-        });
-
-        //Lanzar la ventana de añadir atraccion
-        añadirEspectaculoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                AddShow addShow = new AddShow(null,fachadaBaseDatos);
+                RestaurantsPage menuRestaurante = new RestaurantsPage(null, fachadaBaseDatos);
             }
         });
 
         //Ponemos que se visualice la ventana
         setVisible(true);
+        BORRARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Lanza una pestaña que con el nombre y el dni hace una consulta en sql y añade un empleado a la base
+                String ID = IDTextField.getText();
 
+                //Hago un try y catch para manejar la excepcion
+                try {
+                    fachadaBaseDatos.eliminarHostelero(ID);
+                    //meter aqui el lazamiento de la pagina siguiente
+                    dispose();
+                    DeleteWaiter ByeByeWaiter = new DeleteWaiter(null, fachadaBaseDatos);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
     }
 }
+        

@@ -43,8 +43,8 @@ public class AttractionPage extends JDialog {
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
+                dispose();
             }
         });
 

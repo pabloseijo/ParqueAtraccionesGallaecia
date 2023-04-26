@@ -43,8 +43,8 @@ public class FireEmployee extends JDialog {
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
                 dispose();
+                EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
             }
         });
 

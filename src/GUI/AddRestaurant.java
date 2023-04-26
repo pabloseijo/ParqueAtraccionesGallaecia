@@ -51,8 +51,8 @@ public class AddRestaurant extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RestaurantsPage menuResaturante = new RestaurantsPage(null, fachadaBaseDatos);
                 dispose();
+                RestaurantsPage menuResaturante = new RestaurantsPage(null, fachadaBaseDatos);
             }
         });
 

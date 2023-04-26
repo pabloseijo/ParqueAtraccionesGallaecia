@@ -9,24 +9,26 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-public class AddAttraction extends  JDialog{
+public class AddWaiter extends JDialog {
+    private JTextField DNITextField;
     private JTextField NameTextField;
-    private JTextField CapacityTextField;
-    private JTextField MinHeightTextField;
-    private JTextField MaintenanceCostTextField;
-    private JTextField InReparationTextField;
-    private JTextField UbicationTextField;
-    private JTextField DescriptionTextField;
+    private JTextField DirectionTextField;
+    private JTextField SalaryTextField;
+    private JTextField TlfTextField;
+    private JTextField HireDateTextField;
+    private JTextField BirthDateTextField;
+    private JTextField EducationTextField;
+    private JTextField RestaurantTextField;
     private JButton ANHADIRButton;
     private JButton VOLVERButton;
     private JButton SALIRButton;
     private JPanel MainPanel;
 
 
-    public AddAttraction(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
+    public AddWaiter(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
         super(parent);
         //ponemos el titulo de la pestaña
-        setTitle("HireEmployee");
+        setTitle("HireWaiter");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
@@ -49,7 +51,7 @@ public class AddAttraction extends  JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AttractionPage menuAtraccion = new AttractionPage(null, fachadaBaseDatos);
+                RestaurantsPage menuRestaurante = new RestaurantsPage(null, fachadaBaseDatos);
             }
         });
 
@@ -58,65 +60,63 @@ public class AddAttraction extends  JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Lanza una pestaña que con el nombre y el dni hace una consulta en sql y añade un empleado a la base
+                String dni = DNITextField.getText();
                 String name = NameTextField.getText();
-                String capacity = CapacityTextField.getText();
-                String minHeight = MinHeightTextField.getText();
-                String maintenance = MaintenanceCostTextField.getText();
-                String reparation = InReparationTextField.getText();
-                String ubication = UbicationTextField.getText();
-                String description = DescriptionTextField.getText();
+                String direction = DirectionTextField.getText();
+                String salary = SalaryTextField.getText();
+                String telephoneNumber = TlfTextField.getText();
+                String hireDate = HireDateTextField.getText();
+                String birthDate = BirthDateTextField.getText();
+                String education = EducationTextField.getText();
+                String restaurant = RestaurantTextField.getText();
 
                 /////////////////////////* TRANSFORMAMOS LOS STRING A LOS TIPOS NECESARIOS *////////////////////////////
                 // Crea un objeto SimpleDateFormat con el formato deseado
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+                //Casteamos las fechas
+                java.sql.Date HireDate = null, Birthday = null;
+                try {
+                    // Convierte el String a un objeto java.sql.Date
+                    HireDate = java.sql.Date.valueOf(hireDate);
+                    Birthday = java.sql.Date.valueOf(birthDate);
+                    // sqlDate contiene la fecha convertida
+                } catch (IllegalArgumentException DateException) {
+                    System.out.println("FATAL ERROR: Date could not been converted");
+                }
 
                 //Casteamos los float
-                float Maintenance = 0.0f;
+                float Salary = 0.0f;
                 try {
                     // Convierte el String a un float
-                    Maintenance = Float.parseFloat(maintenance);
+                    Salary = Float.parseFloat(salary);
                     // floatValue contiene el número convertido
                 } catch (NumberFormatException SalaryException) {
                     System.out.println("FATAL ERROR: Float could not been converted");
                 }
 
-                int Capacity = 0, MinHeight = 0;
+                int Phone = 0, Restaurant = 0;
                 try {
                     // Convierte el String a un float
-                    Capacity = Integer.parseInt(capacity);
-                    MinHeight = Integer.parseInt(minHeight);
-                    // floatValue contiene el número convertido
-                } catch (NumberFormatException IntException) {
-                    // El String no se pudo convertir
-                }
-
-                boolean Reparation = false;
-                try {
-                    // Convierte el String a un float
-                    Reparation = Boolean.parseBoolean(reparation);
+                    Phone = Integer.parseInt(telephoneNumber);
+                    Restaurant = Integer.parseInt(restaurant);
                     // floatValue contiene el número convertido
                 } catch (NumberFormatException IntException) {
                     // El String no se pudo convertir
                 }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                //Hago un try y catch para manejar la excepcion
+                //Añadimos el camarero al restaurante
                 try {
-                    //Le paso los parametros a para añadir el trabajador, pero espectaculo y atraccion se lo paso a 0 porque se actualizara mas tarde
-                    fachadaBaseDatos.anhadirAtraccion(name, Capacity, MinHeight, Maintenance, Reparation, ubication, description);
+                    fachadaBaseDatos.anhadirHostelero(dni, name, direction, Salary, Phone, HireDate, Birthday, education, Restaurant);
                     //meter aqui el lazamiento de la pagina siguiente
                     dispose();
-                    AddAttraction menuAñadirAtraccion = new AddAttraction(null, fachadaBaseDatos);
-
+                    AddWaiter menuContratar = new AddWaiter(null, fachadaBaseDatos);
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+
             }
         });
-
-        //Ponemos que se visualice la ventana
-        setVisible(true);
     }
 }

@@ -38,8 +38,8 @@ public class DeleteRestaurant extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RestaurantsPage menuUsuario = new RestaurantsPage(null, fachadaBaseDatos);
                 dispose();
+                RestaurantsPage menuRestaurante = new RestaurantsPage(null, fachadaBaseDatos);
             }
         });
 

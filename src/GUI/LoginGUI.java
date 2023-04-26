@@ -52,12 +52,12 @@ public class LoginGUI extends JDialog{
                 
                 // Si encuentra un usuario válido
                 if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
-                    AdminPage menuAdmin = new AdminPage(null, fachadaBaseDatos);
                     dispose();
+                    AdminPage menuAdmin = new AdminPage(null, fachadaBaseDatos);
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
-                    UserPage menuUsuario = new UserPage(null, fachadaBaseDatos);
                     dispose();
+                    UserPage menuUsuario = new UserPage(null, fachadaBaseDatos);
                 }
                 else {
                     //Si el usuario es null se muestra un mensaje de error

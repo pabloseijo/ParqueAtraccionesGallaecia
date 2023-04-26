@@ -44,12 +44,12 @@ public class RestaurantsPage extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
                 dispose();
+                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
             }
         });
 
-
+        //Lanzamos la ventana de eliminar restaurante
         eliminarRestauranteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +58,7 @@ public class RestaurantsPage extends JDialog{
             }
         });
 
-
+        //Lanzamos la ventana de añadir restaurante
         añadirRestauranteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,7 +67,25 @@ public class RestaurantsPage extends JDialog{
             }
         });
 
-        //Ponemos que se visualice la ventana
+        //lanzamos la ventana de despedir hostelero
+        eliminarHosteleroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                DeleteWaiter ByeByeWaiter = new DeleteWaiter(null, fachadaBaseDatos);
+            }
+        });
+
+
+        //Lanzamos la ventana de añadir hostelero
+        añadirHosteleroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                AddWaiter AddWaiter = new AddWaiter(null,fachadaBaseDatos);
+            }
+        });
+
         setVisible(true);
     }
 }
