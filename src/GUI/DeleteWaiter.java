@@ -69,4 +69,3 @@ public class DeleteWaiter extends JDialog{
         });
     }
 }
-        

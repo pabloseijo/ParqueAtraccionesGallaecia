@@ -154,5 +154,5 @@ public class HireEmployee extends JDialog{
         //Ponemos que se visualice la ventana
         setVisible(true);
     }
-
 }
+
