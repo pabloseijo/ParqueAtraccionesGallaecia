@@ -38,9 +38,9 @@ public class AddWaiter extends JDialog {
         setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         //Ponemos la visibilidad de la pestaña
         setVisible(true);
-
         //Boton de salir (Cierra la ventana)
         SALIRButton.addActionListener(new ActionListener() {
             @Override
@@ -53,8 +53,8 @@ public class AddWaiter extends JDialog {
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
                 dispose();
+                RestaurantsPage menuRestaurante = new RestaurantsPage(null, fachadaBaseDatos);
             }
         });
 
@@ -111,7 +111,7 @@ public class AddWaiter extends JDialog {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //Añadimos el camarero al restaurante
                 try {
-                    System.out.println("w");
+
                     fachadaBaseDatos.anhadirHostelero(dni, name, direction, Salary, Phone, HireDate, Birthday, education, Restaurant);
                     //meter aqui el lazamiento de la pagina siguiente
                     dispose();
@@ -119,8 +119,10 @@ public class AddWaiter extends JDialog {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
-            }
 
+
+            }
         });
     }
 }
+

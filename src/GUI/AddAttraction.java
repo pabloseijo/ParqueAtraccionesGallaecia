@@ -48,8 +48,8 @@ public class AddAttraction extends  JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AttractionPage menuAtraccion = new AttractionPage(null, fachadaBaseDatos);
                 dispose();
+                AttractionPage menuAtraccion = new AttractionPage(null, fachadaBaseDatos);
             }
         });
 

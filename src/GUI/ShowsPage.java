@@ -43,8 +43,8 @@ public class ShowsPage extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
                 dispose();
+                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
             }
         });
 

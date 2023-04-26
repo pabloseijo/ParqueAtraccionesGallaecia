@@ -44,8 +44,8 @@ public class RestaurantsPage extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
                 dispose();
+                AdminPage menuAdmin = new AdminPage(null,fachadaBaseDatos);
             }
         });
 
@@ -82,7 +82,7 @@ public class RestaurantsPage extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AddWaiter HireWaiter = new AddWaiter(null,fachadaBaseDatos);
+                AddWaiter AddWaiter = new AddWaiter(null,fachadaBaseDatos);
             }
         });
 

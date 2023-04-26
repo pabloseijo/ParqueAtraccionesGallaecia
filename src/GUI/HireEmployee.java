@@ -45,8 +45,8 @@ public class HireEmployee extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
                 dispose();
+                EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
             }
         });
 
@@ -154,5 +154,5 @@ public class HireEmployee extends JDialog{
         //Ponemos que se visualice la ventana
         setVisible(true);
     }
-
 }
+

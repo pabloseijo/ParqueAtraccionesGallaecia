@@ -51,8 +51,8 @@ public class AddShow extends JDialog{
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShowsPage menuEspectaculo = new ShowsPage(null, fachadaBaseDatos);
                 dispose();
+                ShowsPage menuEspectaculo = new ShowsPage(null, fachadaBaseDatos);
             }
         });
 
