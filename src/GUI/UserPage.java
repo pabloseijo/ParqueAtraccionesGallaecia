@@ -19,6 +19,7 @@ public class UserPage extends JFrame{
     private JButton HOSTELERÍAButton;
     private JButton ENTRADASButton;
     private JPanel Jpanel1;
+    private JPanel MainPanel;
 
     public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         ////////////////////////////////////////////////
@@ -27,7 +28,7 @@ public class UserPage extends JFrame{
         //ponemos el titulo de la pestaña
         setTitle("Usuario");
         //Mostramos el panel del .form
-        setContentPane(Jpanel1);
+        setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
         setMinimumSize(new Dimension(700,500));
         //Centramos la pestaña

@@ -58,4 +58,36 @@ public class HostelerosDAO extends AbstractDAO{
 
         return resultado;
     }
+
+    /**
+     * Elimina un hostelero de la base de datos
+     *
+     * @param dni: dni del hostelero
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void eliminarHostelero(String dni) throws SQLException{
+
+        //Preparo la variable donde va a estar el statement
+        PreparedStatement stmHostelero = null;
+
+        //concecto con la base
+        Connection con;
+        con = super.getConexion();
+
+        //intento la consulta y si se cumple la base de datos se actualiza
+        try {
+            stmHostelero = con.prepareStatement("DELETE from Hosteleros where DNI = ?");
+            stmHostelero.setString(1, dni);
+            stmHostelero.executeUpdate();
+            stmHostelero.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EspectaculosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmHostelero.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
 }

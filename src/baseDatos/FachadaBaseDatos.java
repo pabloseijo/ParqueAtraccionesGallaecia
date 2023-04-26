@@ -261,4 +261,16 @@
     public void anhadirRestaurante(String nombre, int aforo, String ubicaciones, Time horaApertura, Time horaCierre, float recaudacion) throws SQLException{
         hosteleriaDAO.anhadirRestaurante(nombre, aforo, ubicaciones, horaApertura, horaCierre, recaudacion);
     }
+
+    /** HOSTELEROS **/
+
+    /**
+     * Elimina un hostelero de la base de datos
+     *
+     * @param dni: dni del hostelero
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void eliminarHostelero(String dni) throws SQLException{
+        hostelerosDAO.eliminarHostelero(dni);
+    }
 }

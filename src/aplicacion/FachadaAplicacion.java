@@ -18,8 +18,6 @@ public class FachadaAplicacion {
         fachadaBd = new baseDatos.FachadaBaseDatos(this);
         fachadaGui = new GUI.FachadaGUI(this, this.fachadaBd);
     }
-    
-
 
     public static void main(String[] args) {
         FachadaAplicacion fachadaAplicacion;
