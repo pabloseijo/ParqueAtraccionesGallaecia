@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import GUI.*;
 
 public class AdminPage  extends JFrame {
     private JPanel Panel1;
@@ -34,7 +35,7 @@ public class AdminPage  extends JFrame {
         EMPLEADOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmployeePage menuUsuario = new EmployeePage(null, fachadaBaseDatos);
+                EmployeePage menuEmpleado = new EmployeePage(null, fachadaBaseDatos);
                 dispose();
             }
         });

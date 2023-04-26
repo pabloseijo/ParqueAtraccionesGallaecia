@@ -57,12 +57,12 @@ public class AtraccionesDAO extends AbstractDAO{
     }
 
     /**
-     * Obtiene una lista de todos las atracciones.
+     * Elimina una atraccion
      *
+     * @param id: identificador de la atraccion
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return elimina la atraccion seleccionada de la base de datos
      */
-    public void eliminarAtraccion(int ID) throws SQLException{
+    public void eliminarAtraccion(int id) throws SQLException{
 
         //Preparo la variable donde va a estar el statement
         PreparedStatement stmAtraccion = null;
@@ -74,7 +74,7 @@ public class AtraccionesDAO extends AbstractDAO{
         //intento la consulta y si se cumple la base de datos se actualiza
         try {
             stmAtraccion = con.prepareStatement("DELETE from Atracciones where NumeroRegistro = ?");
-            stmAtraccion.setInt(1, ID);
+            stmAtraccion.setInt(1, id);
             stmAtraccion.executeUpdate();
             stmAtraccion.close();
         } catch (SQLException ex) {
@@ -89,19 +89,18 @@ public class AtraccionesDAO extends AbstractDAO{
     }
 
     /**
-     * Añade un nuevo trabajador de espectaculos
+     * Añade una nueva atraccion.
      *
-     * @param nombre el nombre del trabajador.
-     * @param aforo la direccion del trabajador.
-     * @param alturaMin el salario del trabajador.
-     * @param costeMantenimiento el telefono del trabajador.
-     * @param enReparacion la fecha en la que el trabajador empezó a trabajar en el parque.
-     * @param Ubicaciones la fecha en la que el trabajador nació.
-     * @param Descripcion descripcion de los estudios del trabajador.
+     * @param nombre el nombre de la atraccion.
+     * @param aforo aforo de la atraccion.
+     * @param alturaMin altura minima para entrar a la atraccion.
+     * @param costeMantenimiento coste del mantenimiento de la atraccion.
+     * @param enReparacion boolean, true si la atraccion esta en reparacion.
+     * @param ubicaciones ubicacion de la atraccion.
+     * @param descripcion descripcion de la atraccion.
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return añade la atraccion a la base de datos
      */
-    public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String Ubicaciones, String Descripcion) throws SQLException{
+    public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String ubicaciones, String descripcion) throws SQLException{
         Connection con;
 
         con = super.getConexion();
@@ -114,8 +113,8 @@ public class AtraccionesDAO extends AbstractDAO{
             stmAtraccion.setInt(3, alturaMin);
             stmAtraccion.setFloat(4, costeMantenimiento);
             stmAtraccion.setBoolean(5, enReparacion);
-            stmAtraccion.setString(6, Ubicaciones);
-            stmAtraccion.setString(7, Descripcion);
+            stmAtraccion.setString(6, ubicaciones);
+            stmAtraccion.setString(7, descripcion);
             stmAtraccion.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AtraccionesDAO.class.getName()).log(Level.SEVERE, null, ex);

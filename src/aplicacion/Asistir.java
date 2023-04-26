@@ -13,7 +13,7 @@ public class Asistir {
     private String visitante;
     private String fecha;
     private int espectaculo;
- 
+
     public Asistir(String dni, String fecha, int espectaculo) {
         this.visitante = dni;
         this.fecha = fecha;
@@ -44,7 +44,4 @@ public class Asistir {
         this.espectaculo = espectaculo;
     }
 
-   
-    
-    
 }

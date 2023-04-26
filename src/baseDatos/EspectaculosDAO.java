@@ -54,12 +54,12 @@ public class EspectaculosDAO extends AbstractDAO{
     }
 
     /**
-     * Obtiene una lista de todos las atracciones.
+     * Elimina un espectaculo
      *
+     * @param id: identificador de la atraccion
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return elimina el espectaculo seleccionada de la base de datos
      */
-    public void eliminarEspectaculo(int ID) throws SQLException{
+    public void eliminarEspectaculo(int id) throws SQLException{
 
         //Preparo la variable donde va a estar el statement
         PreparedStatement stmEspectaculo = null;
@@ -71,7 +71,7 @@ public class EspectaculosDAO extends AbstractDAO{
         //intento la consulta y si se cumple la base de datos se actualiza
         try {
             stmEspectaculo = con.prepareStatement("DELETE from Espectaculos where ID = ?");
-            stmEspectaculo.setInt(1, ID);
+            stmEspectaculo.setInt(1, id);
             stmEspectaculo.executeUpdate();
             stmEspectaculo.close();
         } catch (SQLException ex) {
@@ -87,19 +87,18 @@ public class EspectaculosDAO extends AbstractDAO{
 
 
     /**
-     * Añade un nuevo trabajador de espectaculos
+     * Añade un nuevo espectaculo
      *
-     * @param nombre el nombre del trabajador.
+     * @param nombre el nombre del espectaculo.
      * @param sesion mañana,tarde o noche.
      * @param horaInicio hora de inicio del espectaculo.
      * @param horaFin hora de fin del espectaculo.
      * @param tematica la tematica del espectaculo.
-     * @param Descripcion descripcion del espectaculos.
-     * @param Ubicaciones ubicacion del espectaculos.
+     * @param descripcion descripcion del espectaculos.
+     * @param ubicaciones ubicacion del espectaculos.
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return añade la atraccion a la base de datos
      */
-    public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica,String Descripcion, String Ubicaciones) throws SQLException{
+    public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica,String descripcion, String ubicaciones) throws SQLException{
         Connection con;
 
         con = super.getConexion();
@@ -112,8 +111,8 @@ public class EspectaculosDAO extends AbstractDAO{
             stmEspectaculo.setTime(3, horaInicio);
             stmEspectaculo.setTime(4, horaFin);
             stmEspectaculo.setString(5, tematica);
-            stmEspectaculo.setString(6, Ubicaciones);
-            stmEspectaculo.setString(7, Descripcion);
+            stmEspectaculo.setString(6, ubicaciones);
+            stmEspectaculo.setString(7, descripcion);
             stmEspectaculo.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(EspectaculosDAO.class.getName()).log(Level.SEVERE, null, ex);

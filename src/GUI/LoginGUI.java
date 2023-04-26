@@ -47,8 +47,8 @@ public class LoginGUI extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String usuario = UserTextField.getText();
-                String contraseña = PasswordTextField.getText();
-                Usuario usuarioComprobacion = fachadaAplicacion.comprobarAutentificacion(usuario, contraseña);
+                String clave = PasswordTextField.getText();
+                Usuario usuarioComprobacion = fachadaAplicacion.comprobarAutentificacion(usuario, clave);
                 
                 // Si encuentra un usuario válido
                 if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Administrador)) ){
@@ -56,7 +56,8 @@ public class LoginGUI extends JDialog{
                     dispose();
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
-
+                    UserPage menuUsuario = new UserPage(null, fachadaBaseDatos);
+                    dispose();
                 }
                 else {
                     //Si el usuario es null se muestra un mensaje de error

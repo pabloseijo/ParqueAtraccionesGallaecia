@@ -15,7 +15,10 @@ public class FachadaGUI {
     }
 
 
-    // Esto hace que se inicie la ventana de autentifcacion
+    /**
+     * Inicia la ventana de autentificación
+     *
+     */
     public void iniciaVista(){
         LoginGUI vAutentificacion;
 

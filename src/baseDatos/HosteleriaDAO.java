@@ -55,12 +55,12 @@ public class HosteleriaDAO extends AbstractDAO{
 
 
     /**
-     * Obtiene una lista de todos las atracciones.
+     * Elimina el restaurante seleccionada de la base de datos
      *
+     * @param id: identificador del restaurante
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return elimina el restaurante seleccionada de la base de datos
      */
-    public void eliminarRestaurante(int ID) throws SQLException{
+    public void eliminarRestaurante(int id) throws SQLException{
 
         //Preparo la variable donde va a estar el statement
         PreparedStatement stmRestaurante = null;
@@ -72,9 +72,8 @@ public class HosteleriaDAO extends AbstractDAO{
         //intento la consulta y si se cumple la base de datos se actualiza
         try {
             stmRestaurante = con.prepareStatement("DELETE from Hosteleria where codigoRegistro = ?");
-            stmRestaurante.setInt(1, ID);
+            stmRestaurante.setInt(1, id);
             stmRestaurante.executeUpdate();
-            stmRestaurante.close();
         } catch (SQLException ex) {
             Logger.getLogger(AtraccionesDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -88,18 +87,17 @@ public class HosteleriaDAO extends AbstractDAO{
 
 
     /**
-     * Añade un nuevo trabajador de espectaculos
+     * Añade un nuevo restaurante
      *
-     * @param nombre el nombre del trabajador.
-     * @param aforo el limite de personas de la atraccion.
-     * @param Ubicaciones ubicacion de la atraccion dentro del parque.
+     * @param nombre el nombre del restaurante.
+     * @param aforo el limite de personas del restaurante.
+     * @param ubicaciones ubicacion del restaurante.
      * @param horaApertura hora en la que abre el restaurante.
      * @param horaCierre hora de cierre del restaurante.
      * @param recaudacion recaudacion en el ultimo año fiscal del restaurante.
      * @throws SQLException si hay un error al acceder a la base de datos
-     * @return añade un restaurante a la base de datos
      */
-    public void anhadirRestaurante(String nombre, int aforo, String Ubicaciones, Time horaApertura, Time horaCierre, float recaudacion) throws SQLException{
+    public void anhadirRestaurante(String nombre, int aforo, String ubicaciones, Time horaApertura, Time horaCierre, float recaudacion) throws SQLException{
         Connection con;
 
         con = super.getConexion();
@@ -109,7 +107,7 @@ public class HosteleriaDAO extends AbstractDAO{
             stmRestaurante = con.prepareStatement("INSERT INTO Hosteleria (Nombre, Aforo, Ubicaciones, HoraApertura, HoraCierre, Recaudacion) values(?,?,?,?,?,?)");
             stmRestaurante.setString(1, nombre);
             stmRestaurante.setInt(2, aforo);
-            stmRestaurante.setString(3, Ubicaciones);
+            stmRestaurante.setString(3, ubicaciones);
             stmRestaurante.setTime(4, horaApertura);
             stmRestaurante.setTime(5, horaCierre);
             stmRestaurante.setFloat(6, recaudacion);
