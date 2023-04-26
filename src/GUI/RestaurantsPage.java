@@ -67,8 +67,7 @@ public class RestaurantsPage extends JDialog{
             }
         });
 
-        //Ponemos que se visualice la ventana
-        setVisible(true);
+
         eliminarHosteleroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,5 +75,8 @@ public class RestaurantsPage extends JDialog{
                 DeleteWaiter ByeByeWaiter = new DeleteWaiter(null, fachadaBaseDatos);
             }
         });
+
+        //Ponemos que se visualice la ventana
+        setVisible(true);
     }
 }

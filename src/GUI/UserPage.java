@@ -9,17 +9,20 @@ import java.awt.event.ActionListener;
 
 public class UserPage extends JFrame{
 
+    private FachadaBaseDatos fachadaBaseDatos;
     private JButton SALIRButton;
     private JLabel IconoUsuario;
     private JLabel Pulpo;
     private JLabel NombreUsuario;
     private JButton ATRACCIONESButton;
-    private JLabel IconoEntradas;
-    private JButton ESPECTÁCULOSButton;
-    private JButton HOSTELERÍAButton;
+    private JButton ESPECTACULOSButton;
+    private JButton HOSTELERIAButton;
     private JButton ENTRADASButton;
+
     private JPanel Jpanel1;
     private JPanel MainPanel;
+    private JButton COMPRARENTRADASButton;
+    private JButton VOLVERButton;
 
     public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         ////////////////////////////////////////////////
@@ -35,20 +38,20 @@ public class UserPage extends JFrame{
         setLocationRelativeTo(parent);
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+        
         ATRACCIONESButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
-        ESPECTÁCULOSButton.addActionListener(new ActionListener() {
+        ESPECTACULOSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
-        HOSTELERÍAButton.addActionListener(new ActionListener() {
+        HOSTELERIAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -60,11 +63,16 @@ public class UserPage extends JFrame{
 
             }
         });
-        setVisible(true);
         SALIRButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+        COMPRARENTRADASButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
