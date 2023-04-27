@@ -12,7 +12,7 @@ public class RestaurantsPage extends JDialog{
     private JButton añadirRestauranteButton;
     private JButton eliminarRestauranteButton;
     private JButton eliminarHosteleroButton;
-    private JButton añadirHosteleroButton;
+    private JButton anhadirHosteleroButton;
     private JButton SALIRButton;
     private JButton VOLVERButton;
     private JPanel MainPanel;
@@ -78,11 +78,11 @@ public class RestaurantsPage extends JDialog{
 
 
         //Lanzamos la ventana de añadir hostelero
-        añadirHosteleroButton.addActionListener(new ActionListener() {
+        anhadirHosteleroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AddWaiter AddWaiter = new AddWaiter(null,fachadaBaseDatos);
+                HireWaiter AddWaiter = new HireWaiter(null,fachadaBaseDatos);
             }
         });
 

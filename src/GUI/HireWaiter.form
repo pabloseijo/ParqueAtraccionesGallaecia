@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.HireWaiter">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="35" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1041" height="953"/>
+    </constraints>
+    <properties>
+      <background color="-197121"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="34789" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="10" left="10" bottom="10" right="10"/>
+        <constraints>
+          <grid row="0" column="0" row-span="35" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16252591"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="c1a85" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="GUI/Images/software-engineer.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="604f3" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-526593"/>
+              <font name="JetBrains Mono ExtraBold"/>
+              <foreground color="-526593"/>
+              <text value="ADMINISTRADOR"/>
+            </properties>
+          </component>
+          <vspacer id="36907">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="c9eea" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="GUI/Images/pulpo.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="8dc23">
+        <constraints>
+          <grid row="31" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="7800d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold" style="1"/>
+          <text value="Introduzca las credenciales del empleado"/>
+        </properties>
+      </component>
+      <component id="f5caa" class="javax.swing.JTextField" binding="DNITextField">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="b0f17" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="DNI"/>
+        </properties>
+      </component>
+      <component id="fb0da" class="javax.swing.JTextField" binding="NameTextField">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="607e1" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="27" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Restaurante"/>
+        </properties>
+      </component>
+      <component id="89dbd" class="javax.swing.JTextField" binding="RestaurantTextField">
+        <constraints>
+          <grid row="28" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="2e561" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Direccion"/>
+        </properties>
+      </component>
+      <component id="91b53" class="javax.swing.JTextField" binding="HomeDirectionTextField">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="3c432" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="12" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Salario"/>
+        </properties>
+      </component>
+      <component id="8b2d6" class="javax.swing.JTextField" binding="SalaryTextField">
+        <constraints>
+          <grid row="13" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="ec6dd" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="15" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Telefono"/>
+        </properties>
+      </component>
+      <component id="46147" class="javax.swing.JTextField" binding="TlfTextField">
+        <constraints>
+          <grid row="16" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="c13fd" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="18" column="2" row-span="1" col-span="6" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Fecha de Contratacion (AAAA/MM/DD)"/>
+        </properties>
+      </component>
+      <component id="31ace" class="javax.swing.JTextField" binding="HireDateTextField">
+        <constraints>
+          <grid row="19" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="1f2e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="21" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Fecha de Nacimiento (AAAA/MM/DD)"/>
+        </properties>
+      </component>
+      <component id="66466" class="javax.swing.JTextField" binding="BirthdayTextField">
+        <constraints>
+          <grid row="22" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="95421" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="24" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Formacion"/>
+        </properties>
+      </component>
+      <component id="ef162" class="javax.swing.JTextField" binding="EducationTextField">
+        <constraints>
+          <grid row="25" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <horizontalAlignment value="0"/>
+        </properties>
+      </component>
+      <component id="eb6c2" class="javax.swing.JButton" binding="ANHADIRButton">
+        <constraints>
+          <grid row="30" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <icon value="GUI/Images/agregar.png"/>
+          <text value="AÑADIR"/>
+        </properties>
+      </component>
+      <component id="4880d" class="javax.swing.JButton" binding="VOLVERButton" default-binding="true">
+        <constraints>
+          <grid row="30" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <icon value="GUI/Images/girar-a-la-izquierda.png"/>
+          <text value="VOLVER"/>
+        </properties>
+      </component>
+      <component id="8d8e1" class="javax.swing.JButton" binding="SALIRButton" default-binding="true">
+        <constraints>
+          <grid row="30" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <icon value="GUI/Images/cross.png"/>
+          <text value="SALIR"/>
+        </properties>
+      </component>
+      <hspacer id="3af66">
+        <constraints>
+          <grid row="31" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="982df">
+        <constraints>
+          <grid row="31" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="f7168">
+        <constraints>
+          <grid row="31" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <vspacer id="c243a">
+        <constraints>
+          <grid row="29" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="2753e">
+        <constraints>
+          <grid row="31" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="44806" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono ExtraBold"/>
+          <text value="Nombre"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
