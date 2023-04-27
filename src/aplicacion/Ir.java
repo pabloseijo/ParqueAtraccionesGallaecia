@@ -1,36 +1,39 @@
 
 package aplicacion;
 
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Ir {
-    private String fechaVisita;
-    private String hora;
-    private Visitante visitante;
-    private Atraccion atraccion;
+    private Date fechaVisita;
+    private Time hora;
+    private String visitante;
+    private int atraccion;
 
-    public Ir(String fechaVisita, String hora, Visitante visitante, Atraccion atraccion) {
+    public Ir(Date fechaVisita, Time hora, String visitante, int atraccion) {
         this.fechaVisita = fechaVisita;
         this.hora = hora;
         this.visitante = visitante;
         this.atraccion = atraccion;
     }
 
-    public String getFechaVisita() {
+    public Date getFechaVisita() {
         return fechaVisita;
     }
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public Visitante getVisitante() {
+    public String getVisitante() {
         return visitante;
     }
 
-    public Atraccion getAtraccion() {
+    public int getAtraccion() {
         return atraccion;
     }
 
