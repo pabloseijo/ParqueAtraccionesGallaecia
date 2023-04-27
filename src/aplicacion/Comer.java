@@ -1,31 +1,39 @@
 
 package aplicacion;
 
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  *
 @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  */
 public class Comer {
     
-    private String fecha;
-    private Visitante visitante;
-    private Hosteleria establecimiento;
+    private Date fecha;
+    private Time hora;
+    private String visitante;
+    private int establecimiento;
 
-    public Comer(String fecha, Visitante visitante, Hosteleria establecimiento) {
+    public Comer(Date fecha, Time hora, String visitante, int establecimiento) {
         this.fecha = fecha;
+        this.hora = hora;
         this.visitante = visitante;
         this.establecimiento = establecimiento;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
+    public Time getHora() {
+        return hora;
+    }
 
-    public Visitante getVisitante() {
+    public String getVisitante() {
         return visitante;
     }
 
-    public Hosteleria getEstablecimiento() {
+    public int getEstablecimiento() {
         return establecimiento;
     }
        

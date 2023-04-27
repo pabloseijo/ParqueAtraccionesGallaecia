@@ -1,11 +1,11 @@
 package baseDatos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.lang.reflect.Array;
+import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
-import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import aplicacion.Comer;
 import aplicacion.Visitante;
 import aplicacion.Hosteleria;
@@ -20,29 +20,64 @@ public class ComerDAO extends AbstractDAO{
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }
-    public java.util.List<Comer> consultarComer(){
-        java.util.List<Comer> resultado = new java.util.ArrayList<Comer>();
+    /**
+     * Devuelve todas las veces que algún visitante comió
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public ArrayList<Comer> consultarComer() throws SQLException {
+        ArrayList<Comer> resultado = new ArrayList<>();
         Comer comerActual;
         Connection con;
-        PreparedStatement stmComer=null;
+        PreparedStatement stmComer = null;
         ResultSet rsComer;
 
-        con=this.getConexion();
+        con = this.getConexion();
 
         try  {
-        stmComer=con.prepareStatement("select FechaVisita, Visitante, Establecimiento from Comer");
+        stmComer=con.prepareStatement("SELECT FechaVisita, horaVisita, Visitante, Establecimiento FROM Comer");
         rsComer=stmComer.executeQuery();
         while (rsComer.next())
         {
-            comerActual = new Comer(rsComer.getString("FechaVisita"), (Visitante) rsComer.getObject("Visitante"), (Hosteleria) rsComer.getObject("Establecimiento"));
+            comerActual = new Comer(rsComer.getDate("FechaVisita"), rsComer.getTime("horaVisita"), rsComer.getString("Visitante"), rsComer.getInt("Establecimiento"));
             resultado.add(comerActual);
         }
 
         } catch (SQLException e){
           System.out.println(e.getMessage());
-        }finally{
+        } finally{
           try {stmComer.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+
+    /**
+     * Añade una reserva de mesa al usuario
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void reservarMesa(Date fecha, Time hora, String dni, int establecimiento) {
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmComer = null;
+
+        try {
+            stmComer = con.prepareStatement("INSERT INTO Comer (FechaVisita, horaVisita, Visitante, Establecimiento) VALUES (? ? ? ?)");
+            stmComer.setDate(1, fecha);
+            stmComer.setTime(2, hora);
+            stmComer.setString(3, dni);
+            stmComer.setInt(4, establecimiento);
+            stmComer.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ComerDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmComer.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
     }
 }

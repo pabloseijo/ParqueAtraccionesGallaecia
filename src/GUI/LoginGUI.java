@@ -57,7 +57,7 @@ public class LoginGUI extends JDialog{
                 }
                 else if( (usuarioComprobacion.getTipoUsuario().equals(TipoUsuario.Normal)) ){
                     dispose();
-                    UserPage menuUsuario = new UserPage(null, fachadaBaseDatos);
+                    //UserPage menuUsuario = new UserPage(null, fachadaBaseDatos);
                 }
                 else {
                     //Si el usuario es null se muestra un mensaje de error

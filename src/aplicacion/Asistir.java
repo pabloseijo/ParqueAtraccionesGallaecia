@@ -4,19 +4,24 @@
  */
 package aplicacion;
 
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  *
  * @author Manuel Estevez, Miguel Leal, Pablo Lobato y Pablo Seijo
  * 
  */
 public class Asistir {
+    private Date fecha;
+    private Time hora;
     private String visitante;
-    private String fecha;
     private int espectaculo;
 
-    public Asistir(String dni, String fecha, int espectaculo) {
-        this.visitante = dni;
+    public Asistir(Date fecha, Time hora, String dni, int espectaculo) {
         this.fecha = fecha;
+        this.hora = hora;
+        this.visitante = dni;
         this.espectaculo = espectaculo;
     }
 
@@ -24,8 +29,11 @@ public class Asistir {
         return visitante;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
+    }
+    public Time getHora(){
+        return hora;
     }
 
     public int getEspectaculo() {
@@ -36,7 +44,7 @@ public class Asistir {
         this.visitante = dni;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
