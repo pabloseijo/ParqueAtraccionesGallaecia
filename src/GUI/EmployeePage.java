@@ -66,7 +66,8 @@ public class EmployeePage extends JDialog{
         actualizarEmpleadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //meter aqui el lazamiento de la pagina siguiente
+                UpdateEmployee updateEmployee = new UpdateEmployee(null,fachadaBaseDatos);
+                dispose();
             }
         });
 

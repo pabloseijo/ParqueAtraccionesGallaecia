@@ -138,7 +138,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
-          <icon value="GUI/Images/Despedir.png"/>
+          <icon value="GUI/Images/delete.png"/>
           <text value="DESPEDIR"/>
         </properties>
       </component>
