@@ -18,7 +18,7 @@
      private aplicacion.FachadaAplicacion fachadaAplicacion;
      private java.sql.Connection conexion;
      private static AtraccionesDAO atraccionesDAO;
-     private EspectaculosDAO espectaculosDAO;
+     private static EspectaculosDAO espectaculosDAO;
      private UsuariosDAO usuariosDAO;
      private static TrabajadorDAO trabajadoresDAO;
      private HosteleriaDAO hosteleriaDAO;
@@ -260,6 +260,16 @@
         return espectaculosDAO.buscaEspectaculo(nombreEspectaculo);
     }
 
+    /**
+     * Obtiene una lista de todos los espectaculos.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Espectaculo> con todos los espectaculos.
+     */
+    public static java.util.List<Espectaculo> consultarEspectaculos() throws SQLException{
+        return espectaculosDAO.consultarEspectaculos();
+    }
+
     ///////////////////////////////////////////////** RESTAURANTES **///////////////////////////////////////////////////
     /**
      * Elimina el restaurante seleccionada de la base de datos
@@ -295,7 +305,7 @@
         return hosteleriaDAO.buscaEstablecimiento(nombreEstablecimiento);
     }
 
-    /** HOSTELEROS **/
+    ////////////////////////////////////////////////** HOSTELEROS **////////////////////////////////////////////////////
 
     /**
      * Elimina un hostelero de la base de datos

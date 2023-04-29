@@ -37,11 +37,14 @@ public class EspectaculosDAO extends AbstractDAO{
         con = this.getConexion();
 
         try  {
-        stmEspectaculos=con.prepareStatement("select ID, Nombre, Sesion, HorarioInicio, HorarioFin, Tematica, Descripcion, Ubicacion from Espectaculos");
+        stmEspectaculos=con.prepareStatement("select ID, Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion from Espectaculos");
         rsEspectaculos=stmEspectaculos.executeQuery();
         while (rsEspectaculos.next())
         {
-            espectaculoActual = new Espectaculo(rsEspectaculos.getInt("ID"), rsEspectaculos.getString("Nombre"), rsEspectaculos.getString("Sesion"), rsEspectaculos.getString("HorarioInicio"), rsEspectaculos.getString("HorarioFin"), rsEspectaculos.getString("Tematica"), rsEspectaculos.getString("Descripcion"), rsEspectaculos.getString("Ubicacion"));
+            espectaculoActual = new Espectaculo(rsEspectaculos.getInt("ID"), rsEspectaculos.getString("Nombre"),
+                    rsEspectaculos.getString("Sesion"), rsEspectaculos.getString("HoraInicio"),
+                    rsEspectaculos.getString("HoraFin"), rsEspectaculos.getString("Tematica"),
+                    rsEspectaculos.getString("Descripcion"), rsEspectaculos.getString("Ubicacion"));
             resultado.add(espectaculoActual);
         }
 

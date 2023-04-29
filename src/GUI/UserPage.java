@@ -40,6 +40,7 @@ public class UserPage extends JFrame{
     ESPECTACULOSButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+            CheckShows checkShows = new CheckShows(null,fachadaBaseDatos,usuario);
             dispose();
         }
     });
