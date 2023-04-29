@@ -490,11 +490,10 @@ public class TrabajadorDAO extends AbstractDAO{
         PreparedStatement stmConsulta = null;
         ResultSet rs = null;
         try {
-            stmConsulta = con.prepareStatement("SELECT SUM(Salario) FROM ?");
-            stmConsulta.setString(1, tipo);
+            stmConsulta = con.prepareStatement("SELECT SUM(Salario) as suma FROM " + tipo);
             rs = stmConsulta.executeQuery();
             if (rs.next()) {
-                SumaSalarios = rs.getFloat(1);
+                SumaSalarios = rs.getFloat("suma");
             }
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -512,6 +511,20 @@ public class TrabajadorDAO extends AbstractDAO{
         }
 
         return SumaSalarios;
+    }
+
+    /**
+     * Devuelve
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float totalSalarios() throws SQLException {
+
+        float totalSalarios = 0.0f;
+
+        totalSalarios = this.sumaSalarios("TrabajadoresAdministracion") + this.sumaSalarios("TrabajadoresMantenimiento") + this.sumaSalarios("TrabajadoresEspectaculo");
+
+        return totalSalarios;
     }
 
 
@@ -613,7 +626,5 @@ public class TrabajadorDAO extends AbstractDAO{
                 System.out.println("Imposible cerrar cursores");
             }
         }
-
     }
-
 }
