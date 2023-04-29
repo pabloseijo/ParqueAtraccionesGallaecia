@@ -7,6 +7,17 @@ CREATE DATABASE ParqueAtraccionesGallaecia;
 
 --Conexión a la base de datos
 
+--Creación de una función que devuelve los años transcurridos desde una fecha, para poder hacer los atributos calculados de edad y tiempoTrabajando de los empleados
+CREATE OR REPLACE FUNCTION get_time( inicio DATE )
+RETURNS INTEGER
+AS $CODE$
+BEGIN
+    RETURN EXTRACT(year from AGE(inicio));
+END
+$CODE$
+LANGUAGE plpgsql IMMUTABLE;
+
+
 --Creación de la tabla Usuarios
 CREATE TABLE Usuarios (
     ID SERIAL PRIMARY KEY,
@@ -22,6 +33,7 @@ CREATE TABLE Visitantes (
     Nombre VARCHAR(50),
     fechaNacimiento DATE,
     nombreUsuario VARCHAR(50),
+    Edad INTEGER GENERATED ALWAYS AS (get_time(fechaNacimiento)) STORED,
     FOREIGN KEY (nombreUsuario) REFERENCES Usuarios (Nombre) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -90,16 +102,6 @@ CREATE TABLE Asistir (
     FOREIGN KEY (Visitante) REFERENCES Visitantes (DNI) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Espectaculo) REFERENCES Espectaculos (ID) ON DELETE CASCADE ON UPDATE CASCADE
 );
---Creación de una función que devuelve los años transcurridos desde una fecha, para poder hacer los atributos calculados de edad y tiempoTrabajando de los empleados
-CREATE OR REPLACE FUNCTION get_time( inicio DATE )
-RETURNS INTEGER
-AS $CODE$
-BEGIN
-    RETURN EXTRACT(year from AGE(inicio));
-END
-$CODE$
-LANGUAGE plpgsql IMMUTABLE;
-
 
 --Creación de la tabla TrabajadoresEspectaculo
 CREATE TABLE TrabajadoresEspectaculo(
