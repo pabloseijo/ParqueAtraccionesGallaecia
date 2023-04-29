@@ -24,19 +24,22 @@ public class AsistirDAO extends AbstractDAO {
      *
      * @throws SQLException si hay un error al acceder a la base de datos
      */
-    public void comprarEntrada(Date fecha, Time hora, String dni, int espectaculo) {
+    public void comprarEntrada(Date fecha, Time hora, String dni, String nombreEspectaculo) {
         Connection con;
 
         con = super.getConexion();
 
+
+
         PreparedStatement stmAsistir = null;
 
         try {
+            Espectaculo espectaculo = getFachadaAplicacion().getFachadaBD().buscaEspectaculo(nombreEspectaculo);
             stmAsistir = con.prepareStatement("INSERT INTO Asistir (FechaVisita, horaVisita, Visitante, Espectaculo) VALUES (? ? ? ?)");
             stmAsistir.setDate(1, fecha);
             stmAsistir.setTime(2, hora);
             stmAsistir.setString(3, dni);
-            stmAsistir.setInt(4, espectaculo);
+            stmAsistir.setInt(4, espectaculo.getId());
             stmAsistir.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AsistirDAO.class.getName()).log(Level.SEVERE, null, ex);

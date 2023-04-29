@@ -53,6 +53,40 @@ public class HosteleriaDAO extends AbstractDAO{
         return resultado;
     }
 
+    /**
+     * Obtiene un establecimiento por su nombre.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return el Hosteleria buscado si existe.
+     */
+    public Hosteleria buscaEstablecimiento(String nombreEstablecimiento) throws SQLException {
+        Hosteleria resultado = null;
+        ResultSet rsHosteleria;
+        PreparedStatement stmHosteleria = null;
+        Connection con;
+        con = super.getConexion();
+
+        try {
+            stmHosteleria = con.prepareStatement("SELECT * FROM Hosteleria WHERE Nombre = ?");
+            stmHosteleria.setString(1, nombreEstablecimiento);
+            rsHosteleria = stmHosteleria.executeQuery();
+            while (rsHosteleria.next()) {
+                resultado = new Hosteleria(rsHosteleria.getInt("codigoRegistro"), rsHosteleria.getString("Nombre"), rsHosteleria.getInt("Aforo"), rsHosteleria.getString("Ubicaciones"), rsHosteleria.getTime("HoraApertura"), rsHosteleria.getTime("HoraCierre"), rsHosteleria.getFloat("Recaudacion"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(HosteleriaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmHosteleria.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+        return resultado;
+    }
+
 
     /**
      * Elimina el restaurante seleccionada de la base de datos

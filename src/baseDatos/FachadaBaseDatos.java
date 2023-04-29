@@ -208,6 +208,15 @@
     public void anhadirAtraccion(String nombre, int aforo, int alturaMin, float costeMantenimiento, boolean enReparacion, String ubicaciones, String descripcion) throws SQLException{
         atraccionesDAO.anhadirAtraccion(nombre, aforo, alturaMin, costeMantenimiento, enReparacion, ubicaciones, descripcion);
     }
+    /**
+     * Busca una atraccion en concreto por su nombre
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return la Atraccion buscada si existe.
+     */
+    public Atraccion buscaAtraccion(String nombreAtraccion) throws SQLException {
+        return atraccionesDAO.buscaAtraccion(nombreAtraccion);
+    }
 
     /** ESPECTACULOS **/
     /**
@@ -234,7 +243,15 @@
     public void anhadirEspectaculo(String nombre, String sesion, Time horaInicio, Time horaFin, String tematica, String descripcion, String ubicaciones) throws SQLException{
         espectaculosDAO.anhadirEspectaculo(nombre, sesion, horaInicio, horaFin, tematica, descripcion, ubicaciones);
     }
-
+    /**
+     * Obtiene un espectaculo por su nombre.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return el Espectaculo buscado si existe
+     */
+    public Espectaculo buscaEspectaculo(String nombreEspectaculo) throws SQLException {
+        return espectaculosDAO.buscaEspectaculo(nombreEspectaculo);
+    }
 
     /** RESTAURANTES **/
     /**
@@ -260,6 +277,15 @@
      */
     public void anhadirRestaurante(String nombre, int aforo, String ubicaciones, Time horaApertura, Time horaCierre, float recaudacion) throws SQLException{
         hosteleriaDAO.anhadirRestaurante(nombre, aforo, ubicaciones, horaApertura, horaCierre, recaudacion);
+    }
+    /**
+     * Obtiene un establecimiento por su nombre.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return el Hosteleria buscado si existe.
+     */
+    public Hosteleria buscaEstablecimiento(String nombreEstablecimiento) throws SQLException {
+        return hosteleriaDAO.buscaEstablecimiento(nombreEstablecimiento);
     }
 
     /** HOSTELEROS **/
