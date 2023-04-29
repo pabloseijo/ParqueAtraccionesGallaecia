@@ -32,7 +32,7 @@ public class SeeTicketsPage extends JDialog{
         this.user=usuario;
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
-        setTitle("Empleados");
+        setTitle("Ver entradas");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
