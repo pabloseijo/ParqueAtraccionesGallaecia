@@ -60,6 +60,8 @@ public class UpdateEmployee extends JDialog {
                 EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
             }
         });
+
+        //Boton para actualizar
         ACTUALIZARButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,8 +90,9 @@ public class UpdateEmployee extends JDialog {
                     case "administracion":
                         //Hago un try y catch para manejar la excepcion
                         try {
+                            fachadaBaseDatos.actualizarTrabajadorAdministracion(dni, name, Atraccion, Espectaculo);
                             dispose();
-                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                            UpdateEmployee menuContratar = new UpdateEmployee(null, fachadaBaseDatos);
 
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
@@ -99,9 +102,9 @@ public class UpdateEmployee extends JDialog {
                     //Caso de mantenimiento
                     case "mantenimiento":
                         try {
-
+                            fachadaBaseDatos.actualizarTrabajadorMantenimiento(dni, name, Atraccion);
                             dispose();
-                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                            UpdateEmployee menuContratar = new UpdateEmployee(null, fachadaBaseDatos);
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         }
@@ -110,9 +113,9 @@ public class UpdateEmployee extends JDialog {
                     //Caso de espectaculos
                     case "espectaculos":
                         try {
-
+                            fachadaBaseDatos.actualizarTrabajadoresEspectaculo(dni, name, Espectaculo);
                             dispose();
-                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                            UpdateEmployee menuContratar = new UpdateEmployee(null, fachadaBaseDatos);
                         } catch (SQLException ex) {
                             throw new RuntimeException(ex);
                         }
