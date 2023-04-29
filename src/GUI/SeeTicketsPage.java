@@ -23,18 +23,18 @@ public class SeeTicketsPage extends JDialog{
     private JButton SALIRButton;
     private JButton VOLVERButton;
     private JScrollPane scrollPane1;
+    private String user;
 
 
 
     public SeeTicketsPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos, String usuario) {
         super(parent);
+        this.user=usuario;
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
         setTitle("Empleados");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
-        createUIComponents(usuario);
-
         //Ponemos el tamaño de la ventana
         setMinimumSize(new Dimension(700,500));
         //Centramos la pestaña
@@ -43,6 +43,7 @@ public class SeeTicketsPage extends JDialog{
         //Esto hace que se cierre al darle a la X
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+
 
         VOLVERButton.addActionListener(new ActionListener() {
             @Override
@@ -59,7 +60,8 @@ public class SeeTicketsPage extends JDialog{
         });
     }
 
-    private void createUIComponents(String usuario) {
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
         // Crear un modelo de tabla con tres columnas
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("DNI");
@@ -68,7 +70,7 @@ public class SeeTicketsPage extends JDialog{
 
         ArrayList<Visitante> listaEntradas = null;
         try {
-            listaEntradas = FachadaBaseDatos.getEntradas(usuario);
+            listaEntradas = FachadaBaseDatos.getEntradas(this.user);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -82,6 +84,7 @@ public class SeeTicketsPage extends JDialog{
         // Crear el JScrollPane y asignarle el JTable
         scrollPane1 = new JScrollPane(table1);
     }
+
 }
 
 
