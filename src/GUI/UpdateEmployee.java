@@ -128,6 +128,7 @@ public class UpdateEmployee extends JDialog {
         });
     }
 
+    //Creo la tabla donde meto a los trabajadores
     private void createUIComponents() {
         // Crear un modelo de tabla con tres columnas
         DefaultTableModel model = new DefaultTableModel();

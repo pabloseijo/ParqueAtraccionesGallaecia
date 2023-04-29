@@ -75,7 +75,8 @@ public class EmployeePage extends JDialog{
         salariosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //meter aqui el lazamiento de la pagina siguiente
+                Salaries salaries = new Salaries(null,fachadaBaseDatos);
+                dispose();
             }
         });
 
