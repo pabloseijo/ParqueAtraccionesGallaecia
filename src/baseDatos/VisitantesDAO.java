@@ -39,7 +39,7 @@ public class VisitantesDAO extends AbstractDAO{
             rsVisitantes = stmVisitantes.executeQuery();
             Visitante visitante;
             while (rsVisitantes.next()) {
-                visitante = new Visitante(rsVisitantes.getString("DNI"), rsVisitantes.getString("Nombre"), rsVisitantes.getString("Email"), rsVisitantes.getDate("fechaNacimiento"), rsVisitantes.getInt("Altura"), rsVisitantes.getInt("Edad"));
+                visitante = new Visitante(rsVisitantes.getString("DNI"), rsVisitantes.getString("Nombre"), rsVisitantes.getDate("fechaNacimiento"), rsVisitantes.getInt("Edad"));
                 resultado.add(visitante);
             }
 
@@ -68,7 +68,7 @@ public class VisitantesDAO extends AbstractDAO{
             rsVisitantes = stmVisitantes.executeQuery();
             Visitante visitante;
             while (rsVisitantes.next()) {
-                visitante = new Visitante(rsVisitantes.getString("DNI"), rsVisitantes.getString("Nombre"), rsVisitantes.getString("Email"), rsVisitantes.getDate("fechaNacimiento"), rsVisitantes.getInt("Altura"), rsVisitantes.getInt("Edad"));
+                visitante = new Visitante(rsVisitantes.getString("DNI"), rsVisitantes.getString("Nombre"), rsVisitantes.getDate("fechaNacimiento"), rsVisitantes.getInt("Edad"));
                 resultado.add(visitante);
             }
 
