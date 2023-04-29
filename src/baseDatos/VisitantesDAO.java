@@ -55,5 +55,34 @@ public class VisitantesDAO extends AbstractDAO{
 
         return resultado;
     }
-    
+    public ArrayList<Visitante> getEntradas(String usuario) throws SQLException{
+        ArrayList<Visitante> resultado = new ArrayList<>();
+        ResultSet rsVisitantes;
+        PreparedStatement stmVisitantes = null;
+        Connection con;
+        con = super.getConexion();
+
+        try {
+            stmVisitantes = con.prepareStatement("SELECT * FROM Visitantes WHERE nombreUsuario=? ORDER BY Nombre");
+            stmVisitantes.setString(1, usuario);
+            rsVisitantes = stmVisitantes.executeQuery();
+            Visitante visitante;
+            while (rsVisitantes.next()) {
+                visitante = new Visitante(rsVisitantes.getString("DNI"), rsVisitantes.getString("Nombre"), rsVisitantes.getString("Email"), rsVisitantes.getDate("fechaNacimiento"), rsVisitantes.getInt("Altura"), rsVisitantes.getInt("Edad"));
+                resultado.add(visitante);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VisitantesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmVisitantes.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+        return resultado;
+    }
+
 }
