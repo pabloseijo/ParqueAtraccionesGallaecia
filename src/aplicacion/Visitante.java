@@ -18,10 +18,10 @@ public class Visitante {
     private int edad;
     
 
-    public Visitante (String DNI, String nombre, String correoElectronico, Date fechaNacimiento, int altura, int edad){
+    public Visitante (String DNI, String nombre, Date fechaNacimiento, int edad){
         this.DNI = DNI;
         this.nombre = nombre;
-        this.correoElectronico = correoElectronico;
+        //this.correoElectronico = correoElectronico;
         this.fechaNacimiento = fechaNacimiento;
         this.altura = altura;
         this.edad = edad;
