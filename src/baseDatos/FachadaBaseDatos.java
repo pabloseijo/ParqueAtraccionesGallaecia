@@ -260,7 +260,7 @@
         return espectaculosDAO.buscaEspectaculo(nombreEspectaculo);
     }
 
-    /** RESTAURANTES **/
+    ///////////////////////////////////////////////** RESTAURANTES **///////////////////////////////////////////////////
     /**
      * Elimina el restaurante seleccionada de la base de datos
      *
@@ -422,7 +422,7 @@
         trabajadoresDAO.actualizarSalarioEspectaculo(dni, salario);
     }
   
-  /**USUARIO**/
+  ///////////////////////////////////////////** USUARIO **//////////////////////////////////////////////////////////////
     /**
      *
      * @param usuario id del usuario

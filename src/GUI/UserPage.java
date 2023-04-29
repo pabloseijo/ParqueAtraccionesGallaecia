@@ -23,7 +23,7 @@ public class UserPage extends JFrame{
     //Mostramos el panel del .form
     setContentPane(MainPanel);
     //Ponemos el tamaño de la ventana
-    setMinimumSize(new Dimension(700,500));
+    setMinimumSize(new Dimension(900,500));
     //Centramos la pestaña
     setLocationRelativeTo(parent);
     //Esto hace que se cierre al darle a la X
@@ -33,7 +33,7 @@ public class UserPage extends JFrame{
     ATRACCIONESButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            CheckAttraction checkAttraction = new CheckAttraction( null, fachadaBaseDatos);
+            CheckAttraction checkAttraction = new CheckAttraction( null, fachadaBaseDatos, usuario);
             dispose();
         }
     });

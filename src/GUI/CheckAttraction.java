@@ -19,11 +19,11 @@ public class CheckAttraction extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
     private JScrollPane scrollPane1;
 
-    public CheckAttraction(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
+    public CheckAttraction(JFrame parent, FachadaBaseDatos fachadaBaseDatos, String User) {
         super(parent);
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
-        setTitle("Empleados");
+        setTitle("Ver Atracciones");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         createUIComponents();
@@ -50,7 +50,7 @@ public class CheckAttraction extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
+                UserPage menuEmployee = new UserPage(null, fachadaBaseDatos, User);
             }
         });
     }
