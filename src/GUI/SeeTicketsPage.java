@@ -1,11 +1,14 @@
 package GUI;
 
+import aplicacion.Trabajador;
 import aplicacion.Visitante;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -41,6 +44,19 @@ public class SeeTicketsPage extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
 
+        VOLVERButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+                UserPage menuUsuario = new UserPage(null, fachadaBaseDatos, usuario);
+            }
+        });
+        SALIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+            }
+        });
     }
 
     private void createUIComponents(String usuario) {
