@@ -18,7 +18,7 @@ public class UserPage extends JFrame{
     private JButton SALIRButton;
 public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
     //ponemos el titulo de la pestaña
-    setTitle("Administrador");
+    setTitle("Usuario");
     //Mostramos el panel del .form
     setContentPane(MainPanel);
     //Ponemos el tamaño de la ventana

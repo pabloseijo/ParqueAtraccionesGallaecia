@@ -30,8 +30,8 @@ public class AtraccionesDAO extends AbstractDAO{
     * @throws SQLException si hay un error al acceder a la base de datos
     * @return un ArrayList<Atraccion> con todas las atracciones.
     */
-    public java.util.List<Atraccion> consultarAtracciones() throws SQLException{
-        java.util.List<Atraccion> resultado = new java.util.ArrayList<Atraccion>();
+    public ArrayList<Atraccion> consultarAtracciones() throws SQLException{
+        ArrayList<Atraccion> resultado = new ArrayList<Atraccion>();
         Atraccion atraccionActual;
         Connection con;
         PreparedStatement stmAtracciones=null;
@@ -52,6 +52,37 @@ public class AtraccionesDAO extends AbstractDAO{
           System.out.println(e.getMessage());
         }finally{
           try {stmAtracciones.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+
+    /**
+     * Busca una atraccion en concreto por su nombre
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return la Atraccion buscada si existe.
+     */
+    public Atraccion buscaAtraccion(String nombreAtraccion) throws SQLException {
+        Atraccion resultado = null;
+        Connection con;
+        PreparedStatement stmAtracciones=null;
+        ResultSet rsAtracciones;
+
+        con = this.getConexion();
+
+        try  {
+            stmAtracciones = con.prepareStatement("SELECT * FROM Atracciones WHERE Nombre = ?");
+            stmAtracciones.setString(1, nombreAtraccion);
+            rsAtracciones = stmAtracciones.executeQuery();
+            while (rsAtracciones.next())
+            {
+                resultado = new Atraccion(rsAtracciones.getInt("NumeroRegistro"), rsAtracciones.getString("Nombre"), rsAtracciones.getInt("Aforo"), rsAtracciones.getInt("AlturaMin"), rsAtracciones.getFloat("CosteMantenimiento"), rsAtracciones.getBoolean("EnReparacion"), rsAtracciones.getString("Ubicacion"), rsAtracciones.getString("Descripcion"));
+            }
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmAtracciones.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }

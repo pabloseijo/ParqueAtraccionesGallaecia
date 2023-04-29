@@ -1,6 +1,8 @@
 package baseDatos;
 
+import aplicacion.Atraccion;
 import aplicacion.Comer;
+import baseDatos.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -56,19 +58,22 @@ public class IrDAO extends AbstractDAO{
      *
      * @throws SQLException si hay un error al acceder a la base de datos
      */
-    public void reservarEntrada(Date fecha, Time hora, String dni, int atraccion) {
+    public void reservarEntrada(Date fecha, Time hora, String dni, String nombreAtraccion) throws SQLException {
+
         Connection con;
 
         con = super.getConexion();
 
         PreparedStatement stmIr = null;
 
+        Atraccion atraccion= getFachadaAplicacion().getFachadaBD().buscaAtraccion(nombreAtraccion);
+
         try {
             stmIr = con.prepareStatement("INSERT INTO Ir (FechaVisita, horaVisita, Visitante, Atraccion) VALUES (? ? ? ?)");
             stmIr.setDate(1, fecha);
             stmIr.setTime(2, hora);
             stmIr.setString(3, dni);
-            stmIr.setInt(4, atraccion);
+            stmIr.setInt(4, atraccion.getNumeroRegistro());
             stmIr.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(IrDAO.class.getName()).log(Level.SEVERE, null, ex);

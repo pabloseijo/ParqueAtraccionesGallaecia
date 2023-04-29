@@ -54,6 +54,37 @@ public class EspectaculosDAO extends AbstractDAO{
     }
 
     /**
+     * Obtiene un espectaculo por su nombre.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return el Espectaculo buscado si existe
+     */
+    public Espectaculo buscaEspectaculo(String nombreEspectaculo) throws SQLException {
+        Espectaculo resultado = null;
+        Connection con;
+        PreparedStatement stmEspectaculos = null;
+        ResultSet rsEspectaculos;
+
+        con = this.getConexion();
+
+        try  {
+            stmEspectaculos = con.prepareStatement("SELECT * FROM Espectaculos WHERE Nombre = ?");
+            stmEspectaculos.setString(1, nombreEspectaculo);
+            rsEspectaculos = stmEspectaculos.executeQuery();
+            while (rsEspectaculos.next())
+            {
+                resultado = new Espectaculo(rsEspectaculos.getInt("ID"), rsEspectaculos.getString("Nombre"), rsEspectaculos.getString("Sesion"), rsEspectaculos.getString("HorarioInicio"), rsEspectaculos.getString("HorarioFin"), rsEspectaculos.getString("Tematica"), rsEspectaculos.getString("Descripcion"), rsEspectaculos.getString("Ubicacion"));
+            }
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmEspectaculos.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+
+    /**
      * Elimina un espectaculo
      *
      * @param id: identificador de la atraccion

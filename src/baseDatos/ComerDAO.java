@@ -56,7 +56,7 @@ public class ComerDAO extends AbstractDAO{
      *
      * @throws SQLException si hay un error al acceder a la base de datos
      */
-    public void reservarMesa(Date fecha, Time hora, String dni, int establecimiento) {
+    public void reservarMesa(Date fecha, Time hora, String dni, String nombreEstablecimiento) {
         Connection con;
 
         con = super.getConexion();
@@ -64,11 +64,12 @@ public class ComerDAO extends AbstractDAO{
         PreparedStatement stmComer = null;
 
         try {
+            Hosteleria establecimiento = getFachadaAplicacion().getFachadaBD().buscaEstablecimiento(nombreEstablecimiento);
             stmComer = con.prepareStatement("INSERT INTO Comer (FechaVisita, horaVisita, Visitante, Establecimiento) VALUES (? ? ? ?)");
             stmComer.setDate(1, fecha);
             stmComer.setTime(2, hora);
             stmComer.setString(3, dni);
-            stmComer.setInt(4, establecimiento);
+            stmComer.setInt(4, establecimiento.getCodigoRegistro());
             stmComer.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ComerDAO.class.getName()).log(Level.SEVERE, null, ex);

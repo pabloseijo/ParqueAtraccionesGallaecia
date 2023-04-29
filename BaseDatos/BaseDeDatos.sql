@@ -32,8 +32,8 @@ CREATE TABLE Espectaculos (
 CREATE TABLE Visitantes (
     DNI CHAR(9) PRIMARY KEY,
     Nombre VARCHAR(50),
-    correoElectronico VARCHAR(50),
-    fechaNacimiento DATE
+    fechaNacimiento DATE,
+    FOREIGN KEY (nombreUsuario) REFERENCES Usuarios (Nombre) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 --Creación de la tabla Hosteleria
@@ -62,6 +62,7 @@ CREATE TABLE Atracciones (
 --Creación de la tabla Ir
 CREATE TABLE Ir (
     FechaVisita DATE,
+    horaVisita TIME,
     Visitante CHAR(9),
     Atraccion INTEGER,
     FOREIGN KEY (Visitante) REFERENCES Visitantes (DNI) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -71,6 +72,7 @@ CREATE TABLE Ir (
 --Creación de la tabla Comer
 CREATE TABLE Comer (
     FechaVisita DATE,
+    horaVisita TIME,
     Visitante CHAR(9),
     Establecimiento INTEGER,
     FOREIGN KEY (Visitante) REFERENCES Visitantes (DNI) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -80,6 +82,7 @@ CREATE TABLE Comer (
 --Creación de la tabla Asistir
 CREATE TABLE Asistir (
     FechaVisita DATE,
+    horaVisita TIME,
     Visitante CHAR(9),
     Espectaculo INTEGER,
     FOREIGN KEY (Visitante) REFERENCES Visitantes (DNI) ON DELETE CASCADE ON UPDATE CASCADE,
