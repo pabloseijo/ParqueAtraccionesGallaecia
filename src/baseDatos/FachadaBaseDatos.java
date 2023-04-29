@@ -7,10 +7,7 @@
 
  import aplicacion.*;
 
- import java.sql.Date;
- import java.sql.SQLException;
- import java.sql.DriverManager;
- import java.sql.Time;
+ import java.sql.*;
  import java.util.ArrayList;
 
 /**
@@ -331,4 +328,53 @@
     public void actualizarTrabajadoresEspectaculo(String dni, String nombre, int espectaculo) throws SQLException{
         trabajadoresDAO.actualizarTrabajadoresEspectaculo(dni, nombre, espectaculo);
     }
+
+    /////////////////////////////////////////////** FUNCIONES DE SALARIOS **////////////////////////////////////////////
+
+    /**
+     * Suma los salarios de un tipo de trabajador
+     *
+     * @param tipo de trabajador del que obtener la suma de salarios
+     * @return
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float sumaSalarios(String tipo) throws SQLException{
+        return trabajadoresDAO.sumaSalarios(tipo);
+    }
+
+    /**
+     * Actualiza el salario de los trabajadores de administracion
+     *
+     * @param dni el dni del trabajador.
+     * @param salario el nuevo salario
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarSalarioAdministracion(String dni, float salario) throws SQLException{
+        trabajadoresDAO.actualizarSalarioAdministracion(dni, salario);
+    }
+
+
+    /**
+     * Actualiza los trabajadores de Mantenimiento
+     *
+     * @param dni el dni del trabajador.
+     * @param salario el nuevo salario
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarSalarioMantenimiento(String dni, float salario) throws SQLException{
+        trabajadoresDAO.actualizarSalarioMantenimiento(dni, salario);
+    }
+
+
+    /**
+     * Actualiza los trabajadores de espectaculo
+     *
+     * @param dni el dni del trabajador.
+     * @param salario el nuevo salario
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarSalarioEspectaculo(String dni, float salario) throws SQLException{
+        trabajadoresDAO.actualizarSalarioEspectaculo(dni, salario);
+    }
+
 }
