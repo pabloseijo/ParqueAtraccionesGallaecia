@@ -1,6 +1,5 @@
 package GUI;
 
-import aplicacion.*;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
@@ -13,10 +12,12 @@ public class UserPage extends JFrame{
     private JButton ATRACCIONESButton;
     private JButton ESPECTACULOSButton;
     private JButton HOSTELERIAButton;
-    private JButton ENTRADASButton;
+    private JButton VERENTRADASButton;
     private JButton VOLVERButton;
     private JButton SALIRButton;
-public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
+    private JButton COMPRARENTRADASButton;
+
+    public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos, String usuario){
     //ponemos el titulo de la pestaña
     setTitle("Usuario");
     //Mostramos el panel del .form
@@ -47,9 +48,17 @@ public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
             dispose();
         }
     });
-    ENTRADASButton.addActionListener(new ActionListener() {
+    COMPRARENTRADASButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+            dispose();
+        }
+    });
+
+    VERENTRADASButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            SeeTicketsPage menuSeeTicket=new SeeTicketsPage(null, fachadaBaseDatos, usuario);
             dispose();
         }
     });
@@ -66,5 +75,5 @@ public UserPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
             dispose();
         }
     });
-}
+    }
 }
