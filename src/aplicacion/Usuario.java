@@ -37,4 +37,8 @@ public class Usuario {
        return this.tipo;
    }
 
+ 
+    public String getNombreUsuario(){
+        return this.nombreUsuario;
+    }   
 }
