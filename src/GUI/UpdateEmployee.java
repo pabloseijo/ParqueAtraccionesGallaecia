@@ -22,6 +22,7 @@ public class UpdateEmployee extends JDialog {
     private JButton SALIRButton;
     private JPanel MainPanel;
     private JTable table1;
+    private JButton ACTUALIZARButton;
     private JScrollPane scrollPane1;
 
 
@@ -57,6 +58,69 @@ public class UpdateEmployee extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
+            }
+        });
+        ACTUALIZARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String dni = DNITextField.getText();
+                String name = NameTextField.getText();
+                String type = TypeTextField.getText();
+                String Attraction = AttractionTextField.getText();
+                String Show = ShowTextField.getText();
+
+                /////////////////////////* TRANSFORMAMOS LOS STRING A LOS TIPOS NECESARIOS *////////////////////////////
+
+                int Atraccion = 0, Espectaculo = 0;
+                try {
+                    // Convierte el String a un float
+                    Atraccion = Integer.parseInt(Attraction);
+                    Espectaculo = Integer.parseInt(Show);
+                    // floatValue contiene el número convertido
+                } catch (NumberFormatException IntException) {
+                    // El String no se pudo convertir
+                }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                switch ((type.toLowerCase())){
+                    //Caso de administracion
+                    case "administracion":
+                        //Hago un try y catch para manejar la excepcion
+                        try {
+                            dispose();
+                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        break;
+
+                    //Caso de mantenimiento
+                    case "mantenimiento":
+                        try {
+
+                            dispose();
+                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        break;
+
+                    //Caso de espectaculos
+                    case "espectaculos":
+                        try {
+
+                            dispose();
+                            HireEmployee menuContratar = new HireEmployee(null, fachadaBaseDatos);
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Trabajo incorrecto");
+                }
             }
         });
     }

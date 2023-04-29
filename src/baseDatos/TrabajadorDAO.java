@@ -180,12 +180,12 @@ public class TrabajadorDAO extends AbstractDAO{
   
     }
 
-         /**
-         * Despide a un trabajador de mantenimiento
-         * 
-         * @param dni el dni del trabajador.
-         * @throws SQLException si hay un error al acceder a la base de datos
-         */
+     /**
+    * * Despide a un trabajador de mantenimiento
+    *
+    * @param dni el dni del trabajador.
+    * @throws SQLException si hay un error al acceder a la base de datos
+    * */
     public void despedirTrabajadorMantenimiento(String dni) throws SQLException {
 
         PreparedStatement stmTrabajador = null;
@@ -360,4 +360,113 @@ public class TrabajadorDAO extends AbstractDAO{
     }
 
 
+    ////////////////////////////////////* FUNCIONES DE ACTUALIZACION *//////////////////////////////////////////////////
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param atraccion la atraccion en la que trabaja.
+     * @param espectaculo el espectaculo que supervisa el trabajador.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadorAdministracion(String dni, String nombre, int atraccion, int espectaculo) throws SQLException{
+
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmActualizacion = null;
+        try {
+            stmActualizacion = con.prepareStatement("UPDATE TrabajdoresAdministracion\n" +
+                    "SET nombre = ?, atraccion = ?, espectaculo = ?\n" +
+                    "WHERE dni = ?");
+            stmActualizacion.setString(1, nombre);
+            stmActualizacion.setInt(2, atraccion);
+            stmActualizacion.setInt(3, espectaculo);
+            stmActualizacion.setString(4, dni);
+            stmActualizacion.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmActualizacion.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+    }
+
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param atraccion la atraccion en la que trabaja
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadorMantenimienoto(String dni, String nombre, int atraccion) throws SQLException{
+
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmActualizacion = null;
+        try {
+            stmActualizacion = con.prepareStatement("UPDATE TrabajdoresMantenimiento\n" +
+                    "SET nombre = ?, atraccion = ?\n" +
+                    "WHERE dni = ?");
+            stmActualizacion.setString(1, nombre);
+            stmActualizacion.setInt(2, atraccion);
+            stmActualizacion.setString(3, dni);
+            stmActualizacion.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmActualizacion.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+    }
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param espectaculo el espectaculo en el que trabaja
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadoresEspectaculo(String dni, String nombre, int espectaculo) throws SQLException{
+
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmActualizacion = null;
+        try {
+            stmActualizacion = con.prepareStatement("UPDATE TrabajadoresMantenimiento\n" +
+                    "SET nombre = ?, espectaculo = ?\n" +
+                    "WHERE dni = ?");
+            stmActualizacion.setString(1, nombre);
+            stmActualizacion.setInt(2, espectaculo);
+            stmActualizacion.setString(3, dni);
+            stmActualizacion.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmActualizacion.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+    }
 }
