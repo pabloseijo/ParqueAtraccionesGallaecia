@@ -6,46 +6,54 @@
 INSERT INTO Usuarios (Nombre, Email, Clave, TipoUsuario) 
 VALUES
     ('admin', 'admin@gmail.com', 'admin', 'Administrador'),
-    ('user', 'user@gmail.com', 'user', 'Normal');
-
--- Insertamos dentro de la tabla de espectaculos los valores de los espectaculos
-INSERT INTO Espectaculos (Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion) 
-VALUES 
-    ('La Bella y la Bestia', 'Tarde', '15:00', '17:30', 'Musical', 'Una historia clásica de amor y aceptación', 'Teatro Occidental'),
-    ('El Rey León', 'Noche', '20:00', '22:30', 'Musical', 'Un relato épico sobre la vida y la muerte en la sabana africana', 'Teatro Principal'),
-    ('Mamma Mia!', 'Tarde', '14:30', '17:00', 'Musical', 'Una divertida historia de amor y música al ritmo de ABBA', 'Teatro Oriental'),
-    ('Cats', 'Noche', '19:30', '22:00', 'Musical', 'Un viaje al mundo de los gatos callejeros de Londres', 'Teatro Occidental'),
-    ('El Fantasma de la Ópera', 'Noche', '21:00', '23:30', 'Musical', 'Una historia de amor y obsesión en el mundo de la ópera parisina del siglo XIX', 'Teatro Principal'),
-    ('Wicked', 'Tarde', '16:00', '18:30', 'Musical', 'La historia detrás de la malvada bruja del oeste de Oz', 'Teatro Oriental'),
-    ('Les Misérables', 'Noche', '20:30', '23:00', 'Musical', 'Una emocionante epopeya sobre la lucha por la libertad y la redención en la Francia del siglo XIX', 'Teatro Occidental'),
-    ('Chicago', 'Tarde', '15:30', '18:00', 'Musical', 'Un retrato satírico y crítico de la justicia y la corrupción en la Chicago de los años 20', 'Teatro Principal'),
-    ('Phantom', 'Noche', '19:00', '21:30', 'Drama', 'Una mirada profunda al mundo de los enfermos mentales y su lucha por la recuperación', 'Teatro Oriental'),
-    ('The Book of Mormon', 'Tarde', '17:00', '19:30', 'Musical', 'Una irreverente comedia musical sobre dos misioneros mormones en África', 'Teatro Principal');
+    ('user', 'user@gmail.com', 'user', 'Normal'),
+    ('juanperezgomez', 'juanpgomez@gmail.com', 'Gomez19850812', 'Normal'),
+    ('mariarodriguezmartinez', 'mariarodriguezm@gmail.com', 'Martinez19920405', 'Normal'),
+    ('pedrogomezsanchez', 'pedrogomezs@gmail.com', 'Sanchez19971123', 'Normal'),
+    ('luciafernandezlopez', 'luciaflopez@gmail.com', 'Lopez19900217', 'Normal'),
+    ('diegosanchezgarcia', 'diegosangarcia@gmail.com', 'Garcia19880731', 'Normal'),
+    ('anamartinezperez', 'anamperez@gmail.com', 'Perez19960114', 'Normal'),
+    ('jorgehernandezgutierrez', 'jorgehgutierrez@gmail.com', 'Gutierrez19861019', 'Normal'),
+    ('sofiagonzalezruiz', 'sofiagr@gmail.com', 'Ruiz19930308', 'Normal'),
+    ('manuelgarciacastro', 'manuelgarcia@gmail.com', 'Castro19940512', 'Normal'),
+    ('laurapereztorres', 'lauraperez@gmail.com', 'Torres19851102', 'Normal'),
+    ('carlosrodriguezdiaz', 'carlosrodriguezd@gmail.com', 'Diaz19890625', 'Normal'),
+    ('marinasanchezgomez', 'marinasgomez@gmail.com', 'Gomez19980209', 'Normal'),
+    ('andresfernandezgarcia', 'andresfgarcia@gmail.com', 'Garcia19821225', 'Normal'),
+    ('cristinalopezperez', 'cristinalopezp@gmail.com', 'Perez19901030', 'Normal'),
+    ('rafaelgonzalezsanchez', 'rafaelgsanchez@gmail.com', 'Sanchez19860903', 'Normal'),
+    ('isabelmartinezruiz', 'isabelmr@gmail.com', 'Ruiz19970428', 'Normal'),
+    ('mariohernandezcastro', 'mariohernandezc@gmail.com', 'Castro19920531', 'Normal'),
+    ('lucianagarciatorres', 'lucianagarcia@gmail.com', 'Torres19910720', 'Normal'),
+    ('davidperezsanchez', 'davidpsanchez@gmail.com', 'Sanchez19840419', 'Normal'),
+    ('verrodriguezfernandez', 'veronicarf@gmail.com', 'Fernandez19910203', 'Normal'),
+    ('gabrielsanchezperez', 'gabrielsanchezp@gmail.com', 'Perez19931208', 'Normal');
 
 -- Insertamos dentro de la tabla de Visitantes los valores de los visitantes
-INSERT INTO Visitantes (DNI, Nombre, correoElectronico, fechaNacimiento)
-VALUES 
-('34589123A', 'Juan Pérez Gómez', 'juanpgomez@gmail.com', '1980-05-12'),
-('26347819B', 'María Rodríguez Martínez', 'mariarodriguezm@gmail.com', '1975-12-28'),
-('16749235C', 'Pedro Gómez Sánchez', 'pedrogomezs@gmail.com', '1992-03-05'),
-('39984560D', 'Lucía Fernández López', 'luciaflopez@gmail.com', '1987-11-02'),
-('18563247E', 'Diego Sánchez García', 'diegosangarcia@gmail.com', '2001-08-20'),
-('24789153F', 'Ana Martínez Pérez', 'anamperez@gmail.com', '1998-06-05'),
-('43890261G', 'Jorge Hernández Gutiérrez', 'jorgehgutierrez@gmail.com', '1983-09-15'),
-('31875492H', 'Sofía González Ruiz', 'sofiagr@gmail.com', '1995-02-12'),
-('50263489I', 'Manuel García Castro', 'manuelgarcia@gmail.com', '1990-07-23'),
-('12345678J', 'Laura Pérez Torres', 'lauraperez@gmail.com', '1988-04-17'),
-('54673821K', 'Carlos Rodríguez Díaz', 'carlosrodriguezd@gmail.com', '1997-11-08'),
-('78902345L', 'Marina Sánchez Gómez', 'marinasgomez@gmail.com', '1982-02-24'),
-('23456789M', 'Andrés Fernández García', 'andresfgarcia@gmail.com', '1993-09-07'),
-('98765432N', 'Cristina López Pérez', 'cristinalopezp@gmail.com', '1996-06-18'),
-('67438902O', 'Rafael González Sánchez', 'rafaelgsanchez@gmail.com', '1985-03-30'),
-('34567289P', 'Isabel Martínez Ruiz', 'isabelmr@gmail.com', '1999-10-10'),
-('90871234Q', 'Mario Hernández Castro', 'mariohernandezc@gmail.com', '1991-05-02'),
-('56789012R', 'Luciana García Torres', 'lucianagarcia@gmail.com', '1994-08-13'),
-('45678901S', 'David Pérez Sánchez', 'davidpsanchez@gmail.com', '1989-01-28'),
-('34567890T', 'Verónica Rodríguez Fernández', 'veronicarf@gmail.com', '2000-12-03'),
-('65432109U', 'Gabriel Sánchez Pérez', 'gabrielsanchezp@gmail.com', '1996-07-20');
+INSERT INTO Visitantes (DNI, Nombre, fechaNacimiento, nombreUsuario)
+VALUES
+('34589123A', 'Juan Pérez Gómez', '1980-05-12', 'juanperezgomez'),
+('26347819B', 'María Rodríguez Martínez', '1975-12-28', 'mariarodriguezmartinez'),
+('16749235C', 'Pedro Gómez Sánchez', '1992-03-05', 'pedrogomezsanchez'),
+('39984560D', 'Lucía Fernández López', '1987-11-02', 'luciafernandezlopez'),
+('18563247E', 'Diego Sánchez García', '2001-08-20', 'diegosanchezgarcia'),
+('24789153F', 'Ana Martínez Pérez', '1998-06-05', 'anamartinezperez'),
+('43890261G', 'Jorge Hernández Gutiérrez', '1983-09-15', 'jorgehernandezgutierrez'),
+('31875492H', 'Sofía González Ruiz', '1995-02-12', 'sofiagonzalezruiz'),
+('50263489I', 'Manuel García Castro', '1990-07-23', 'manuelgarciacastro'),
+('12345678J', 'Laura Pérez Torres', '1988-04-17', 'laurapereztorres'),
+('54673821K', 'Carlos Rodríguez Díaz', '1997-11-08', 'carlosrodriguezdiaz'),
+('78902345L', 'Marina Sánchez Gómez', '1982-02-24', 'marinasanchezgomez'),
+('23456789M', 'Andrés Fernández García', '1993-09-07', 'andresfernandezgarcia'),
+('98765432N', 'Cristina López Pérez', '1996-06-18', 'cristinalopezperez'),
+('67438902O', 'Rafael González Sánchez', '1985-03-30', 'rafaelgonzalezsanchez'),
+('34567289P', 'Isabel Martínez Ruiz', '1999-10-10', 'isabelmartinezruiz'),
+('90871234Q', 'Mario Hernández Castro', '1991-05-02', 'mariohernandezcastro'),
+('56789012R', 'Luciana García Torres', '1994-08-13', 'lucianagarciatorres'),
+('45678901S', 'David Pérez Sánchez', '1989-01-28', 'davidperezsanchez'),
+('34567890T', 'Verónica Rodríguez Fernández', '2000-12-03', 'verrodriguezfernandez'),
+('65432109U', 'Gabriel Sánchez Pérez', '1996-07-20', 'gabrielsanchezperez');
+
 
 -- Insertamos dentro de la tabla de hosteleria los valores de los restaurantes
 INSERT INTO Hosteleria (Nombre, Aforo, Ubicaciones, HoraApertura, HoraCierre, Recaudacion)
@@ -57,6 +65,20 @@ VALUES
     ('La Tasca del Puerto', 45, 'sur', '13:00', '23:45', 1432.00),
     ('El Sabor de la Huerta', 30, 'oeste', '11:00', '21:30', 675.00),
     ('La Taberna del Buen Vino', 55, 'norte', '10:00', '22:00', 1905.00);
+
+-- Insertamos dentro de la tabla de espectaculos los valores de los espectaculos
+INSERT INTO Espectaculos (Nombre, Sesion, HoraInicio, HoraFin, Tematica, Descripcion, Ubicacion)
+VALUES
+    ('La Bella y la Bestia', 'Tarde', '15:00', '17:30', 'Musical', 'Una historia clásica de amor y aceptación', 'Teatro Occidental'),
+    ('El Rey León', 'Noche', '20:00', '22:30', 'Musical', 'Un relato épico sobre la vida y la muerte en la sabana africana', 'Teatro Principal'),
+    ('Mamma Mia!', 'Tarde', '14:30', '17:00', 'Musical', 'Una divertida historia de amor y música al ritmo de ABBA', 'Teatro Oriental'),
+    ('Cats', 'Noche', '19:30', '22:00', 'Musical', 'Un viaje al mundo de los gatos callejeros de Londres', 'Teatro Occidental'),
+    ('El Fantasma de la Ópera', 'Noche', '21:00', '23:30', 'Musical', 'Una historia de amor y obsesión en el mundo de la ópera parisina del siglo XIX', 'Teatro Principal'),
+    ('Wicked', 'Tarde', '16:00', '18:30', 'Musical', 'La historia detrás de la malvada bruja del oeste de Oz', 'Teatro Oriental'),
+    ('Les Misérables', 'Noche', '20:30', '23:00', 'Musical', 'Una emocionante epopeya sobre la lucha por la libertad y la redención en la Francia del siglo XIX', 'Teatro Occidental'),
+    ('Chicago', 'Tarde', '15:30', '18:00', 'Musical', 'Un retrato satírico y crítico de la justicia y la corrupción en la Chicago de los años 20', 'Teatro Principal'),
+    ('Phantom', 'Noche', '19:00', '21:30', 'Drama', 'Una mirada profunda al mundo de los enfermos mentales y su lucha por la recuperación', 'Teatro Oriental'),
+    ('The Book of Mormon', 'Tarde', '17:00', '19:30', 'Musical', 'Una irreverente comedia musical sobre dos misioneros mormones en África', 'Teatro Principal');
 
 -- Insertamos dentro de la tabla de Atracciones los valores de las atracciones
 INSERT INTO Atracciones (Nombre, Aforo, AlturaMin, CosteMantenimiento, EnReparacion, Ubicaciones, Descripcion) VALUES 
@@ -74,25 +96,10 @@ INSERT INTO Atracciones (Nombre, Aforo, AlturaMin, CosteMantenimiento, EnReparac
   ('El castillo encantado', 20, 120, 8000, false, 'oeste', 'Un castillo lleno de trampas y sorpresas'),
   ('El tren fantasma', 25, 100, 7000, false, 'norte', 'Un recorrido en un tren a través de un túnel de terror'),
   ('La montaña rusa de la cobra', 30, 135, 9000, false, 'sur', 'Una montaña rusa con caídas y curvas vertiginosas');
- 
--- Insertamos dentro de la tabla Ir los valores de las visitas de los visitantes a las atracciones
-INSERT INTO Ir (FechaVisita, Visitante, Atraccion) VALUES 
-('2023-04-01', '34589123A', 4),
-('2023-04-02', '26347819B', 12),
-('2023-04-02', '16749235C', 9),
-('2023-04-03', '39984560D', 2),
-('2023-04-04', '18563247E', 14),
-('2023-04-04', '24789153F', 7),
-('2023-04-05', '43890261G', 1),
-('2023-04-06', '31875492H', 11),
-('2023-04-06', '50263489I', 5),
-('2023-04-07', '12345678J', 8),
-('2023-04-08', '54673821K', 10),
-('2023-04-08', '78902345L', 3);
 
 -- Insertamos dentro de la tabla Comer los valores de las visitas de los visitantes a los restaurantes
 INSERT INTO Comer (FechaVisita, Visitante, Establecimiento)
-VALUES 
+VALUES
 ('1980-05-12', '34589123A', 1),
 ('1975-12-28', '26347819B', 2),
 ('1992-03-05', '16749235C', 3),
@@ -114,6 +121,21 @@ VALUES
 ('1989-01-28', '45678901S', 5),
 ('2000-12-03', '34567890T', 6),
 ('1996-07-20', '65432109U', 7);
+
+-- Insertamos dentro de la tabla Ir los valores de las visitas de los visitantes a las atracciones
+INSERT INTO Ir (FechaVisita, Visitante, Atraccion) VALUES 
+('2023-04-01', '34589123A', 4),
+('2023-04-02', '26347819B', 12),
+('2023-04-02', '16749235C', 9),
+('2023-04-03', '39984560D', 2),
+('2023-04-04', '18563247E', 14),
+('2023-04-04', '24789153F', 7),
+('2023-04-05', '43890261G', 1),
+('2023-04-06', '31875492H', 11),
+('2023-04-06', '50263489I', 5),
+('2023-04-07', '12345678J', 8),
+('2023-04-08', '54673821K', 10),
+('2023-04-08', '78902345L', 3);
 
 
 -- Insertamos dentro de la tabla Asistir los valores de las visitas de los visitantes a los espectaculos

@@ -361,11 +361,20 @@
      * Suma los salarios de un tipo de trabajador
      *
      * @param tipo de trabajador del que obtener la suma de salarios
-     * @return
+     * @return la suma de los salarios del tipo introducido
      * @throws SQLException si hay un error al acceder a la base de datos
      */
     public float sumaSalarios(String tipo) throws SQLException{
         return trabajadoresDAO.sumaSalarios(tipo);
+    }
+
+    /**
+     * Devuelve
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float totalSalarios() throws SQLException {
+        return trabajadoresDAO.totalSalarios();
     }
 
     /**

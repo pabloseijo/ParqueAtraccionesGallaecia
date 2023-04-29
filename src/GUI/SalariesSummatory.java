@@ -21,7 +21,7 @@ public class SalariesSummatory extends JDialog {
         super(parent);
         this.fachadaBaseDatos = fachadaBaseDatos;
         //ponemos el titulo de la pestaña
-        setTitle("Empleados");
+        setTitle("Sumatorio de Salarios");
         //Mostramos el panel del .form
         setContentPane(MainPanel);
         //Ponemos el tamaño de la ventana
@@ -50,18 +50,50 @@ public class SalariesSummatory extends JDialog {
             }
         });
 
+
         SUMARButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String Job = TypeTextField.getText();
-
+            public void imprimirSuma(String tipoTrabajador) {
                 try {
-                    float sumaSalarios = fachadaBaseDatos.sumaSalarios(Job);
-                    JOptionPane.showMessageDialog(null, "La suma de los salarios de los empleados de tipo " + Job + " es " + sumaSalarios);
+                    float suma = fachadaBaseDatos.sumaSalarios(tipoTrabajador);
+                    float total = fachadaBaseDatos.totalSalarios();
+                    float porcentaje = (suma / total) * 100;
 
+                    JOptionPane.showMessageDialog(null, "La suma de los salarios de los empleados de tipo " + tipoTrabajador + " es " + suma + "€\n" +
+                            "La suma total de los salarios es " + total + "€\n" +
+                            "Los empleados de tipo " + tipoTrabajador + " suponen un " + porcentaje + "%");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String job = TypeTextField.getText();
+
+                // Comprobamos si es un tipo de trabajador válido
+                switch (job) {
+                    case "Administracion":
+                    case "Trabajadores Administracion":
+                    case "administracion":
+                    case "trabajadores administracion":
+                        this.imprimirSuma("TrabajadoresAdministracion");
+                        break;
+                    case "Mantenimiento":
+                    case "mantenimiento":
+                    case "Trabajadores Mantenimiento":
+                    case "trabajadores mantenimiento":
+                        this.imprimirSuma("TrabajadoresMantenimiento");
+                        break;
+                    case "Espectaculos":
+                    case "espectaculos":
+                    case "Trabajadores Espectaculos":
+                    case "trabajadores espectaculos":
+                        this.imprimirSuma("TrabajadoresEspectaculo");
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "El tipo de trabajadores introducido no existe.");
+
+                }
+
             }
         });
 
