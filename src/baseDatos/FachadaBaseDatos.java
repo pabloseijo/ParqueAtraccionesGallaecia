@@ -291,4 +291,44 @@
     public void anhadirHostelero(String dni, String nombre, String direccion, float salario, int telefono, Date fechaContratacion, Date fechaNacimiento, String formacion, int establecimiento) throws SQLException{
         hostelerosDAO.anhadirHostelero(dni, nombre, direccion, salario, telefono, fechaContratacion, fechaNacimiento, formacion, establecimiento);
     }
+
+    ////////////////////////////////////* FUNCIONES DE ACTUALIZACION *//////////////////////////////////////////////////
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param atraccion la atraccion en la que trabaja.
+     * @param espectaculo el espectaculo que supervisa el trabajador.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadorAdministracion(String dni, String nombre, int atraccion, int espectaculo) throws SQLException {
+        trabajadoresDAO.actualizarTrabajadorAdministracion(dni, nombre, atraccion, espectaculo);
+    }
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param atraccion la atraccion en la que trabaja
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadorMantenimiento(String dni, String nombre, int atraccion) throws SQLException{
+        trabajadoresDAO.actualizarTrabajadorMantenimiento(dni, nombre, atraccion);
+    }
+
+
+    /**
+     * Añade un nuevo trabajador de espectaculos
+     *
+     * @param dni el dni del trabajador.
+     * @param nombre el nombre del trabajador.
+     * @param espectaculo el espectaculo en el que trabaja
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void actualizarTrabajadoresEspectaculo(String dni, String nombre, int espectaculo) throws SQLException{
+        trabajadoresDAO.actualizarTrabajadoresEspectaculo(dni, nombre, espectaculo);
+    }
 }

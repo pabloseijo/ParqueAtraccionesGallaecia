@@ -408,7 +408,7 @@ public class TrabajadorDAO extends AbstractDAO{
      * @param atraccion la atraccion en la que trabaja
      * @throws SQLException si hay un error al acceder a la base de datos
      */
-    public void actualizarTrabajadorMantenimienoto(String dni, String nombre, int atraccion) throws SQLException{
+    public void actualizarTrabajadorMantenimiento(String dni, String nombre, int atraccion) throws SQLException{
 
         Connection con;
 
@@ -451,7 +451,7 @@ public class TrabajadorDAO extends AbstractDAO{
 
         PreparedStatement stmActualizacion = null;
         try {
-            stmActualizacion = con.prepareStatement("UPDATE TrabajadoresMantenimiento\n" +
+            stmActualizacion = con.prepareStatement("UPDATE TrabajadoresEspectaculo\n" +
                     "SET nombre = ?, espectaculo = ?\n" +
                     "WHERE dni = ?");
             stmActualizacion.setString(1, nombre);
