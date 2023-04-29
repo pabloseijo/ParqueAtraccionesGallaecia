@@ -26,7 +26,7 @@
      private AsistirDAO asistirDAO;
      private ComerDAO comerDAO;
      private HostelerosDAO hostelerosDAO;
-     private VisitantesDAO visitantesDAO;
+     private static VisitantesDAO visitantesDAO;
 
      public FachadaBaseDatos (aplicacion.FachadaAplicacion fachadaAplicacion){
          
@@ -410,6 +410,17 @@
      */
     public void actualizarSalarioEspectaculo(String dni, float salario) throws SQLException{
         trabajadoresDAO.actualizarSalarioEspectaculo(dni, salario);
+    }
+  
+  /**USUARIO**/
+    /**
+     *
+     * @param usuario id del usuario
+     * @return informacion de los visitantes a los que ese usuario le compro la entrada
+     * @throws SQLException si hay una error al acceder a la base de datos
+     */
+    public static ArrayList<Visitante> getEntradas(String usuario) throws SQLException{
+        return visitantesDAO.getEntradas(usuario);
     }
 
 }
