@@ -1,12 +1,15 @@
 package GUI;
 
+import aplicacion.Trabajador;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UpdateSalary extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
@@ -17,6 +20,8 @@ public class UpdateSalary extends JDialog{
     private JButton ACTUALIZARButton;
     private JPanel MainPanel;
     private JTextField TypeTextField;
+    private JTable table1;
+    private JScrollPane scrollPane1;
 
     public UpdateSalary(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         super(parent);
@@ -117,5 +122,30 @@ public class UpdateSalary extends JDialog{
                 }
             }
         });
+    }
+
+    private void createUIComponents() {
+        // Crear un modelo de tabla con tres columnas
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("DNI");
+        model.addColumn("Nombre");
+        model.addColumn("Puesto");
+        model.addColumn("Salario");
+
+        ArrayList<Trabajador> listaEmpleados = null;
+        try {
+            listaEmpleados = FachadaBaseDatos.getTrabajadores();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            model.addRow(new Object[]{listaEmpleados.get(i).getDni(), listaEmpleados.get(i).getNombre(), listaEmpleados.get(i).getClass().getSimpleName(), listaEmpleados.get(i).getSalario()});
+        }
+        // Crear el JTable y asignarle el modelo
+        table1 = new JTable(model);
+
+        // Crear el JScrollPane y asignarle el JTable
+        scrollPane1 = new JScrollPane(table1);
     }
 }
