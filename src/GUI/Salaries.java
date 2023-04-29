@@ -51,7 +51,8 @@ public class Salaries extends JDialog{
         actualizarSalarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
+                UpdateSalary updateSalary = new UpdateSalary(null, fachadaBaseDatos);
             }
         });
 
