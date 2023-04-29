@@ -34,17 +34,19 @@ public class AtraccionesDAO extends AbstractDAO{
         ArrayList<Atraccion> resultado = new ArrayList<Atraccion>();
         Atraccion atraccionActual;
         Connection con;
-        PreparedStatement stmAtracciones=null;
+        PreparedStatement stmAtracciones = null;
         ResultSet rsAtracciones;
 
         con=this.getConexion();
 
         try  {
-        stmAtracciones=con.prepareStatement("SELECT * FROM Atracciones");
-        rsAtracciones=stmAtracciones.executeQuery();
+        stmAtracciones = con.prepareStatement("SELECT * FROM Atracciones");
+        rsAtracciones = stmAtracciones.executeQuery();
         while (rsAtracciones.next())
         {
-            atraccionActual = new Atraccion(rsAtracciones.getInt("NumeroRegistro"), rsAtracciones.getString("Nombre"), rsAtracciones.getInt("Aforo"), rsAtracciones.getInt("AlturaMin"), rsAtracciones.getFloat("CosteMantenimiento"), rsAtracciones.getBoolean("EnReparacion"), rsAtracciones.getString("Ubicacion"), rsAtracciones.getString("Descripcion"));
+            atraccionActual = new Atraccion(rsAtracciones.getInt("NumeroRegistro"), rsAtracciones.getString("Nombre"),
+                    rsAtracciones.getInt("Aforo"), rsAtracciones.getInt("AlturaMin"), rsAtracciones.getFloat("CosteMantenimiento"),
+                    rsAtracciones.getBoolean("EnReparacion"), rsAtracciones.getString("Ubicaciones"), rsAtracciones.getString("Descripcion"));
             resultado.add(atraccionActual);
         }
 
@@ -53,6 +55,7 @@ public class AtraccionesDAO extends AbstractDAO{
         }finally{
           try {stmAtracciones.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+
         return resultado;
     }
 

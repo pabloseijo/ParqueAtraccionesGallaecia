@@ -17,7 +17,7 @@
  public class FachadaBaseDatos {
      private aplicacion.FachadaAplicacion fachadaAplicacion;
      private java.sql.Connection conexion;
-     private AtraccionesDAO atraccionesDAO;
+     private static AtraccionesDAO atraccionesDAO;
      private EspectaculosDAO espectaculosDAO;
      private UsuariosDAO usuariosDAO;
      private static TrabajadorDAO trabajadoresDAO;
@@ -179,7 +179,7 @@
     }
 
 
-    /** ATRACCIONES **/
+    //////////////////////////////////////////////////** ATRACCIONES **/////////////////////////////////////////////////
     /**
      * Elimina una atraccion
      *
@@ -215,7 +215,17 @@
         return atraccionesDAO.buscaAtraccion(nombreAtraccion);
     }
 
-    /** ESPECTACULOS **/
+    /**
+     * Obtiene una lista de todos las atracciones.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Atraccion> con todas las atracciones.
+     */
+    public static ArrayList<Atraccion> consultarAtracciones() throws SQLException{
+        return atraccionesDAO.consultarAtracciones();
+    }
+
+    ////////////////////////////////////////////////** ESPECTACULOS **//////////////////////////////////////////////////
     /**
      * Elimina un espectaculo
      *

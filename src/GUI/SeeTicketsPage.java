@@ -1,6 +1,5 @@
 package GUI;
 
-import aplicacion.Trabajador;
 import aplicacion.Visitante;
 import baseDatos.FachadaBaseDatos;
 

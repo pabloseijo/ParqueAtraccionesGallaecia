@@ -1,16 +1,12 @@
 package GUI;
 
-import aplicacion.Trabajador;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public class FireEmployee extends JDialog {
     private JTextField DNITextField;

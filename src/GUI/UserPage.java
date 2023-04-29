@@ -33,6 +33,7 @@ public class UserPage extends JFrame{
     ATRACCIONESButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+            CheckAttraction checkAttraction = new CheckAttraction( null, fachadaBaseDatos);
             dispose();
         }
     });
