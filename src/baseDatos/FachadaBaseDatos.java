@@ -225,6 +225,10 @@
         return atraccionesDAO.consultarAtracciones();
     }
 
+    public void reservarEntrada(Date fecha, Time hora, String dni, String nombreAtraccion) throws SQLException {
+        irDAO.reservarEntrada(fecha, hora, dni, nombreAtraccion);
+    }
+
     ////////////////////////////////////////////////** ESPECTACULOS **//////////////////////////////////////////////////
     /**
      * Elimina un espectaculo
