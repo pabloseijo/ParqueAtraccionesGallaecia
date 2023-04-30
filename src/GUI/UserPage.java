@@ -24,7 +24,7 @@ public class UserPage extends JFrame{
     //Mostramos el panel del .form
     setContentPane(MainPanel);
     //Ponemos el tamaño de la ventana
-    setMinimumSize(new Dimension(900,500));
+    setMinimumSize(new Dimension(1000,500));
     //Centramos la pestaña
     setLocationRelativeTo(parent);
     //Esto hace que se cierre al darle a la X
