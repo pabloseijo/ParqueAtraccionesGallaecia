@@ -21,7 +21,7 @@
      private static EspectaculosDAO espectaculosDAO;
      private UsuariosDAO usuariosDAO;
      private static TrabajadorDAO trabajadoresDAO;
-     private HosteleriaDAO hosteleriaDAO;
+     private static HosteleriaDAO hosteleriaDAO;
      private IrDAO irDAO;
      private AsistirDAO asistirDAO;
      private ComerDAO comerDAO;
@@ -443,8 +443,29 @@
         return visitantesDAO.getEntradas(usuario);
     }
 
+    /**
+     * Obtiene una lista de todos los visitantes.
+     *
+     * @param dni asociado a la entrada.
+     * @param nombre asociado a la entrada.
+     * @param fechaNacimiento del visitante asociado a la entrada
+     * @param nombreUsuario asociado a la entrada
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Visitante> con todos los visitantes.
+     */
     public void anhadirEntrada(String dni, String nombre, Date fechaNacimiento, String nombreUsuario) throws SQLException {
         visitantesDAO.anhadirEntrada(dni, nombre, fechaNacimiento, nombreUsuario);
     }
 
+    ////////////////////////////////////////////** Hosteleria **////////////////////////////////////////////////////////
+    /**
+     * Obtiene una lista de todos los establecimientos.
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Hosteleria> con todos los establecimientos.
+     */
+    public static ArrayList<Hosteleria> getEstablecimientos() throws SQLException{
+        return  hosteleriaDAO.getEstablecimientos();
     }
+
+}

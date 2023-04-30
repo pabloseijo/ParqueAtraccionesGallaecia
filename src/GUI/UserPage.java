@@ -48,6 +48,7 @@ public class UserPage extends JFrame{
     HOSTELERIAButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
+            BookRestaurant bookRestaurant = new BookRestaurant(null, fachadaBaseDatos, usuario);
             dispose();
         }
     });

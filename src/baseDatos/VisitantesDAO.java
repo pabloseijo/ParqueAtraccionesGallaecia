@@ -56,6 +56,14 @@ public class VisitantesDAO extends AbstractDAO{
 
         return resultado;
     }
+
+    /**
+     * Obtiene una lista de todos los visitantes.
+     *
+     * @param usuario nombre del usuario
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Visitante> con todos los visitantes.
+     */
     public ArrayList<Visitante> getEntradas(String usuario) throws SQLException{
         ArrayList<Visitante> resultado = new ArrayList<>();
         ResultSet rsVisitantes;
@@ -87,6 +95,16 @@ public class VisitantesDAO extends AbstractDAO{
         
     }
 
+    /**
+     * Obtiene una lista de todos los visitantes.
+     *
+     * @param dni asociado a la entrada.
+     * @param nombre asociado a la entrada.
+     * @param fechaNacimiento del visitante asociado a la entrada
+     * @param nombreUsuario asociado a la entrada
+     * @throws SQLException si hay un error al acceder a la base de datos
+     * @return un ArrayList<Visitante> con todos los visitantes.
+     */
     public void anhadirEntrada(String dni, String nombre, Date fechaNacimiento, String nombreUsuario) throws SQLException{
         Connection con;
         con = super.getConexion();

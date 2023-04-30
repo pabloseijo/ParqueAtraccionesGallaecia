@@ -80,7 +80,7 @@ public class AddRestaurant extends JDialog{
 
                     // Convierte el String a un float
                     Date date2 = dateFormat.parse(closingTime);
-                    EndTime = new Time(date.getTime());
+                    EndTime = new Time(date2.getTime());
                     // floatValue contiene el número convertido
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
