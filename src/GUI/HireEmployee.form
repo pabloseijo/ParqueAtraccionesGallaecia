@@ -264,7 +264,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
-          <text value="Fecha de Contratacion (AAAA/MM/DD)"/>
+          <text value="Fecha de Contratacion (AAAA-MM-DD)"/>
         </properties>
       </component>
       <component id="407f1" class="javax.swing.JTextField" binding="HireDateTextField">
@@ -283,7 +283,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
-          <text value="Fecha de Nacimiento (AAAA/MM/DD)"/>
+          <text value="Fecha de Nacimiento (AAAA-MM-DD)"/>
         </properties>
       </component>
       <component id="6102f" class="javax.swing.JTextField" binding="BirthdayTextField">

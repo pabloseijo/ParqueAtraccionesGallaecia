@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import aplicacion.*;
 
 public class UserPage extends JFrame{
     private JPanel MainPanel;
@@ -54,6 +55,7 @@ public class UserPage extends JFrame{
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             dispose();
+            AddTicket menuAddTicket=new AddTicket(null, fachadaBaseDatos, usuario);
         }
     });
 
@@ -67,8 +69,8 @@ public class UserPage extends JFrame{
     VOLVERButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            //LoginGUI menuLogin=new LoginGUI(null, aplicacion.FachadaAplicacion, fachadaBaseDatos);
             dispose();
+            LoginGUI menuLogin=new LoginGUI(null, new FachadaAplicacion(), fachadaBaseDatos);
         }
     });
     SALIRButton.addActionListener(new ActionListener() {

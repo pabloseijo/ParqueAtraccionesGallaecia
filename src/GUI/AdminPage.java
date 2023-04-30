@@ -1,5 +1,6 @@
 package GUI;
 
+import aplicacion.FachadaAplicacion;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class AdminPage  extends JFrame {
     private JButton SALIRButton;
     private JLabel PulpoMiguel;
     private JButton HOSTELERIAButton;
+    private JButton VOLVERButton;
 
     public AdminPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos){
         //ponemos el titulo de la pestaña
@@ -74,5 +76,12 @@ public class AdminPage  extends JFrame {
             }
         });
 
+        VOLVERButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+                LoginGUI menuLogin=new LoginGUI(null, new FachadaAplicacion(), fachadaBaseDatos);
+            }
+        });
     }
 }
