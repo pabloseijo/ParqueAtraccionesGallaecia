@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.Date;
 import aplicacion.Visitante;
 
 /**
@@ -84,6 +85,30 @@ public class VisitantesDAO extends AbstractDAO{
 
         return resultado;
         
+    }
+
+    public void anhadirEntrada(String dni, String nombre, Date fechaNacimiento, String nombreUsuario) throws SQLException{
+        Connection con;
+        con = super.getConexion();
+
+        PreparedStatement stmEntrada = null;
+        try {
+            stmEntrada = con.prepareStatement("INSERT INTO Visitantes (DNI,Nombre,fechaNacimiento, nombreUsuario) values(?,?,?,?)");
+            stmEntrada.setString(1, dni);
+            stmEntrada.setString(2, nombre);
+            stmEntrada.setDate(3, fechaNacimiento);
+            stmEntrada.setString(4, nombreUsuario);
+            stmEntrada.executeUpdate();
+            stmEntrada.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmEntrada.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
     }
 
 }

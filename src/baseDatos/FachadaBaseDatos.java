@@ -443,4 +443,8 @@
         return visitantesDAO.getEntradas(usuario);
     }
 
-}
+    public void anhadirEntrada(String dni, String nombre, Date fechaNacimiento, String nombreUsuario) throws SQLException {
+        visitantesDAO.anhadirEntrada(dni, nombre, fechaNacimiento, nombreUsuario);
+    }
+
+    }
