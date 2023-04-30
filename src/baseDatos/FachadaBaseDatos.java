@@ -468,4 +468,17 @@
         return  hosteleriaDAO.getEstablecimientos();
     }
 
+    /**
+     * Añade una reserva a la tabla comer
+     *
+     * @param fecha en la que se ira al restaurante.
+     * @param hora en la que se ira al restaurante.
+     * @param dni de la persona que reserva.
+     * @param nombreRestaurante del restaurante.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void anhadirReserva( java.sql.Date fecha, Time hora, String dni, String nombreRestaurante) throws SQLException{
+        hosteleriaDAO.anhadirReserva(fecha, hora, dni, nombreRestaurante);
+    }
+
 }

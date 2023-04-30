@@ -1,7 +1,6 @@
 package GUI;
 
 import aplicacion.Hosteleria;
-import aplicacion.Trabajador;
 import baseDatos.FachadaBaseDatos;
 
 import javax.swing.*;
@@ -10,17 +9,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BookRestaurant extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
     private JLabel JLabel1;
     private JLabel IconoAdmin;
     private JLabel PulpoMiguel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
+    private JTextField DateTextField;
+    private JTextField HourTextField;
+    private JTextField DNITextField;
+    private JTextField RestaurantTextField;
     private JTable table1;
     private JButton VOLVERButton;
     private JButton SALIRButton;
@@ -59,6 +62,55 @@ public class BookRestaurant extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 UserPage menuEmployee = new UserPage(null, fachadaBaseDatos, user);
+            }
+        });
+
+        //Boton para añadir una reserva
+        ANADIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Lanza una pestaña que con el nombre y el dni hace una consulta en sql y añade un empleado a la base
+                String date = DateTextField.getText();
+                String hour = HourTextField.getText();
+                String dni = DNITextField.getText();
+                String restaurant = RestaurantTextField.getText();
+
+                /////////////////////////* TRANSFORMAMOS LOS STRING A LOS TIPOS NECESARIOS *////////////////////////////
+                // Crea un objeto SimpleDateFormat con el formato deseado
+                SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+                Time BookHour;
+                try {
+                    // Convierte el String a un float
+                    Date date1 = dateFormat.parse(hour);
+                    BookHour = new Time(date1.getTime());
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                //Casteamos las fechas
+                java.sql.Date BookDate = null;
+                try {
+                    // Convierte el String a un objeto java.sql.Date
+                    BookDate = java.sql.Date.valueOf(date);
+                    // sqlDate contiene la fecha convertida
+                } catch (IllegalArgumentException DateException) {
+                    System.out.println("FATAL ERROR: Date could not been converted");
+                }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                //Hago un try y catch para manejar la excepcion
+                try {
+                    //Le paso los parametros a para añadir el trabajador, pero espectaculo y atraccion se lo paso a 0 porque se actualizara mas tarde
+                    fachadaBaseDatos.anhadirReserva(BookDate, BookHour, dni, restaurant);
+                    //meter aqui el lazamiento de la pagina siguiente
+                    dispose();
+                    BookRestaurant BookRestaurant = new BookRestaurant(null, fachadaBaseDatos, user);
+
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

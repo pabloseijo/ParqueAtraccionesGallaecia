@@ -156,4 +156,42 @@ public class HosteleriaDAO extends AbstractDAO{
             }
         }
     }
+
+    /**
+     * Añade una reserva a la tabla comer
+     *
+     * @param fecha en la que se ira al restaurante.
+     * @param hora en la que se ira al restaurante.
+     * @param dni de la persona que reserva.
+     * @param nombreRestaurante del restaurante.
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void anhadirReserva( java.sql.Date fecha, Time hora, String dni, String nombreRestaurante) throws SQLException {
+        Connection con;
+
+        con = super.getConexion();
+
+        Hosteleria restaurante = null;
+
+        restaurante = buscaEstablecimiento(nombreRestaurante);
+
+        PreparedStatement stmRestaurante = null;
+        try {
+            stmRestaurante = con.prepareStatement("INSERT INTO Comer (FechaVisita, horaVisita, Visitante, Establecimiento) values(?,?,?,?)");
+            stmRestaurante.setDate(1, fecha);
+            stmRestaurante.setTime(2, hora);
+            stmRestaurante.setString(3, dni);
+            stmRestaurante.setInt(4, restaurante.getCodigoRegistro());
+
+            stmRestaurante.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AtraccionesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                stmRestaurante.close();
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+    }
 }

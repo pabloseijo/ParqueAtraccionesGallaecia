@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.BookRestaurant">
-  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="13" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="13" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="10"/>
     <constraints>
       <xy x="20" y="20" width="752" height="423"/>
@@ -64,7 +64,7 @@
       </hspacer>
       <component id="c00c7" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold" size="14" style="3"/>
@@ -73,16 +73,16 @@
       </component>
       <component id="64772" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
           <text value="Fecha (AAAA/MM/DD)"/>
         </properties>
       </component>
-      <component id="5853e" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="5853e" class="javax.swing.JTextField" binding="DateTextField">
         <constraints>
-          <grid row="2" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="2" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -93,16 +93,16 @@
       </component>
       <component id="993f9" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
           <text value="Hora (HH:MM)"/>
         </properties>
       </component>
-      <component id="2de76" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="2de76" class="javax.swing.JTextField" binding="HourTextField">
         <constraints>
-          <grid row="4" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -113,36 +113,36 @@
       </component>
       <component id="e1a36" class="javax.swing.JLabel">
         <constraints>
-          <grid row="5" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
           <text value="DNI"/>
         </properties>
       </component>
-      <component id="48af3" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="48af3" class="javax.swing.JTextField" binding="DNITextField">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="6" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
-          <horizontalAlignment value="4"/>
+          <horizontalAlignment value="0"/>
         </properties>
       </component>
       <component id="b5f11" class="javax.swing.JLabel">
         <constraints>
-          <grid row="7" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
           <text value="Establecimiento"/>
         </properties>
       </component>
-      <component id="37efc" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="37efc" class="javax.swing.JTextField" binding="RestaurantTextField">
         <constraints>
-          <grid row="8" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="8" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -153,7 +153,7 @@
       </component>
       <scrollpane id="2173">
         <constraints>
-          <grid row="9" column="2" row-span="2" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="2" row-span="2" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -188,7 +188,7 @@
       </component>
       <component id="82f12" class="javax.swing.JButton" binding="ANADIRButton">
         <constraints>
-          <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <icon value="GUI/Images/agregar.png"/>
@@ -202,7 +202,7 @@
       </vspacer>
       <hspacer id="f2f1f">
         <constraints>
-          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
     </children>
