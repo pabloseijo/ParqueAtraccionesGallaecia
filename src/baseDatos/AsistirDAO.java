@@ -24,7 +24,7 @@ public class AsistirDAO extends AbstractDAO {
      *
      * @throws SQLException si hay un error al acceder a la base de datos
      */
-    public void comprarEntrada(Date fecha, Time hora, String dni, String nombreEspectaculo) {
+    public void comprarEntrada(Date fecha, Time hora, String dni, String nombreEspectaculo) throws SQLException{
         Connection con;
 
         con = super.getConexion();

@@ -274,6 +274,15 @@
         return espectaculosDAO.consultarEspectaculos();
     }
 
+    /**
+     * Añade una entrada a un visitante
+     *
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public void comprarEntrada(Date fecha, Time hora, String dni, String nombreEspectaculo) throws SQLException {
+        asistirDAO.comprarEntrada(fecha, hora, dni, nombreEspectaculo);
+    }
+
     ///////////////////////////////////////////////** RESTAURANTES **///////////////////////////////////////////////////
     /**
      * Elimina el restaurante seleccionada de la base de datos

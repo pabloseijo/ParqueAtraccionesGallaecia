@@ -14,6 +14,7 @@ public class ShowsPage extends JDialog{
     private JButton eliminarEspectaculoButton;
     private JButton SALIRButton;
     private JButton VOLVERButton;
+    private JButton añadirEspectaculoButton2;
 
 
     public ShowsPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
@@ -69,5 +70,12 @@ public class ShowsPage extends JDialog{
         //Ponemos que se visualice la ventana
         setVisible(true);
 
+        añadirEspectaculoButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                AddViewer AddViewer = new AddViewer(null, fachadaBaseDatos);
+            }
+        });
     }
 }
