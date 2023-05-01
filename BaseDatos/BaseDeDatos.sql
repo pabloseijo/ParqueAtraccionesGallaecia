@@ -20,7 +20,6 @@ LANGUAGE plpgsql IMMUTABLE;
 
 --Creación de la tabla Usuarios
 CREATE TABLE Usuarios (
-    ID SERIAL PRIMARY KEY,
     Nombre VARCHAR(50) PRIMARY KEY,
     Email VARCHAR(50),
     Clave VARCHAR(50),
