@@ -1,5 +1,6 @@
 package GUI;
 
+import aplicacion.Atraccion;
 import aplicacion.Espectaculo;
 import baseDatos.FachadaBaseDatos;
 
@@ -51,7 +52,7 @@ public class CountVisitorsAttraction extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                ShowsPage ShowsPage = new ShowsPage(null, fachadaBaseDatos);
+                AttractionPage AtraccionPage = new AttractionPage(null, fachadaBaseDatos);
             }
         });
 
@@ -62,7 +63,7 @@ public class CountVisitorsAttraction extends JDialog{
 
                 try {
                     float suma = fachadaBaseDatos.contarVisitantes(id);
-                    JOptionPane.showMessageDialog(null, "El numero de espectadores del espectaculo seleccionado es " + suma);
+                    JOptionPane.showMessageDialog(null, "El numero de espectadores de la atraccion seleccionada es " + suma);
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -95,19 +96,19 @@ public class CountVisitorsAttraction extends JDialog{
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Numero de Registro");
         model.addColumn("Nombre");
-        model.addColumn("CosteMantenimiento");
-        model.addColumn("EnReparacion");
+        model.addColumn("Aforo");
+        model.addColumn("Ubicacion");
 
-        java.util.List<Espectaculo> listaEspectaculos = null;
+        java.util.List<Atraccion> listaAtracciones = null;
         try {
-            listaEspectaculos = FachadaBaseDatos.consultarEspectaculos();
+            listaAtracciones = FachadaBaseDatos.consultarAtracciones();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        for (int i = 0; i < listaEspectaculos.size(); i++) {
-            model.addRow(new Object[]{listaEspectaculos.get(i).getId(), listaEspectaculos.get(i).getNombre(),
-                    listaEspectaculos.get(i).getSesion(), listaEspectaculos.get(i).getUbicacion()});
+        for (int i = 0; i < listaAtracciones.size(); i++) {
+            model.addRow(new Object[]{listaAtracciones.get(i).getNumeroRegistro(), listaAtracciones.get(i).getNombre(),
+                    listaAtracciones.get(i).getAforo(), listaAtracciones.get(i).getUbicacion()});
         }
         // Crear el JTable y asignarle el modelo
         table1 = new JTable(model);

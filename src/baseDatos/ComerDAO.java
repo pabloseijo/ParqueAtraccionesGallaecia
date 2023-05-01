@@ -65,7 +65,7 @@ public class ComerDAO extends AbstractDAO{
 
         try {
             Hosteleria establecimiento = getFachadaAplicacion().getFachadaBD().buscaEstablecimiento(nombreEstablecimiento);
-            stmComer = con.prepareStatement("INSERT INTO Comer (FechaVisita, horaVisita, Visitante, Establecimiento) VALUES (? ? ? ?)");
+            stmComer = con.prepareStatement("INSERT INTO Comer (FechaVisita, horaVisita, Visitante, Establecimiento) VALUES (?,?,?,?)");
             stmComer.setDate(1, fecha);
             stmComer.setTime(2, hora);
             stmComer.setString(3, dni);

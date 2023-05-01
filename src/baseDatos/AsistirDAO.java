@@ -35,7 +35,7 @@ public class AsistirDAO extends AbstractDAO {
 
         try {
             Espectaculo espectaculo = getFachadaAplicacion().getFachadaBD().buscaEspectaculo(nombreEspectaculo);
-            stmAsistir = con.prepareStatement("INSERT INTO Asistir (FechaVisita, horaVisita, Visitante, Espectaculo) VALUES (? ? ? ?)");
+            stmAsistir = con.prepareStatement("INSERT INTO Asistir (FechaVisita, horaVisita, Visitante, Espectaculo) VALUES (?,?,?,?)");
             stmAsistir.setDate(1, fecha);
             stmAsistir.setTime(2, hora);
             stmAsistir.setString(3, dni);

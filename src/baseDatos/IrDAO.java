@@ -68,12 +68,11 @@ public class IrDAO extends AbstractDAO{
 
         try {
             Atraccion atraccion= getFachadaAplicacion().getFachadaBD().buscaAtraccion(nombreAtraccion);
-            stmIr = con.prepareStatement("INSERT INTO Ir (FechaVisita,horaVisita,Visitante,Atraccion) VALUES(? ? ? ?)");
+            stmIr = con.prepareStatement("INSERT INTO Ir (FechaVisita,horaVisita,Visitante,Atraccion) VALUES(?,?,?,?)");
             stmIr.setDate(1, fecha);
             stmIr.setTime(2, hora);
             stmIr.setString(3, dni);
             stmIr.setInt(4, atraccion.getNumeroRegistro());
-            System.out.println(atraccion.getNumeroRegistro());
             stmIr.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(IrDAO.class.getName()).log(Level.SEVERE, null, ex);
