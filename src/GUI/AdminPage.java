@@ -80,7 +80,7 @@ public class AdminPage  extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 dispose();
-                LoginGUI menuLogin=new LoginGUI(null, new FachadaAplicacion(), fachadaBaseDatos);
+                LoginGUI menuLogin = new LoginGUI(null, new FachadaAplicacion(), fachadaBaseDatos);
             }
         });
     }
