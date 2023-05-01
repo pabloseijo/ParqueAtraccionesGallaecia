@@ -229,6 +229,15 @@
         irDAO.reservarEntrada(fecha, hora, dni, nombreAtraccion);
     }
 
+    /**
+     * Suma los salarios de un tipo de trabajador
+     *
+     * @param id de la atraccion
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float contarVisitantes(int id) throws SQLException{
+        return atraccionesDAO.contarVisitantes(id);
+    }
     ////////////////////////////////////////////////** ESPECTACULOS **//////////////////////////////////////////////////
     /**
      * Elimina un espectaculo

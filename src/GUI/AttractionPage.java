@@ -16,6 +16,7 @@ public class AttractionPage extends JDialog {
     private JButton VOLVERButton;
     private JPanel MainPanel;
     private JButton anhadirVisitanteButton;
+    private JButton contarVisitantesButton;
 
     public AttractionPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
         super(parent);
@@ -72,6 +73,13 @@ public class AttractionPage extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 AddVisitorAttraction addVisitorAttraction = new AddVisitorAttraction(null, fachadaBaseDatos);
                 dispose();
+            }
+        });
+
+        contarVisitantesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CountVisitorsAttraction CountVisitorsAttraction = new CountVisitorsAttraction(null,fachadaBaseDatos);
             }
         });
     }

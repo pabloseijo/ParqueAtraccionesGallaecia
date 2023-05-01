@@ -176,10 +176,12 @@ public class EspectaculosDAO extends AbstractDAO{
         PreparedStatement stmConsulta = null;
         ResultSet rs = null;
         try {
-            stmConsulta = con.prepareStatement("SELECT COUNT(*) FROM Asistir WHERE ID = " + id);
+            //hago una columba llamada conteo para meter la cuenta de los datos
+            stmConsulta = con.prepareStatement("SELECT COUNT(*) as conteo FROM Asistir WHERE espectaculo = ?");
+            stmConsulta.setInt(1, id);
             rs = stmConsulta.executeQuery();
             if (rs.next()) {
-                contarEspectadores = rs.getFloat("suma");
+                contarEspectadores = rs.getInt("conteo");
             }
         } catch (SQLException ex) {
             Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
