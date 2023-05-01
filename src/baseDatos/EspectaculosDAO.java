@@ -159,4 +159,44 @@ public class EspectaculosDAO extends AbstractDAO{
         }
     }
 
+    /**
+     * Suma los salarios de un tipo de trabajador
+     *
+     * @param id del espectaculo
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float contarEspectadores(int id) throws SQLException{
+
+        float contarEspectadores = 0.0f;
+
+        Connection con;
+
+        con = super.getConexion();
+
+        PreparedStatement stmConsulta = null;
+        ResultSet rs = null;
+        try {
+            stmConsulta = con.prepareStatement("SELECT COUNT(*) FROM Asistir WHERE ID = " + id);
+            rs = stmConsulta.executeQuery();
+            if (rs.next()) {
+                contarEspectadores = rs.getFloat("suma");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmConsulta != null) {
+                    stmConsulta.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Imposible cerrar cursores");
+            }
+        }
+
+        return contarEspectadores;
+    }
+
 }

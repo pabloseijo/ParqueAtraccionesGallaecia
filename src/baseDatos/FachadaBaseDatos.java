@@ -283,6 +283,16 @@
         asistirDAO.comprarEntrada(fecha, hora, dni, nombreEspectaculo);
     }
 
+    /**
+     * Suma los salarios de un tipo de trabajador
+     *
+     * @param id del espectaculo
+     * @throws SQLException si hay un error al acceder a la base de datos
+     */
+    public float contarEspectadores(int id) throws SQLException{
+        return espectaculosDAO.contarEspectadores(id);
+    }
+
     ///////////////////////////////////////////////** RESTAURANTES **///////////////////////////////////////////////////
     /**
      * Elimina el restaurante seleccionada de la base de datos

@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
 
 public class ShowsPage extends JDialog{
     private FachadaBaseDatos fachadaBaseDatos;
@@ -15,6 +16,7 @@ public class ShowsPage extends JDialog{
     private JButton SALIRButton;
     private JButton VOLVERButton;
     private JButton añadirEspectaculoButton2;
+    private JButton contarEspectadoresButton;
 
 
     public ShowsPage(JFrame parent, FachadaBaseDatos fachadaBaseDatos) {
@@ -75,6 +77,14 @@ public class ShowsPage extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 AddViewer AddViewer = new AddViewer(null, fachadaBaseDatos);
+            }
+        });
+
+        contarEspectadoresButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CountViewers CountViewers = new CountViewers(null,fachadaBaseDatos);
+                dispose();
             }
         });
     }
