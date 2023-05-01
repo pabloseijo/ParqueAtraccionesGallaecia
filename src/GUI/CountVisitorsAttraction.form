@@ -64,7 +64,7 @@
         </constraints>
         <properties>
           <font name="JetBrains Mono ExtraBold"/>
-          <text value="Introduzca el identificador del espectaculo"/>
+          <text value="Introduzca el identificador de la atraccion"/>
         </properties>
       </component>
       <component id="75245" class="javax.swing.JTextField" binding="textField1" default-binding="true">

@@ -157,7 +157,7 @@
           <font name="JetBrains Mono ExtraBold"/>
           <horizontalTextPosition value="0"/>
           <icon value="GUI/Images/alquiler.png"/>
-          <text value="Añadir Espectaculo"/>
+          <text value="Añadir Asistente"/>
           <verticalTextPosition value="3"/>
         </properties>
       </component>
