@@ -52,7 +52,7 @@ public class UpdateSalary extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                EmployeePage menuEmployee = new EmployeePage(null, fachadaBaseDatos);
+                Salaries Salaries = new Salaries(null, fachadaBaseDatos);
             }
         });
 

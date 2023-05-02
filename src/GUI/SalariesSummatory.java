@@ -46,7 +46,7 @@ public class SalariesSummatory extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AdminPage menuAdmin = new AdminPage(null, fachadaBaseDatos);
+                Salaries Salaries = new Salaries(null, fachadaBaseDatos);
             }
         });
 
