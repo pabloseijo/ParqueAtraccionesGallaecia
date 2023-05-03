@@ -42,7 +42,7 @@ public class DeleteShow extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AttractionPage menuAtraccion = new AttractionPage(null, fachadaBaseDatos);
+                ShowsPage menuEspectaculo = new ShowsPage(null, fachadaBaseDatos);
             }
         });
 
